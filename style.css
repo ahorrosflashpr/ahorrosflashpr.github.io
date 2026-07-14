@@ -220,8 +220,8 @@ main{
 
 .titulo-seccion{
     max-width:1300px;
-    margin:20px auto;
-    padding:0 20px;
+    margin:40px auto 20px;
+    padding:0 40px;
 }
 
 .titulo-seccion h2{
