@@ -10,7 +10,6 @@ const ofertas = [
     categoria: "Hogar",
     etiqueta: "🔥 Oferta Flash",
     destacada: true,
-    estrellas: 4.8
     enlace: "#"
 },
 
@@ -24,7 +23,6 @@ const ofertas = [
     categoria: "Cocina",
     etiqueta: "⚡ Oferta Relámpago",
     destacada: true,
-    estrellas: 4.5
     enlace: "https://amzn.to/4aUGeQS"
 },
 
@@ -38,7 +36,6 @@ const ofertas = [
     categoria: "Cocina",
     etiqueta: "⭐ Más Vendido",
     destacada: true,
-    estrellas: 4.8
     enlace: "#"
 }
 
