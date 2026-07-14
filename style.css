@@ -217,3 +217,20 @@ main{
     font-size:14px;
     opacity:.9;
 }
+
+.titulo-seccion{
+    max-width:1300px;
+    margin:20px auto;
+    padding:0 20px;
+}
+
+.titulo-seccion h2{
+    font-size:34px;
+    color:#0b5ed7;
+    margin-bottom:8px;
+}
+
+.titulo-seccion p{
+    font-size:18px;
+    color:#666;
+}
