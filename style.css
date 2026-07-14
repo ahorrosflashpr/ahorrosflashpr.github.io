@@ -60,12 +60,13 @@ nav button:hover{
 }
 
 main{
-    max-width:1300px;
+    max-width:1400px;
     margin:40px auto;
     padding:20px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fill,minmax(280px,280px));
+    justify-content:center;
+    gap:25px;
 }
 
 .card{
@@ -73,18 +74,21 @@ main{
     border-radius:20px;
     padding:20px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
     transition:.3s;
+    width:280px;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .card img{
-    width:220px;
-    height:220px;
+    width:180px;
+    height:180px;
     object-fit:contain;
+    margin:auto;
+    display:block;
 }
 
 .card h2{
