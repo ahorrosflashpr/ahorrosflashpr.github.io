@@ -56,7 +56,9 @@ function mostrarOfertas(lista) {
 
             <p class="saving">💰 Ahorras ${oferta.ahorro}</p>
 
-            <span class="off">${oferta.descuento}</span>
+            <div class="off">
+    🔥 ${oferta.descuento} OFF
+</div>
 
             <a href="${oferta.enlace}" target="_blank" class="btn-oferta">
 🔥 VER OFERTA AHORA
