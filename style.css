@@ -344,3 +344,16 @@ main{
     background:#e68a00;
     transform:translateY(-2px);
 }
+
+.descuento{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:#16a34a;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    box-shadow:0 3px 8px rgba(0,0,0,.2);
+}
