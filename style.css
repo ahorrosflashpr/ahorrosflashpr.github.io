@@ -24,11 +24,13 @@ header{
 
 .card{
     background:white;
-    border-radius:15px;
-    padding:15px;
+    border-radius:18px;
+    padding:20px;
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
     transition:.3s;
+    max-width:280px;
+    margin:auto;
 }
 
 .card:hover{
@@ -36,9 +38,10 @@ header{
 }
 
 .card img{
-    width:180px;
-    height:180px;
+    width:220px;
+    height:220px;
     object-fit:contain;
+    margin-bottom:10px;
 }
 
 .old-price{
@@ -70,4 +73,9 @@ header{
 
 .button:hover{
     background:#0849aa;
+} 
+
+h3{
+    font-size:24px;
+    margin:10px 0;
 }
