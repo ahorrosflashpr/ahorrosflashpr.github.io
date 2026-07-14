@@ -293,3 +293,30 @@ main{
     font-weight:bold;
     box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
+
+.flashita{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:999;
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+}
+
+.flashita img{
+    width:100px;
+    height:auto;
+}
+
+.flashita-mensaje{
+    max-width:260px;
+    background:white;
+    color:#333;
+    padding:12px 16px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    font-size:14px;
+    font-weight:bold;
+    line-height:1.4;
+}
