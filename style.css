@@ -265,3 +265,17 @@ main{
     color:#ffd54f;
     font-weight:bold;
 }
+
+.info-bar{
+    max-width:1400px;
+    margin:20px auto;
+    background:#fff3cd;
+    color:#856404;
+    border:1px solid #ffeeba;
+    border-radius:12px;
+    padding:14px 20px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
