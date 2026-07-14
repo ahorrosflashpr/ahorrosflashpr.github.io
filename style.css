@@ -302,6 +302,7 @@ main{
     display:flex;
     align-items:flex-end;
     gap:12px;
+    transition: opacity .10s;
 }
 
 .flashita img{
