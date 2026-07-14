@@ -321,3 +321,24 @@ main{
     font-weight:bold;
     line-height:1.4;
 }
+
+.btn-oferta{
+    display:block;
+    width:100%;
+    background:#ff9900;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    padding:15px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:700;
+    transition:all .25s ease;
+    margin-top:15px;
+    box-shadow:0 4px 10px rgba(255,153,0,.35);
+}
+
+.btn-oferta:hover{
+    background:#e68a00;
+    transform:translateY(-2px);
+}
