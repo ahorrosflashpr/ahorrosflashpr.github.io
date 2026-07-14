@@ -2,6 +2,39 @@ const contenedor = document.getElementById("productos");
 const buscador = document.getElementById("buscador");
 const featured = document.getElementById("featured");
 
+function mostrarOfertaDestacada(oferta){
+
+featured.innerHTML = `
+<div class="featured">
+
+    <div class="featured-image">
+        <img src="${oferta.imagen}" alt="${oferta.nombre}">
+    </div>
+
+    <div class="featured-info">
+
+        <span class="featured-badge">${oferta.etiqueta}</span>
+
+        <h2>${oferta.nombre}</h2>
+
+        <p class="featured-price">
+            <del>${oferta.antes}</del>
+            <strong>${oferta.precio}</strong>
+        </p>
+
+        <p>💰 Ahorras ${oferta.ahorro}</p>
+
+        <a href="${oferta.enlace}" target="_blank">
+            Comprar Ahora
+        </a>
+
+    </div>
+
+</div>
+`;
+
+}
+
 function mostrarOfertas(lista) {
 
     contenedor.innerHTML = "";
