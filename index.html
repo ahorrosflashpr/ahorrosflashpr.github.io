@@ -68,10 +68,7 @@
 
 <div class="flashita">
 
-    <div class="flashita-mensaje">
-    👋 <strong>¡Hola! Soy Flashita.</strong><br>
-    🔥 ¡Mira las ofertas!
-</div>
+    <div class="flashita-mensaje" id="flashitaMensaje"></div>
 
     <img src="images/FLASHITA.png" alt="Flashita">
 
@@ -91,7 +88,35 @@ setTimeout(function(){
 
 },7000);
 
-</script>    
+</script>  
+
+<script>
+
+const mensajes = [
+    "👋 <strong>¡Hola! Soy Flashita</strong><br>🔥 ¡Revisa las ofertas!",
+    "💰 <strong>¡No pagues de más!</strong><br>👀 ¡Mira las ofertas!",
+    "🛒 <strong>¡Encontré nuevos descuentos!</strong><br>🔥 ¡Échales un vistazo!",
+    "⚡ <strong>¡Hay ofertas increíbles!</strong><br>💸 ¡Ahorra hoy!",
+    "🎉 <strong>¡Bienvenido!</strong><br>🛍️ ¡Descubre las mejores ofertas!"
+];
+
+const numero = Math.floor(Math.random() * mensajes.length);
+
+document.getElementById("flashitaMensaje").innerHTML = mensajes[numero];
+
+setTimeout(function(){
+
+    document.querySelector(".flashita").style.opacity="0";
+
+    setTimeout(function(){
+
+        document.querySelector(".flashita").style.display="none";
+
+    },500);
+
+},7000);
+
+</script>
     
 </body>
 
