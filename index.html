@@ -80,19 +80,22 @@
 
 <script>
 
-setTimeout(function(){
+setTimeout(() => {
 
-    document.querySelector(".flashita").style.opacity="0";
+    const flashita = document.querySelector(".flashita");
 
-    setTimeout(function(){
+    flashita.style.opacity = "0";
+    flashita.style.transform = "translateY(25px)";
 
-        document.querySelector(".flashita").style.display="none";
+    setTimeout(() => {
 
-    },500);
+        flashita.style.display = "none";
 
-},7000);
+    },600);
 
-</script>  
+},5000);
+
+</script> 
 
 <script>
 
