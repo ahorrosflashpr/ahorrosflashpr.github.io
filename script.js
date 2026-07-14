@@ -46,3 +46,18 @@ buscador.addEventListener("input", () => {
     mostrarOfertas(filtradas);
 
 });
+
+function filtrarCategoria(categoria){
+
+    if(categoria === "Todas"){
+        mostrarOfertas(ofertas);
+        return;
+    }
+
+    const filtradas = ofertas.filter(oferta =>
+        oferta.categoria === categoria
+    );
+
+    mostrarOfertas(filtradas);
+
+}
