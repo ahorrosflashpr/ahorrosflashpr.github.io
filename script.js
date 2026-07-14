@@ -67,6 +67,7 @@ function mostrarOfertas(lista) {
 }
 
 mostrarOfertas(ofertas);
+mostrarOfertaDestacada(ofertas[0]);
 
 buscador.addEventListener("input", () => {
 
