@@ -5,6 +5,8 @@ ofertas.forEach(oferta => {
 contenedor.innerHTML += `
 <div class="card">
 
+<div class="badge">🔥 OFERTA FLASH</div>
+
 <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
 <h2>${oferta.nombre}</h2>
