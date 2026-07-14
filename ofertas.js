@@ -8,12 +8,3 @@ const ofertas = [
     enlace: "#"
 }
 ];
-
-{
-    nombre: "Air Fryer",
-    imagen: "images/airfryer.jpg",
-    precio: "$39.99",
-    antes: "$99.99",
-    descuento: "60%",
-    enlace: "https://tu-enlace-joylink.com"
-}
