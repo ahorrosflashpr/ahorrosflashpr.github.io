@@ -15,6 +15,8 @@ contenedor.innerHTML += `
 
 <p class="price">${oferta.precio}</p>
 
+<p class="saving">💰 Ahorras ${oferta.ahorro}</p>
+
 <span class="off">${oferta.descuento}</span>
 
 <a href="${oferta.enlace}" target="_blank">Ver Oferta</a>
