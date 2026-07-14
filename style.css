@@ -357,3 +357,10 @@ main{
     font-weight:bold;
     box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
+
+.ultima-actualizacion{
+    margin-top:10px;
+    font-size:14px;
+    color:#ffffff;
+    opacity:.9;
+}
