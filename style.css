@@ -405,3 +405,10 @@ main{
     transition:opacity .6s ease;
 
 }
+
+.seguidores{
+    margin-top:6px;
+    font-size:14px;
+    color:#dbeafe;
+    font-weight:500;
+}
