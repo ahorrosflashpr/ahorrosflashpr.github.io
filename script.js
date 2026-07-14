@@ -1,5 +1,6 @@
 const contenedor = document.getElementById("productos");
 const buscador = document.getElementById("buscador");
+const featured = document.getElementById("featured");
 
 function mostrarOfertas(lista) {
 
