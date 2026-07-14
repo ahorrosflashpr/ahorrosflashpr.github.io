@@ -8,6 +8,6 @@ const ofertas = [
     ahorro: "$98.40",
     categoria: "Hogar",
     etiqueta: "🔥 Oferta Flash",
-    enlace: "#"
+    enlace: "https://amzn.to/452dXnV"
 }
 ];
