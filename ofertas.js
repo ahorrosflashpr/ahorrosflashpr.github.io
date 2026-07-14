@@ -7,3 +7,4 @@ const ofertas = [
     descuento: "82%",
     enlace: "#"
 }
+];
