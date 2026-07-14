@@ -46,6 +46,8 @@ function mostrarOfertas(lista) {
 
             <div class="badge">${oferta.etiqueta}</div>
 
+            <div class="descuento">🔥 ${oferta.descuento} OFF</div>
+
             <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
             <h2>${oferta.nombre}</h2>
