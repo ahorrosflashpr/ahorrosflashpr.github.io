@@ -279,3 +279,17 @@ main{
     font-weight:bold;
     box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
+
+.mensaje-ofertas{
+    max-width:1400px;
+    margin:20px auto;
+    padding:16px 24px;
+    background:#fff3cd;
+    color:#856404;
+    border:1px solid #ffe69c;
+    border-radius:12px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
