@@ -1,90 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ahorros y Descuentos Flash PR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorros y Descuentos Flash PR</title>
 
-<div class="topbar">
-
-<div class="top-links">
-
-<a href="https://facebook.com" target="_blank">📘 Facebook</a>
-
-<a href="https://t.me/TU_TELEGRAM" target="_blank">✈️ Telegram</a>
-
-<a href="mailto:contacto@correo.com">📧 Contacto</a>
-
-</div>
-
-<div class="update">
-🔥 Actualizado todos los días
-</div>
-
-</div>
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <div class="topbar">
 
-<div class="logo">
+        <div class="top-links">
+            <a href="https://facebook.com" target="_blank">📘 Facebook</a>
 
-<img src="images/logo.png" alt="Logo">
+            <a href="https://t.me/TU_TELEGRAM" target="_blank">✈️ Telegram</a>
 
-<div>
-<h2>Ahorros y Descuentos Flash PR</h2>
-<p>Las mejores ofertas todos los días</p>
-</div>
+            <a href="mailto:contacto@correo.com">📧 Contacto</a>
+        </div>
 
-</div>
-
-<input
-    type="text"
-    id="buscador"
-    placeholder="🔍 Buscar ofertas...">
-
-</header>
-<nav>
-
-<button onclick="filtrarCategoria('Todas')">Todas</button>
-
-<button onclick="filtrarCategoria('Electrónica')">Electrónica</button>
-
-<button onclick="filtrarCategoria('Hogar')">Hogar</button>
-
-<button onclick="filtrarCategoria('Cocina')">Cocina</button>
-
-<button onclick="filtrarCategoria('Juguetes')">Juguetes</button>
-
-</nav>
-<section class="hero">
-
-    <div class="hero-text">
-
-        <h1>🔥 Las mejores ofertas de Amazon</h1>
-
-        <p>Encuentra descuentos increíbles todos los días.</p>
-
-        <a href="#">Ver ofertas</a>
+        <div class="update">
+            🔥 Actualizado todos los días
+        </div>
 
     </div>
 
-<section id="featured"></section>
+    <header>
 
-</section>
-<section class="titulo-seccion">
-    <h2>🔥 Ofertas del Día</h2>
-    <p>Las mejores ofertas seleccionadas para hoy.</p>
-</section>
+        <div class="logo">
 
-<main id="productos">
+            <img src="images/logo.png" alt="Logo">
 
-</main>
-  
-<script src="ofertas.js"></script>
-<script src="script.js"></script>
-  
+            <div>
+                <h2>Ahorros y Descuentos Flash PR</h2>
+                <p>Las mejores ofertas todos los días</p>
+            </div>
+
+        </div>
+
+        <input
+            type="text"
+            id="buscador"
+            placeholder="🔍 Buscar ofertas...">
+
+    </header>
+
+    <nav>
+
+        <button onclick="filtrarCategoria('Todas')">Todas</button>
+
+        <button onclick="filtrarCategoria('Electrónica')">Electrónica</button>
+
+        <button onclick="filtrarCategoria('Hogar')">Hogar</button>
+
+        <button onclick="filtrarCategoria('Cocina')">Cocina</button>
+
+        <button onclick="filtrarCategoria('Juguetes')">Juguetes</button>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>🔥 Las mejores ofertas de Amazon</h1>
+
+            <p>Encuentra descuentos increíbles todos los días.</p>
+
+            <a href="#">Ver ofertas</a>
+
+        </div>
+
+    </section>
+
+    <section id="featured"></section>
+
+    <section class="titulo-seccion">
+
+        <h2>🔥 Ofertas del Día</h2>
+
+        <p>Las mejores ofertas seleccionadas para hoy.</p>
+
+    </section>
+
+    <main id="productos"></main>
+
+    <script src="ofertas.js"></script>
+    <script src="script.js"></script>
+
 </body>
+
 </html>
