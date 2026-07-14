@@ -101,3 +101,13 @@ function filtrarCategoria(categoria){
     mostrarOfertas(filtradas);
 
 }
+
+const ahora = new Date();
+
+const opciones = {
+    hour: "numeric",
+    minute: "2-digit"
+};
+
+document.getElementById("fechaActualizacion").textContent =
+    "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
