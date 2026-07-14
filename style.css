@@ -304,12 +304,17 @@ main{
     display:flex;
     align-items:flex-end;
     gap:12px;
-    transition: opacity .10s;
+    transition: opacity .6s ease;
 }
 
 .flashita img{
-    width:100px;
+    width:115px;
     height:auto;
+    transition:transform .3s;
+}
+
+.flashita img:hover{
+    transform:scale(1.08);
 }
 
 .flashita-mensaje{
