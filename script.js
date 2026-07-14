@@ -1,27 +1,48 @@
 const contenedor = document.getElementById("productos");
+const buscador = document.getElementById("buscador");
 
-ofertas.forEach(oferta => {
+function mostrarOfertas(lista) {
 
-contenedor.innerHTML += `
-<div class="card">
+    contenedor.innerHTML = "";
 
-<div class="badge">🔥 OFERTA FLASH</div>
+    lista.forEach(oferta => {
 
-<img src="${oferta.imagen}" alt="${oferta.nombre}">
+        contenedor.innerHTML += `
+        <div class="card">
 
-<h2>${oferta.nombre}</h2>
+            <div class="badge">${oferta.etiqueta}</div>
 
-<p class="old">${oferta.antes}</p>
+            <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
-<p class="price">${oferta.precio}</p>
+            <h2>${oferta.nombre}</h2>
 
-<p class="saving">💰 Ahorras ${oferta.ahorro}</p>
+            <p class="old">${oferta.antes}</p>
 
-<span class="off">${oferta.descuento}</span>
+            <p class="price">${oferta.precio}</p>
 
-<a href="${oferta.enlace}" target="_blank">Ver Oferta</a>
+            <p class="saving">💰 Ahorras ${oferta.ahorro}</p>
 
-</div>
-`;
+            <span class="off">${oferta.descuento}</span>
+
+            <a href="${oferta.enlace}" target="_blank">Ver Oferta</a>
+
+        </div>
+        `;
+    });
+
+}
+
+mostrarOfertas(ofertas);
+
+buscador.addEventListener("input", () => {
+
+    const texto = buscador.value.toLowerCase();
+
+    const filtradas = ofertas.filter(oferta =>
+        oferta.nombre.toLowerCase().includes(texto) ||
+        oferta.categoria.toLowerCase().includes(texto)
+    );
+
+    mostrarOfertas(filtradas);
 
 });
