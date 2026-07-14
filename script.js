@@ -59,7 +59,7 @@ function mostrarOfertas(lista) {
             <span class="off">${oferta.descuento}</span>
 
             <a href="${oferta.enlace}" target="_blank" class="btn-oferta">
-🛒 VER OFERTA EN AMAZON
+🔥 VER OFERTA AHORA
 </a>
 
         </div>
