@@ -61,7 +61,7 @@ nav button:hover{
 
 main{
     max-width:1400px;
-    margin:40px auto;
+    margin:10px auto 40px;
     padding:20px;
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(280px,280px));
