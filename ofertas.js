@@ -10,3 +10,4 @@ const ofertas = [
     etiqueta: "🔥 Oferta Flash",
     enlace: "#"
 }
+];
