@@ -369,3 +369,39 @@ main{
     color:#ffffff;
     opacity:.9;
 }
+
+@keyframes flashitaBounce {
+
+    0%{
+        transform:translateY(20px);
+        opacity:0;
+    }
+
+    60%{
+        transform:translateY(-8px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+.flashita{
+
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:999;
+
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+
+    animation:flashitaBounce .8s ease;
+
+    transition:opacity .6s ease;
+
+}
