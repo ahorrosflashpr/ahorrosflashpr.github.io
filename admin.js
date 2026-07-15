@@ -24,6 +24,9 @@ async function cargarOfertas() {
 
     const consulta = await getDocs(collection(db, "ofertas"));
 
+    document.getElementById("totalOfertas").textContent =
+    `📦 ${consulta.size} ofertas publicadas`;
+    
     consulta.forEach((documento) => {
 
         const oferta = documento.data();
