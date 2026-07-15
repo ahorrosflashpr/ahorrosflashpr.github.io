@@ -48,9 +48,14 @@ function mostrarOfertas(lista) {
 
     contenedor.innerHTML = "";
 
-    lista.forEach(oferta => {
+lista.forEach(oferta => {
 
-        contenedor.innerHTML += `
+    const ahorro = (
+        parseFloat(oferta.antes) - parseFloat(oferta.precio)
+    ).toFixed(2);
+
+    contenedor.innerHTML += `
+    `
         <div class="card">
 
             <div class="descuento">-${oferta.descuento}</div>
