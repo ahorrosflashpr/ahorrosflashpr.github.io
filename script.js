@@ -243,8 +243,6 @@ setInterval(()=>{
 
 },5000);
 
-}
-
 }    
 cargarOfertasFirebase();
 
