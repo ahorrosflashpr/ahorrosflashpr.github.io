@@ -27,9 +27,7 @@ formulario.addEventListener("submit", async (e)=>{
 
             categoria:document.getElementById("categoria").value,
 
-            amazon:document.getElementById("amazon").value,
-
-            joylink:document.getElementById("joylink").value,
+            enlace:document.getElementById("amazon").value,
 
             imagen:"images/" + document.getElementById("imagen").files[0].name
 
