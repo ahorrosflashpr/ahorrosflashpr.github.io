@@ -7,7 +7,9 @@ import {
     deleteDoc,
     doc,
     getDoc,
-    updateDoc
+    updateDoc,
+    query,
+    orderBy
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const formulario = document.getElementById("formOferta");
@@ -22,7 +24,12 @@ async function cargarOfertas() {
 
     tbody.innerHTML = "";
 
-    const consulta = await getDocs(collection(db, "ofertas"));
+   const q = query(
+    collection(db, "ofertas"),
+    orderBy("fecha", "desc")
+);
+
+const consulta = await getDocs(q);
 
     document.getElementById("totalOfertas").textContent =
     `📦 ${consulta.size} ofertas publicadas`;
@@ -133,14 +140,16 @@ if (editando) {
 
     await addDoc(collection(db, "ofertas"), {
 
-    nombre: document.getElementById("nombre").value,
-    precio: precio.toFixed(2),
-    antes: antes.toFixed(2),
-    descuento: descuento + "%",
-    ahorro: "$" + ahorro,
-    enlace: document.getElementById("enlace").value,
-    imagen: "images/" + document.getElementById("imagen").value,
-    codigo: document.getElementById("codigo").value
+    nombre: ...,
+    precio: ...,
+    antes: ...,
+    descuento: ...,
+    ahorro: ...,
+    enlace: ...,
+    imagen: ...,
+    codigo: ...,
+
+    fecha: Date.now()
 
 });
 
