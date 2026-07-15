@@ -143,3 +143,27 @@ tr:hover{
     color:#0d5bd7;
 
 }
+
+.panel{
+
+    display:grid;
+    grid-template-columns:420px 350px;
+    gap:40px;
+
+    max-width:1000px;
+
+}
+
+.preview h2{
+
+    color:#0d5bd7;
+    margin-bottom:20px;
+
+}
+
+.preview-card{
+
+    position:sticky;
+    top:30px;
+
+}
