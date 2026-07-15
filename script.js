@@ -1,3 +1,12 @@
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+let ofertas = [];
+
 const contenedor = document.getElementById("productos");
 const buscador = document.getElementById("buscador");
 const featured = document.getElementById("featured");
@@ -66,8 +75,6 @@ function mostrarOfertas(lista) {
 
 }
 
-mostrarOfertas(ofertas);
-
 buscador.addEventListener("input", () => {
 
     const texto = buscador.value.toLowerCase();
@@ -105,3 +112,28 @@ const opciones = {
 
 document.getElementById("fechaActualizacion").textContent =
     "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
+
+async function cargarOfertasFirebase() {
+
+    const consulta = await getDocs(collection(db, "ofertas"));
+
+    ofertas = [];
+
+    consulta.forEach((documento) => {
+
+        const oferta = documento.data();
+
+        // Si la imagen solo tiene el nombre, le agrega la carpeta images/
+        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
+            oferta.imagen = "images/" + oferta.imagen;
+        }
+
+        ofertas.push(oferta);
+
+    });
+
+    mostrarOfertas(ofertas);
+
+}
+
+cargarOfertasFirebase();
