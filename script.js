@@ -175,3 +175,31 @@ window.copiarCodigo = async function(codigo, boton){
     }
 
 }
+
+const btnSubir = document.getElementById("btnSubir");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 600) {
+
+        btnSubir.style.display = "block";
+
+    } else {
+
+        btnSubir.style.display = "none";
+
+    }
+
+});
+
+btnSubir.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
