@@ -650,10 +650,15 @@ main{
 
 }
 
+/* ===========================
+   FOOTER
+=========================== */
+
 .footer{
 
     margin-top:50px;
-    padding:25px 20px;
+
+    padding:30px 20px;
 
     background:#ffffff;
 
@@ -667,12 +672,22 @@ main{
 
     max-width:900px;
 
-    margin:auto;
-
-    font-size:13px;
+    margin:0 auto 10px;
 
     color:#6b7280;
 
+    font-size:14px;
+
     line-height:1.6;
+
+}
+
+.copyright{
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+    margin-top:12px;
 
 }
