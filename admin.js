@@ -58,6 +58,8 @@ async function cargarOfertas() {
             document.getElementById("ahorro").value = oferta.ahorro;
             document.getElementById("categoria").value = oferta.categoria;
             document.getElementById("enlace").value = oferta.enlace;
+            document.getElementById("imagen").value =
+            oferta.imagen.replace("images/","");
 
             editando = boton.dataset.id;
 
