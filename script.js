@@ -4,7 +4,10 @@ import {
     collection,
     getDocs,
     query,
-    orderBy
+    orderBy,
+    doc,
+    updateDoc,
+    increment
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 let ofertas = [];
