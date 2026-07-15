@@ -84,9 +84,8 @@ buscador.addEventListener("input", () => {
     const texto = buscador.value.toLowerCase();
 
     const filtradas = ofertas.filter(oferta =>
-        oferta.nombre.toLowerCase().includes(texto) ||
-        oferta.categoria.toLowerCase().includes(texto)
-    );
+    oferta.nombre.toLowerCase().includes(texto)
+);
 
     mostrarOfertas(filtradas);
 
