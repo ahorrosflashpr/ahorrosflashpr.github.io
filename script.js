@@ -82,9 +82,13 @@ function mostrarOfertas(lista) {
                 </button>
             ` : ""}
 
-            <a href="${oferta.enlace}" target="_blank" class="btn-oferta">
-                🔥 VER OFERTA AHORA
-            </a>
+            <button
+    class="btn-oferta"
+    onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
+
+    🔥 VER OFERTA AHORA
+
+</button>
 
         </div>
         `;
@@ -143,20 +147,21 @@ async function cargarOfertasFirebase() {
 
     consulta.forEach((documento) => {
 
-        const oferta = documento.data();
+    const oferta = documento.data();
 
-        // Si la imagen solo tiene el nombre, agrega la carpeta images/
-        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
-            oferta.imagen = "images/" + oferta.imagen;
-        }
+    oferta.id = documento.id;
 
-        // Solo mostrar ofertas activas
-        if ((oferta.estado || "activa") === "activa") {
-            ofertas.push(oferta);
-        }
+    // Si la imagen solo tiene el nombre, agrega la carpeta images/
+    if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
+        oferta.imagen = "images/" + oferta.imagen;
+    }
 
-    });
+    // Solo mostrar ofertas activas
+    if ((oferta.estado || "activa") === "activa") {
+        ofertas.push(oferta);
+    }
 
+});
     mostrarOfertas(ofertas);
 
 }
