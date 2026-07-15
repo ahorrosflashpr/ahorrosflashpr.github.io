@@ -691,3 +691,77 @@ main{
     margin-top:12px;
 
 }
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+
+    margin-top:50px;
+
+    padding:35px 20px;
+
+    background:#ffffff;
+
+    border-top:1px solid #e5e7eb;
+
+    text-align:center;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+
+}
+
+.footer-links a{
+
+    color:#0b5ed7;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+}
+
+.footer-links a:hover{
+
+    color:#0848aa;
+
+}
+
+.footer-disclaimer{
+
+    max-width:900px;
+
+    margin:auto;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+.copyright{
+
+    margin-top:20px;
+
+    color:#9ca3af;
+
+    font-size:13px;
+
+}
