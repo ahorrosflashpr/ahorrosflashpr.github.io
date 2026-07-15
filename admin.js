@@ -95,12 +95,17 @@ formulario.addEventListener("submit", async (e) => {
 
     try {
 
+        // 👇 PEGA EL CÓDIGO AQUÍ
 
-        const precio = parseFloat(document.getElementById("precio").value);
-const antes = parseFloat(document.getElementById("antes").value);
+        const precio = Number(document.getElementById("precio").value);
+        const antes = Number(document.getElementById("antes").value);
 
-const descuento = Math.round(((antes - precio) / antes) * 100);
-const ahorro = (antes - precio).toFixed(2);
+        const descuento = Math.round(((antes - precio) / antes) * 100);
+        const ahorro = (antes - precio).toFixed(2);
+
+        console.log(precio, antes, descuento, ahorro);
+
+        //
 
 if (editando) {
 
