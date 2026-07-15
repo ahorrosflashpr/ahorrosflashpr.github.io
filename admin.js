@@ -138,6 +138,7 @@ if (editando) {
         categoria: document.getElementById("categoria").value,
         enlace: document.getElementById("enlace").value,
         imagen: "images/" + document.getElementById("imagen").value
+        codigo: document.getElementById("codigo").value
 
     });
 
