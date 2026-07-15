@@ -437,3 +437,182 @@ main{
     font-size:15px;
     font-weight:bold;
 }
+
+/* ===========================
+   MÓVIL
+=========================== */
+
+@media (max-width:768px){
+
+body{
+    padding:0;
+}
+
+/* Barra superior */
+
+.topbar{
+
+    padding:10px 15px;
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+
+}
+
+.top-links{
+
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+}
+
+/* Header */
+
+header{
+
+    flex-direction:column;
+    padding:18px;
+    text-align:center;
+
+}
+
+.logo{
+
+    flex-direction:column;
+    gap:10px;
+
+}
+
+.logo img{
+
+    width:80px;
+    height:80px;
+
+}
+
+.logo h2{
+
+    font-size:30px;
+
+}
+
+.logo p{
+
+    font-size:15px;
+
+}
+
+header input{
+
+    width:100%;
+    margin-top:12px;
+
+}
+
+.ultima-actualizacion{
+
+    margin-top:15px;
+
+}
+
+/* Mensajes */
+
+.info-bar,
+.mensaje-ofertas{
+
+    margin:15px;
+    font-size:15px;
+    padding:14px;
+
+}
+
+/* Títulos */
+
+.titulo-seccion{
+
+    padding:0 20px;
+    text-align:center;
+
+}
+
+.titulo-seccion h2{
+
+    font-size:40px;
+
+}
+
+.titulo-seccion p{
+
+    font-size:18px;
+
+}
+
+/* Tarjetas */
+
+main{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:15px;
+    gap:20px;
+
+}
+
+.card{
+
+    width:100%;
+    max-width:360px;
+
+}
+
+.card img{
+
+    width:220px;
+    height:220px;
+
+}
+
+.card h2{
+
+    font-size:28px;
+
+}
+
+.price{
+
+    font-size:50px;
+
+}
+
+.btn-oferta,
+.btn-codigo{
+
+    font-size:20px;
+    padding:18px;
+
+}
+
+/* Flashita */
+
+.flashita{
+
+    right:10px;
+    bottom:10px;
+
+}
+
+.flashita img{
+
+    width:75px;
+
+}
+
+.flashita-mensaje{
+
+    display:none;
+
+}
+
+}
