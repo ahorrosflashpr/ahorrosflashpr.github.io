@@ -166,35 +166,37 @@ async function cargarOfertasFirebase() {
 
     if (ofertas.length) {
 
+    const ultimaOferta = ofertas[0];
+
     const minutos = Math.floor(
-        (Date.now() - ofertas[0].fecha) / 60000
+        (Date.now() - ultimaOferta.fecha) / 60000
     );
 
-    let texto = "";
+    let mensaje = "";
 
     if (minutos < 1) {
 
-        texto = "🚨 ¡Nueva oferta recién publicada!";
+        mensaje = `🚨 ¡Nueva oferta publicada! <strong>${ultimaOferta.nombre}</strong>`;
 
     } else if (minutos < 60) {
 
-        texto = `🆕 Nueva oferta publicada hace ${minutos} minuto${minutos > 1 ? "s" : ""}`;
+        mensaje = `🆕 <strong>${ultimaOferta.nombre}</strong> • Publicada hace ${minutos} minuto${minutos != 1 ? "s" : ""}`;
 
     } else if (minutos < 1440) {
 
         const horas = Math.floor(minutos / 60);
 
-        texto = `🕒 Última oferta publicada hace ${horas} hora${horas > 1 ? "s" : ""}`;
+        mensaje = `🕒 <strong>${ultimaOferta.nombre}</strong> • Hace ${horas} hora${horas != 1 ? "s" : ""}`;
 
     } else {
 
         const dias = Math.floor(minutos / 1440);
 
-        texto = `📅 Última oferta publicada hace ${dias} día${dias > 1 ? "s" : ""}`;
+        mensaje = `📅 <strong>${ultimaOferta.nombre}</strong> • Hace ${dias} día${dias != 1 ? "s" : ""}`;
 
     }
 
-    document.getElementById("nuevaOferta").innerHTML = texto;
+    document.getElementById("nuevaOferta").innerHTML = mensaje;
 
 }
 
