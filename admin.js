@@ -140,14 +140,14 @@ if (editando) {
 
     await addDoc(collection(db, "ofertas"), {
 
-    nombre: ...,
-    precio: ...,
-    antes: ...,
-    descuento: ...,
-    ahorro: ...,
-    enlace: ...,
-    imagen: ...,
-    codigo: ...,
+    nombre: document.getElementById("nombre").value,
+    precio: precio.toFixed(2),
+    antes: antes.toFixed(2),
+    descuento: descuento + "%",
+    ahorro: "$" + ahorro,
+    enlace: document.getElementById("enlace").value,
+    imagen: "images/" + document.getElementById("imagen").value,
+    codigo: document.getElementById("codigo").value,
 
     fecha: Date.now()
 
