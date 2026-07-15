@@ -196,7 +196,8 @@ async function cargarOfertasFirebase() {
 
     }
 
-    document.getElementById("nuevaOferta").innerHTML = mensaje;
+    document.getElementById("nuevaOferta").innerHTML =
+    `<span>${mensaje}</span>`;
 
 }
 
