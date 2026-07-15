@@ -617,9 +617,34 @@ main{
 
 }
 
+.flashita{
+
+    right:10px;
+    bottom:10px;
+
+    flex-direction:column-reverse;
+
+    align-items:flex-end;
+
+}
+
+.flashita img{
+
+    width:70px;
+
+}
+
 .flashita-mensaje{
 
-    display:none;
+    display:block;
+
+    max-width:190px;
+
+    font-size:13px;
+
+    padding:10px 12px;
+
+    margin-bottom:8px;
 
 }
 
