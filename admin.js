@@ -170,6 +170,8 @@ if (editando) {
     codigo: document.getElementById("codigo").value,
     estado: document.getElementById("estado").value,
 
+    clics: 0,
+
     fecha: Date.now()
 
 });
