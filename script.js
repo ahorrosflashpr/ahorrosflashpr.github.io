@@ -67,6 +67,9 @@ lista.forEach(oferta => {
             <p class="old">${oferta.antes}</p>
 
             <p class="price">${oferta.precio}</p>
+    <p class="ahorro">
+    💰 Ahorras $${ahorro}
+</p>
 
             ${oferta.codigo ? `
 <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
