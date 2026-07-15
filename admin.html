@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Panel Flash</title>
@@ -17,59 +16,73 @@
 
 <div class="panel">
 
-<h1>⚡ Panel Flash</h1>
+    <h1>⚡ Panel Flash</h1>
 
-<p>Publica nuevas ofertas en segundos.</p>
+    <p>Publica nuevas ofertas en segundos.</p>
 
-<form id="formOferta">
+    <form id="formOferta">
 
-<label>🔗 Enlace de Afiliado</label>
-<input type="text" id="enlace" placeholder="Pega aquí tu enlace de afiliado">
+        <label>🔗 Enlace de Afiliado</label>
+        <input type="text" id="enlace" placeholder="Pega aquí tu enlace de afiliado">
 
-<label>📝 Nombre del producto</label>
-<input type="text" id="nombre">
+        <label>📝 Nombre del producto</label>
+        <input type="text" id="nombre">
 
-<label>💲 Precio</label>
-<input type="text" id="precio">
+        <label>💲 Precio</label>
+        <input type="text" id="precio">
 
-<label>💸 Precio anterior</label>
-<input type="text" id="antes">
+        <label>💸 Precio anterior</label>
+        <input type="text" id="antes">
 
-<label>🏷️ Descuento</label>
-<input type="text" id="descuento">
+        <label>🏷️ Descuento</label>
+        <input type="text" id="descuento">
 
-<label>💰 Ahorro</label>
-<input type="text" id="ahorro">
+        <label>💰 Ahorro</label>
+        <input type="text" id="ahorro">
 
-<label>📂 Categoría</label>
+        <label>📂 Categoría</label>
 
-<select id="categoria">
+        <select id="categoria">
+            <option>Hogar</option>
+            <option>Electrónica</option>
+            <option>Cocina</option>
+            <option>Juguetes</option>
+            <option>Moda</option>
+            <option>Herramientas</option>
+        </select>
 
-<option>Hogar</option>
+        <label>🖼 Imagen</label>
 
-<option>Electrónica</option>
+        <input type="file" id="imagen">
 
-<option>Cocina</option>
+        <button type="submit">
+            🚀 PUBLICAR OFERTA
+        </button>
 
-<option>Juguetes</option>
+    </form>
 
-<option>Moda</option>
+    <h2 style="margin-top:40px;">📦 Ofertas Publicadas</h2>
 
-<option>Herramientas</option>
+    <table id="tablaOfertas">
 
-</select>
+        <thead>
 
-<label>🖼 Imagen</label>
+            <tr>
 
-<input type="file" id="imagen">
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
 
-<button type="submit">
+            </tr>
 
-🚀 PUBLICAR OFERTA
+        </thead>
 
-</button>
+        <tbody>
 
-</form>
+        </tbody>
+
+    </table>
 
 </div>
 
@@ -78,29 +91,3 @@
 </body>
 
 </html>
-
-<h2>📦 Ofertas Publicadas</h2>
-
-<table id="tablaOfertas">
-
-    <thead>
-
-        <tr>
-
-            <th>Producto</th>
-
-            <th>Precio</th>
-
-            <th>Categoría</th>
-
-            <th>Acciones</th>
-
-        </tr>
-
-    </thead>
-
-    <tbody>
-
-    </tbody>
-
-</table>
