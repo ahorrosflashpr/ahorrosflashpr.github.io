@@ -7,10 +7,13 @@ import {
     deleteDoc,
     doc
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
 
-// Cargar ofertas al abrir la página
+// ===============================
+// Cargar ofertas
+// ===============================
 async function cargarOfertas() {
 
     tbody.innerHTML = "";
@@ -19,38 +22,54 @@ async function cargarOfertas() {
 
     consulta.forEach((documento) => {
 
-        document.querySelectorAll(".eliminar").forEach(boton => {
-
-    boton.addEventListener("click", async () => {
-
-        if(!confirm("¿Eliminar esta oferta?")) return;
-
-        await deleteDoc(doc(db,"ofertas",boton.dataset.id));
-
-        cargarOfertas();
-
-    });
-
-});
-
         const oferta = documento.data();
 
         tbody.innerHTML += `
-        <tr>
-            <td>${oferta.nombre}</td>
-            <td>${oferta.precio}</td>
-            <td>${oferta.categoria}</td>
-            <td>
-                <button class="editar" data-id="${documento.id}">✏️</button>
-                <button class="eliminar" data-id="${documento.id}">🗑️</button>
-            </td>
-        </tr>
+            <tr>
+                <td>${oferta.nombre}</td>
+                <td>${oferta.precio}</td>
+                <td>${oferta.categoria}</td>
+                <td>
+                    <button class="editar" data-id="${documento.id}">✏️</button>
+                    <button class="eliminar" data-id="${documento.id}">🗑️</button>
+                </td>
+            </tr>
         `;
+
+    });
+
+    // Botones eliminar
+    document.querySelectorAll(".eliminar").forEach((boton) => {
+
+        boton.addEventListener("click", async () => {
+
+            const id = boton.dataset.id;
+
+            if (!confirm("¿Eliminar esta oferta?")) return;
+
+            try {
+
+                await deleteDoc(doc(db, "ofertas", id));
+
+                cargarOfertas();
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert("Error al eliminar");
+
+            }
+
+        });
 
     });
 
 }
 
+// ===============================
+// Publicar oferta
+// ===============================
 formulario.addEventListener("submit", async (e) => {
 
     e.preventDefault();
@@ -88,6 +107,5 @@ formulario.addEventListener("submit", async (e) => {
 
 });
 
-cargarOfertas();
-
+// Cargar al iniciar
 cargarOfertas();
