@@ -127,11 +127,21 @@ document.getElementById("fechaActualizacion").textContent =
 
 async function cargarOfertasFirebase() {
 
-    const consulta = await getDocs(collection(db, "ofertas"));
+    import {
+    collection,
+    getDocs,
+    query,
+    orderBy
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
     ofertas = [];
 
-    consulta.forEach((documento) => {
+    const q = query(
+    collection(db, "ofertas"),
+    orderBy("fecha", "desc")
+);
+
+const consulta = await getDocs(q);
 
         const oferta = documento.data();
 
