@@ -138,6 +138,7 @@ if (editando) {
 
 } else {
 
+    console.log("Guardando fecha:", Date.now());
     await addDoc(collection(db, "ofertas"), {
 
     nombre: document.getElementById("nombre").value,
