@@ -649,3 +649,30 @@ main{
 }
 
 }
+
+.footer{
+
+    margin-top:50px;
+    padding:25px 20px;
+
+    background:#ffffff;
+
+    border-top:1px solid #e5e7eb;
+
+    text-align:center;
+
+}
+
+.footer p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    font-size:13px;
+
+    color:#6b7280;
+
+    line-height:1.6;
+
+}
