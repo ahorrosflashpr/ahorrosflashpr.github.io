@@ -96,44 +96,51 @@ formulario.addEventListener("submit", async (e) => {
     try {
 
 
-        if (editando) {
+        const precio = parseFloat(document.getElementById("precio").value);
+const antes = parseFloat(document.getElementById("antes").value);
 
-            await updateDoc(doc(db, "ofertas", editando), {
+const descuento = Math.round(((antes - precio) / antes) * 100);
+const ahorro = (antes - precio).toFixed(2);
 
-                nombre: document.getElementById("nombre").value,
-                precio: document.getElementById("precio").value,
-                antes: document.getElementById("antes").value,
-                descuento: document.getElementById("descuento").value,
-                ahorro: document.getElementById("ahorro").value,
-                categoria: document.getElementById("categoria").value,
-                enlace: document.getElementById("enlace").value
+if (editando) {
 
-            });
+    await updateDoc(doc(db, "ofertas", editando), {
 
-            alert("✅ Oferta actualizada");
+        nombre: document.getElementById("nombre").value,
+        precio: precio.toFixed(2),
+        antes: antes.toFixed(2),
+        descuento: descuento + "%",
+        ahorro: "$" + ahorro,
+        categoria: document.getElementById("categoria").value,
+        enlace: document.getElementById("enlace").value,
+        imagen: "images/" + document.getElementById("imagen").value
 
-            editando = null;
+    });
 
-            formulario.querySelector("button").textContent = "🚀 PUBLICAR OFERTA";
+    alert("✅ Oferta actualizada");
 
-        } else {
+    editando = null;
 
-            await addDoc(collection(db, "ofertas"), {
+    formulario.querySelector("button").textContent = "🚀 PUBLICAR OFERTA";
 
-                nombre: document.getElementById("nombre").value,
-                precio: document.getElementById("precio").value,
-                antes: document.getElementById("antes").value,
-                descuento: document.getElementById("descuento").value,
-                ahorro: document.getElementById("ahorro").value,
-                categoria: document.getElementById("categoria").value,
-                enlace: document.getElementById("enlace").value,
-                imagen: "images/" + document.getElementById("imagen").value
+} else {
 
-            });
+    await addDoc(collection(db, "ofertas"), {
 
-            alert("✅ Oferta publicada");
+        nombre: document.getElementById("nombre").value,
+        precio: precio.toFixed(2),
+        antes: antes.toFixed(2),
+        descuento: descuento + "%",
+        ahorro: "$" + ahorro,
+        categoria: document.getElementById("categoria").value,
+        enlace: document.getElementById("enlace").value,
+        imagen: "images/" + document.getElementById("imagen").value
 
-        }
+    });
+
+    alert("✅ Oferta publicada");
+
+}
 
         formulario.reset();
 
