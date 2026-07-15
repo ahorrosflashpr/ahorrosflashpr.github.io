@@ -34,15 +34,25 @@ async function cargarOfertas() {
 
         const oferta = documento.data();
 
-        <tbody.innerHTML += `
+    tbody.innerHTML += `
 <tr>
+
+    <td>
+        <img
+            src="${oferta.imagen}"
+            class="miniatura"
+            alt="${oferta.nombre}">
+    </td>
+
     <td>${oferta.nombre}</td>
+
     <td>$${oferta.precio}</td>
-    <td>${oferta.codigo || "-"}</td>
+
     <td>
         <button class="editar" data-id="${documento.id}">✏️</button>
         <button class="eliminar" data-id="${documento.id}">🗑️</button>
     </td>
+
 </tr>
 `;
 
