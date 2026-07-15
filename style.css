@@ -12,7 +12,7 @@ body{
 header{
     background:linear-gradient(90deg,#0b5ed7,#0047b3);
     color:white;
-    padding:10px 30px;
+    padding:8px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
