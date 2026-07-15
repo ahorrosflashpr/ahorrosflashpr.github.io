@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
     collection,
-    getDocs
+    getDocs,
+    query,
+    orderBy
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 let ofertas = [];
@@ -127,32 +129,28 @@ document.getElementById("fechaActualizacion").textContent =
 
 async function cargarOfertasFirebase() {
 
-    import {
-    collection,
-    getDocs,
-    query,
-    orderBy
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
     ofertas = [];
 
     const q = query(
-    collection(db, "ofertas"),
-    orderBy("fecha", "desc")
-);
+        collection(db, "ofertas"),
+        orderBy("fecha", "desc")
+    );
 
-const consulta = await getDocs(q);
+    const consulta = await getDocs(q);
+
+    consulta.forEach((documento) => {
 
         const oferta = documento.data();
 
-        // Si la imagen solo tiene el nombre, le agrega la carpeta images/
+        // Si la imagen solo tiene el nombre, agrega la carpeta images/
         if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
             oferta.imagen = "images/" + oferta.imagen;
         }
 
+        // Solo mostrar ofertas activas
         if ((oferta.estado || "activa") === "activa") {
-    ofertas.push(oferta);
-}
+            ofertas.push(oferta);
+        }
 
     });
 
