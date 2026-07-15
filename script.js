@@ -167,82 +167,38 @@ async function cargarOfertasFirebase() {
 
 }
 
-    if (ofertas.length) {
+    async function cargarOfertasFirebase() {
 
-    const ultimaOferta = ofertas[0];
+    ofertas = [];
 
-    const minutos = Math.floor(
-        (Date.now() - ultimaOferta.fecha) / 60000
+    const q = query(
+        collection(db, "ofertas"),
+        orderBy("fecha", "desc")
     );
 
-    let mensaje = "";
+    const consulta = await getDocs(q);
 
-    if (minutos < 1) {
+    consulta.forEach((documento) => {
 
-        mensaje = `🚨 ¡Nueva oferta publicada! <strong>${ultimaOferta.nombre}</strong>`;
+        const oferta = documento.data();
 
-    } else if (minutos < 60) {
+        oferta.id = documento.id;
 
-        mensaje = `🆕 <strong>${ultimaOferta.nombre}</strong> • Publicada hace ${minutos} minuto${minutos != 1 ? "s" : ""}`;
+        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
+            oferta.imagen = "images/" + oferta.imagen;
+        }
 
-    } else if (minutos < 1440) {
+        if ((oferta.estado || "activa") === "activa") {
+            ofertas.push(oferta);
+        }
 
-        const horas = Math.floor(minutos / 60);
+    });
 
-        mensaje = `🕒 <strong>${ultimaOferta.nombre}</strong> • Hace ${horas} hora${horas != 1 ? "s" : ""}`;
+    mostrarOfertas(ofertas);
 
-    } else {
+}
 
-        const dias = Math.floor(minutos / 1440);
-
-        mensaje = `📅 <strong>${ultimaOferta.nombre}</strong> • Hace ${dias} día${dias != 1 ? "s" : ""}`;
-
-    }
-
-   const aviso = document.getElementById("nuevaOferta");
-
-aviso.classList.remove("show");
-
-setTimeout(()=>{
-
-    aviso.innerHTML = mensaje;
-
-    aviso.classList.add("show");
-
-},300);
-
-        const mensajes = [
-
-    mensaje,
-
-    "🔥 Nuevas ofertas todos los días",
-
-    `📦 ${ofertas.length} ofertas disponibles`,
-
-    "💙 Gracias por visitar Ahorros y Descuentos Flash PR"
-
-];
-
-let i = 0;
-
-setInterval(()=>{
-
-    i++;
-
-    if(i >= mensajes.length) i = 0;
-
-    aviso.classList.remove("show");
-
-    setTimeout(()=>{
-
-        aviso.innerHTML = mensajes[i];
-
-        aviso.classList.add("show");
-
-    },300);
-
-},5000);
-
+cargarOfertasFirebase();
 }    
 cargarOfertasFirebase();
 
