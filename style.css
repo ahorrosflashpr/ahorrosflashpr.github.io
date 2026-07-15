@@ -810,31 +810,33 @@ main{
 
     position:fixed;
 
-    bottom:25px;
-
     left:20px;
+    bottom:20px;
 
-    width:58px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    height:58px;
+    padding:14px 18px;
 
     border:none;
 
-    border-radius:50%;
+    border-radius:50px;
 
     background:linear-gradient(135deg,#0b5ed7,#3b82f6);
 
     color:white;
 
-    font-size:24px;
+    font-size:18px;
+    font-weight:bold;
 
     cursor:pointer;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
 
     display:none;
 
-    z-index:998;
+    z-index:999;
 
     transition:.3s;
 
@@ -842,23 +844,39 @@ main{
 
 #btnSubir:hover{
 
-    transform:translateY(-4px) scale(1.08);
+    transform:translateY(-4px);
 
 }
 
-@media(max-width:768px){
+.texto-subir{
+
+    font-size:15px;
+
+}
+
+/* Móvil */
+
+@media (max-width:768px){
 
 #btnSubir{
 
-    left:15px;
+    width:55px;
+    height:55px;
 
+    padding:0;
+
+    border-radius:50%;
+
+    justify-content:center;
+
+    left:15px;
     bottom:15px;
 
-    width:52px;
+}
 
-    height:52px;
+.texto-subir{
 
-    font-size:22px;
+    display:none;
 
 }
 
