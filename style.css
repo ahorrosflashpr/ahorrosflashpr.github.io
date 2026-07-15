@@ -439,62 +439,66 @@ main{
     font-weight:bold;
 }
 
+
 /* ===========================
-   MÓVIL
+   MÓVILES
 =========================== */
 
 @media (max-width:768px){
 
+body{
+    overflow-x:hidden;
+}
+
+/* Barra superior */
+
 .topbar{
+    padding:10px;
     flex-direction:column;
-    text-align:center;
     gap:8px;
-    padding:10px 15px;
+    text-align:center;
 }
 
 .top-links{
     justify-content:center;
     flex-wrap:wrap;
+    gap:10px;
 }
+
+/* Header */
 
 header{
 
-    display:flex;
-    flex-direction:column;
-
-    align-items:center;
-
-    text-align:center;
+    display:block;
 
     padding:20px 15px;
 
-    gap:15px;
+    text-align:center;
 
 }
 
 .logo{
 
-    width:100%;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
+    justify-content:center;
+
+    gap:10px;
 
 }
 
 .logo img{
 
-    width:85px;
-    height:85px;
+    width:75px;
+    height:75px;
 
 }
 
 .logo h2{
 
-    font-size:24px;
-    line-height:1.2;
+    font-size:26px;
+    margin-top:8px;
 
 }
 
@@ -504,41 +508,119 @@ header{
 
 }
 
+.seguidores{
+
+    margin-top:6px;
+
+}
+
+/* Buscador */
+
 header input{
 
     width:100%;
-    max-width:100%;
+
+    margin-top:18px;
+
+    padding:14px;
 
 }
+
+/* Fecha */
 
 .ultima-actualizacion{
 
-    width:100%;
+    margin-top:12px;
 
     text-align:center;
 
-    font-size:14px;
+}
+
+/* Información */
+
+.info-bar{
+
+    margin:15px;
+
+    font-size:15px;
 
 }
 
+/* Título */
+
+.titulo-seccion{
+
+    padding:0 15px;
+
+    text-align:center;
+
+}
+
+.titulo-seccion h2{
+
+    font-size:30px;
+
+}
+
+.titulo-seccion p{
+
+    font-size:16px;
+
+}
+
+/* Tarjetas */
+
 main{
+
     display:flex;
     flex-direction:column;
     align-items:center;
+
     padding:15px;
+
+    gap:18px;
+
 }
 
 .card{
+
     width:100%;
-    max-width:360px;
+    max-width:340px;
+
+}
+
+.card img{
+
+    width:200px;
+    height:200px;
+
+}
+
+.price{
+
+    font-size:40px;
+
+}
+
+.btn-oferta,
+.btn-codigo{
+
+    width:100%;
+
+}
+
+/* Flashita */
+
+.flashita img{
+
+    width:65px;
+
 }
 
 .flashita-mensaje{
-    display:none;
-}
 
-.flashita img{
-    width:70px;
+    display:none;
+
 }
 
 }
