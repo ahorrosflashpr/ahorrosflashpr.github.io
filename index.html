@@ -2,30 +2,41 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ahorros y Descuentos Flash PR</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+    <!-- Barra superior -->
+
     <div class="topbar">
 
         <div class="top-links">
+
             <a href="https://www.facebook.com/AhorrosyDescuentosPR" target="_blank">📘 Facebook</a>
 
             <a href="https://t.me/+B64qzv7qKZI1YWIx" target="_blank">✈️ Telegram</a>
 
             <a href="mailto:ahorrosydescuentosflashpr@gmail.com">📧 Contacto</a>
+
         </div>
 
         <div class="update">
+
             🔥 Actualizado todos los días
+
         </div>
 
     </div>
+
+    <!-- Header -->
 
     <header>
 
@@ -35,68 +46,41 @@
 
             <div>
 
-<h2>Ahorros y Descuentos Flash PR</h2>
+                <h2>Ahorros y Descuentos Flash PR</h2>
 
-<header>
+                <p>Las mejores ofertas todos los días</p>
 
-    <div class="logo">
+                <p class="seguidores">
+                    💙 +21K Seguidores en Facebook
+                </p>
 
-        <img src="images/logo.png" alt="Logo">
-
-        <div>
-
-            <h2>Ahorros y Descuentos Flash PR</h2>
-
-           <header>
-
-    <div class="logo">
-
-        <img src="images/logo.png" alt="Logo">
-
-        <div>
-
-            <h2>Ahorros y Descuentos Flash PR</h2>
-
-            <p>Las mejores ofertas todos los días</p>
-
-            <p class="seguidores">
-                💙 +21K Seguidores en Facebook
-            </p>
+            </div>
 
         </div>
 
-    </div>
+        <input
+            type="text"
+            id="buscador"
+            placeholder="🔍 Buscar ofertas...">
 
-    <input
-        type="text"
-        id="buscador"
-        placeholder="🔍 Buscar ofertas...">
+        <div class="ultima-actualizacion">
 
-    <div class="ultima-actualizacion">
-        ✅ Última actualización:
-        <span id="fechaActualizacion"></span>
-    </div>
+            ✅ Última actualización:
+            <span id="fechaActualizacion"></span>
 
-</header>
-            
-<div class="buscador-mobile">
+        </div>
 
-    <input
-        type="text"
-        id="buscador"
-        placeholder="🔍 Buscar ofertas...">
+    </header>
 
-    <div class="ultima-actualizacion">
-        ✅ Última actualización:
-        <span id="fechaActualizacion"></span>
-    </div>
+    <!-- Mensaje -->
 
-</div>
     <section class="info-bar">
 
-    🔥 Nuevas ofertas todos los días • Encuentra descuentos de hasta 90% en Amazon
+        🔥 Nuevas ofertas todos los días • Encuentra descuentos de hasta 90% en Amazon
 
-</section>
+    </section>
+
+    <!-- Título -->
 
     <section class="titulo-seccion">
 
@@ -106,65 +90,75 @@
 
     </section>
 
+    <!-- Productos -->
+
     <main id="productos"></main>
+
+    <!-- Flashita -->
+
+    <div class="flashita">
+
+        <div class="flashita-mensaje" id="flashitaMensaje"></div>
+
+        <img src="images/FLASHITA.png" alt="Flashita">
+
+    </div>
 
     <script type="module" src="script.js"></script>
 
-<div class="flashita">
+    <script>
 
-    <div class="flashita-mensaje" id="flashitaMensaje"></div>
+        setTimeout(() => {
 
-    <img src="images/FLASHITA.png" alt="Flashita">
+            const flashita = document.querySelector(".flashita");
 
-</div>
+            flashita.style.opacity = "0";
+            flashita.style.transform = "translateY(25px)";
 
-<script>
+            setTimeout(() => {
 
-setTimeout(() => {
+                flashita.style.display = "none";
 
-    const flashita = document.querySelector(".flashita");
+            }, 600);
 
-    flashita.style.opacity = "0";
-    flashita.style.transform = "translateY(25px)";
+        }, 5000);
 
-    setTimeout(() => {
+    </script>
 
-        flashita.style.display = "none";
+    <script>
 
-    },600);
+        const mensajes = [
 
-},5000);
+            "👋 <strong>¡Hola! Soy Flashita</strong><br>🔥 ¡Revisa las ofertas!",
 
-</script> 
+            "💰 <strong>¡No pagues de más!</strong><br>👀 ¡Mira las ofertas!",
 
-<script>
+            "🛒 <strong>¡Encontré nuevos descuentos!</strong><br>🔥 ¡Échales un vistazo!",
 
-const mensajes = [
-    "👋 <strong>¡Hola! Soy Flashita</strong><br>🔥 ¡Revisa las ofertas!",
-    "💰 <strong>¡No pagues de más!</strong><br>👀 ¡Mira las ofertas!",
-    "🛒 <strong>¡Encontré nuevos descuentos!</strong><br>🔥 ¡Échales un vistazo!",
-    "⚡ <strong>¡Hay ofertas increíbles!</strong><br>💸 ¡Ahorra hoy!",
-    "🎉 <strong>¡Bienvenido!</strong><br>🛍️ ¡Descubre las mejores ofertas!"
-];
+            "⚡ <strong>¡Hay ofertas increíbles!</strong><br>💸 ¡Ahorra hoy!",
 
-const numero = Math.floor(Math.random() * mensajes.length);
+            "🎉 <strong>¡Bienvenido!</strong><br>🛍️ ¡Descubre las mejores ofertas!"
 
-document.getElementById("flashitaMensaje").innerHTML = mensajes[numero];
+        ];
 
-setTimeout(function(){
+        const numero = Math.floor(Math.random() * mensajes.length);
 
-    document.querySelector(".flashita").style.opacity="0";
+        document.getElementById("flashitaMensaje").innerHTML = mensajes[numero];
 
-    setTimeout(function(){
+        setTimeout(function () {
 
-        document.querySelector(".flashita").style.display="none";
+            document.querySelector(".flashita").style.opacity = "0";
 
-    },500);
+            setTimeout(function () {
 
-},7000);
+                document.querySelector(".flashita").style.display = "none";
 
-</script>
-    
+            }, 500);
+
+        }, 7000);
+
+    </script>
+
 </body>
 
 </html>
