@@ -132,17 +132,17 @@ if (editando) {
 
     await addDoc(collection(db, "ofertas"), {
 
-        nombre: document.getElementById("nombre").value,
-        precio: precio.toFixed(2),
-        antes: antes.toFixed(2),
-        descuento: descuento + "%",
-        ahorro: "$" + ahorro,
-        categoria: document.getElementById("categoria").value,
-        enlace: document.getElementById("enlace").value,
-        imagen: "images/" + document.getElementById("imagen").value
-        codigo: document.getElementById("codigo").value
+    nombre: document.getElementById("nombre").value,
+    precio: precio.toFixed(2),
+    antes: antes.toFixed(2),
+    descuento: descuento + "%",
+    ahorro: "$" + ahorro,
+    categoria: document.getElementById("categoria").value,
+    enlace: document.getElementById("enlace").value,
+    imagen: "images/" + document.getElementById("imagen").value,
+    codigo: document.getElementById("codigo").value
 
-    });
+});
 
     alert("✅ Oferta publicada");
 
