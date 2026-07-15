@@ -3,9 +3,10 @@ import { db } from "../firebase.js";
 import {
     collection,
     addDoc,
-    getDocs
+    getDocs,
+    deleteDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
 
