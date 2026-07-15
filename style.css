@@ -816,7 +816,7 @@ main{
 
     margin:15px auto;
 
-    padding:14px 20px;
+    padding:16px 20px;
 
     background:linear-gradient(90deg,#0b5ed7,#3b82f6);
 
@@ -824,40 +824,26 @@ main{
 
     border-radius:12px;
 
-    overflow:hidden;
-
-    white-space:nowrap;
+    text-align:center;
 
     font-size:17px;
 
     font-weight:bold;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 
 }
 
-.nueva-oferta span{
+.fade{
 
-    display:inline-block;
+    opacity:0;
 
-    padding-left:100%;
-
-    animation:marquesina 18s linear infinite;
+    transition:opacity .6s ease;
 
 }
 
-@keyframes marquesina{
+.fade.show{
 
-    0%{
-
-        transform:translateX(0);
-
-    }
-
-    100%{
-
-        transform:translateX(-100%);
-
-    }
+    opacity:1;
 
 }
