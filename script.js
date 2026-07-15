@@ -48,14 +48,13 @@ function mostrarOfertas(lista) {
 
     contenedor.innerHTML = "";
 
-lista.forEach(oferta => {
+    lista.forEach(oferta => {
 
-    const ahorro = (
-        parseFloat(oferta.antes) - parseFloat(oferta.precio)
-    ).toFixed(2);
+        const ahorro = (
+            parseFloat(oferta.antes) - parseFloat(oferta.precio)
+        ).toFixed(2);
 
-    contenedor.innerHTML += `
-    `
+        contenedor.innerHTML += `
         <div class="card">
 
             <div class="descuento">-${oferta.descuento}</div>
@@ -64,25 +63,27 @@ lista.forEach(oferta => {
 
             <h2>${oferta.nombre}</h2>
 
-            <p class="old">${oferta.antes}</p>
+            <p class="old">$${oferta.antes}</p>
 
-            <p class="price">${oferta.precio}</p>
-    <p class="ahorro">
-    💰 Ahorras $${ahorro}
-</p>
+            <p class="price">$${oferta.precio}</p>
+
+            <p class="ahorro">
+                💰 Ahorras $${ahorro}
+            </p>
 
             ${oferta.codigo ? `
-<button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
-📋 COPIAR CÓDIGO: ${oferta.codigo}
-</button>
-` : ""}
+                <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
+                    📋 COPIAR CÓDIGO: ${oferta.codigo}
+                </button>
+            ` : ""}
 
-<a href="${oferta.enlace}" target="_blank" class="btn-oferta">
-🔥 VER OFERTA AHORA
-</a>
+            <a href="${oferta.enlace}" target="_blank" class="btn-oferta">
+                🔥 VER OFERTA AHORA
+            </a>
 
         </div>
         `;
+
     });
 
 }
