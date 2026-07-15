@@ -125,7 +125,7 @@ formulario.addEventListener("submit", async (e) => {
                 ahorro: document.getElementById("ahorro").value,
                 categoria: document.getElementById("categoria").value,
                 enlace: document.getElementById("enlace").value,
-                imagen: archivo ? "images/" + archivo.name : ""
+                imagen: "images/" + document.getElementById("imagen").value
 
             });
 
