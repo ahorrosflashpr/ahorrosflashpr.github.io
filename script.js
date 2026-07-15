@@ -176,11 +176,15 @@ window.copiarCodigo = async function(codigo, boton){
 
 }
 
+// ===============================
+// Botón subir
+// ===============================
+
 const btnSubir = document.getElementById("btnSubir");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 600) {
+    if (window.scrollY > 500) {
 
         btnSubir.style.display = "block";
 
