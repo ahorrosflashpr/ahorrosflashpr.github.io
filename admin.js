@@ -27,8 +27,8 @@ async function cargarOfertas() {
             <td>${oferta.precio}</td>
             <td>${oferta.categoria}</td>
             <td>
-                <button class="editar">✏️</button>
-                <button class="eliminar">🗑️</button>
+                <button class="editar" data-id="${documento.id}">✏️</button>
+                <button class="eliminar" data-id="${documento.id}">🗑️</button>
             </td>
         </tr>
         `;
