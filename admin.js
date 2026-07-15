@@ -12,6 +12,7 @@ import {
 
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
+let editando = null;
 
 // ===============================
 // Cargar ofertas
