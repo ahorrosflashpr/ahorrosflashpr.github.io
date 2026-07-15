@@ -130,3 +130,16 @@ tr:hover{
     cursor:pointer;
 
 }
+
+.total-ofertas{
+
+    margin-top:35px;
+    margin-bottom:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#0d5bd7;
+
+}
