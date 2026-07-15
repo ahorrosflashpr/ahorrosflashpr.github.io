@@ -242,6 +242,7 @@ setInterval(()=>{
 
 }
 
+}    
 cargarOfertasFirebase();
 
 window.copiarCodigo = async function(codigo, boton){
