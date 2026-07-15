@@ -15,23 +15,23 @@ formulario.addEventListener("submit", async (e)=>{
 
         await addDoc(collection(db,"ofertas"),{
 
-            nombre:document.getElementById("nombre").value,
+    nombre:document.getElementById("nombre").value,
 
-            precio:document.getElementById("precio").value,
+    precio:document.getElementById("precio").value,
 
-            antes:document.getElementById("antes").value,
+    antes:document.getElementById("antes").value,
 
-            descuento:document.getElementById("descuento").value,
+    descuento:document.getElementById("descuento").value,
 
-            ahorro:document.getElementById("ahorro").value,
+    ahorro:document.getElementById("ahorro").value,
 
-            categoria:document.getElementById("categoria").value,
+    categoria:document.getElementById("categoria").value,
 
-            enlace:document.getElementById("amazon").value,
+    enlace:document.getElementById("enlace").value,
 
-            imagen:"images/" + document.getElementById("imagen").files[0].name
+    imagen:"images/" + document.getElementById("imagen").files[0].name
 
-        });
+});
 
         alert("✅ Oferta publicada");
 
