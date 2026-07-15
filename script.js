@@ -166,40 +166,7 @@ async function cargarOfertasFirebase() {
     mostrarOfertas(ofertas);
 
 }
-
-    async function cargarOfertasFirebase() {
-
-    ofertas = [];
-
-    const q = query(
-        collection(db, "ofertas"),
-        orderBy("fecha", "desc")
-    );
-
-    const consulta = await getDocs(q);
-
-    consulta.forEach((documento) => {
-
-        const oferta = documento.data();
-
-        oferta.id = documento.id;
-
-        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
-            oferta.imagen = "images/" + oferta.imagen;
-        }
-
-        if ((oferta.estado || "activa") === "activa") {
-            ofertas.push(oferta);
-        }
-
-    });
-
-    mostrarOfertas(ofertas);
-
-}
-
-cargarOfertasFirebase();
-}    
+ 
 cargarOfertasFirebase();
 
 window.copiarCodigo = async function(codigo, boton){
