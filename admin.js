@@ -114,7 +114,6 @@ if (editando) {
         antes: antes.toFixed(2),
         descuento: descuento + "%",
         ahorro: "$" + ahorro,
-        categoria: document.getElementById("categoria").value,
         enlace: document.getElementById("enlace").value,
         imagen: "images/" + document.getElementById("imagen").value,
         codigo: document.getElementById("codigo").value
@@ -136,7 +135,6 @@ if (editando) {
     antes: antes.toFixed(2),
     descuento: descuento + "%",
     ahorro: "$" + ahorro,
-    categoria: document.getElementById("categoria").value,
     enlace: document.getElementById("enlace").value,
     imagen: "images/" + document.getElementById("imagen").value,
     codigo: document.getElementById("codigo").value
