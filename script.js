@@ -188,6 +188,31 @@ window.copiarCodigo = async function(codigo, boton){
 }
 
 // ===============================
+// CONTADOR DE CLICS
+// ===============================
+
+window.abrirOferta = async function(id, enlace){
+
+    try{
+
+        await updateDoc(
+            doc(db, "ofertas", id),
+            {
+                clics: increment(1)
+            }
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+    window.open(enlace, "_blank");
+
+}
+
+// ===============================
 // BOTÓN SUBIR
 // ===============================
 
