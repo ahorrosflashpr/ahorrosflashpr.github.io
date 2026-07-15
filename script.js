@@ -196,10 +196,49 @@ async function cargarOfertasFirebase() {
 
     }
 
-    document.getElementById("nuevaOferta").innerHTML =
-    `<span>${mensaje}</span>`;
+   const aviso = document.getElementById("nuevaOferta");
 
-}
+aviso.classList.remove("show");
+
+setTimeout(()=>{
+
+    aviso.innerHTML = mensaje;
+
+    aviso.classList.add("show");
+
+},300);
+
+        const mensajes = [
+
+    mensaje,
+
+    "🔥 Nuevas ofertas todos los días",
+
+    `📦 ${ofertas.length} ofertas disponibles`,
+
+    "💙 Gracias por visitar Ahorros y Descuentos Flash PR"
+
+];
+
+let i = 0;
+
+setInterval(()=>{
+
+    i++;
+
+    if(i >= mensajes.length) i = 0;
+
+    aviso.classList.remove("show");
+
+    setTimeout(()=>{
+
+        aviso.innerHTML = mensajes[i];
+
+        aviso.classList.add("show");
+
+    },300);
+
+},5000);
 
 }
 
