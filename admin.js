@@ -93,7 +93,6 @@ formulario.addEventListener("submit", async (e) => {
 
     try {
 
-        const archivo = document.getElementById("imagen").files[0];
 
         if (editando) {
 
