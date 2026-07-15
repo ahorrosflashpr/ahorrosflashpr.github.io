@@ -22,7 +22,10 @@ featured.innerHTML = `
 <div class="featured">
 
     <div class="featured-image">
-        <img src="${oferta.imagen}" alt="${oferta.nombre}">
+        <img
+    src="${oferta.imagen}"
+    alt="${oferta.nombre}"
+    onerror="this.src='images/cargando.jpg'">
     </div>
 
     <div class="featured-info">
