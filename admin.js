@@ -19,6 +19,20 @@ async function cargarOfertas() {
 
     consulta.forEach((documento) => {
 
+        document.querySelectorAll(".eliminar").forEach(boton => {
+
+    boton.addEventListener("click", async () => {
+
+        if(!confirm("¿Eliminar esta oferta?")) return;
+
+        await deleteDoc(doc(db,"ofertas",boton.dataset.id));
+
+        cargarOfertas();
+
+    });
+
+});
+
         const oferta = documento.data();
 
         tbody.innerHTML += `
