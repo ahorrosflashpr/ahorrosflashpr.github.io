@@ -54,8 +54,6 @@ async function cargarOfertas() {
             document.getElementById("nombre").value = oferta.nombre;
             document.getElementById("precio").value = oferta.precio;
             document.getElementById("antes").value = oferta.antes;
-            document.getElementById("descuento").value = oferta.descuento;
-            document.getElementById("ahorro").value = oferta.ahorro;
             document.getElementById("categoria").value = oferta.categoria;
             document.getElementById("enlace").value = oferta.enlace;
             document.getElementById("imagen").value =
