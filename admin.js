@@ -24,16 +24,12 @@ async function cargarOfertas() {
 
     tbody.innerHTML = "";
 
-   const q = query(
-    collection(db, "ofertas"),
-    orderBy("fecha", "desc")
-);
-
-const consulta = await getDocs(q);
+    // Temporalmente quitamos el orden por fecha
+    const consulta = await getDocs(collection(db, "ofertas"));
 
     document.getElementById("totalOfertas").textContent =
-    `📦 ${consulta.size} ofertas publicadas`;
-    
+        `📦 ${consulta.size} ofertas publicadas`;
+
     consulta.forEach((documento) => {
 
         const oferta = documento.data();
@@ -41,8 +37,8 @@ const consulta = await getDocs(q);
         tbody.innerHTML += `
         <tr>
             <td>${oferta.nombre}</td>
-            <td>${oferta.precio}</td>
-            <td>${oferta.categoria}</td>
+            <td>$${oferta.precio}</td>
+            <td>${oferta.codigo || "-"}</td>
             <td>
                 <button class="editar" data-id="${documento.id}">✏️</button>
                 <button class="eliminar" data-id="${documento.id}">🗑️</button>
@@ -52,7 +48,10 @@ const consulta = await getDocs(q);
 
     });
 
+    // ===============================
     // BOTONES EDITAR
+    // ===============================
+
     document.querySelectorAll(".editar").forEach((boton) => {
 
         boton.addEventListener("click", async () => {
@@ -66,18 +65,22 @@ const consulta = await getDocs(q);
             document.getElementById("antes").value = oferta.antes;
             document.getElementById("enlace").value = oferta.enlace;
             document.getElementById("imagen").value =
-            oferta.imagen.replace("images/","");
+                oferta.imagen.replace("images/", "");
             document.getElementById("codigo").value = oferta.codigo || "";
 
             editando = boton.dataset.id;
 
-            formulario.querySelector("button").textContent = "💾 GUARDAR CAMBIOS";
+            formulario.querySelector("button").textContent =
+                "💾 GUARDAR CAMBIOS";
 
         });
 
     });
 
+    // ===============================
     // BOTONES ELIMINAR
+    // ===============================
+
     document.querySelectorAll(".eliminar").forEach((boton) => {
 
         boton.addEventListener("click", async () => {
