@@ -12,12 +12,19 @@ body{
 
 .panel{
     width:100%;
-    max-width:1000px;
+    max-width:1400px;
     margin:auto;
+
     background:#fff;
     border-radius:20px;
     padding:35px;
+
     box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:40px;
+    align-items:start;
 }
 
 .panel h1{
@@ -38,30 +45,23 @@ label{
     margin-bottom:8px;
 }
 
-input,
-select{
-
+input{
     width:100%;
     padding:14px;
     border:1px solid #d8d8d8;
     border-radius:12px;
     font-size:16px;
-
 }
 
-input:focus,
-select:focus{
-
+input:focus{
     outline:none;
     border-color:#0d5bd7;
-
 }
 
 button{
-
     width:100%;
-    margin-top:35px;
-    padding:18px;
+    margin-top:25px;
+    padding:16px;
     border:none;
     border-radius:14px;
     background:#0d5bd7;
@@ -70,46 +70,34 @@ button{
     font-weight:bold;
     cursor:pointer;
     transition:.3s;
-
 }
 
 button:hover{
-
     background:#0849af;
-
 }
 
 table{
-
     width:100%;
-    margin-top:30px;
+    margin-top:20px;
     border-collapse:collapse;
-
 }
 
 th{
-
     background:#0d5bd7;
     color:white;
     padding:14px;
-
 }
 
 td{
-
     padding:14px;
     border-bottom:1px solid #ddd;
-
 }
 
 tr:hover{
-
     background:#f5f5f5;
-
 }
 
 .editar{
-
     background:#0d5bd7;
     color:white;
     border:none;
@@ -117,53 +105,114 @@ tr:hover{
     border-radius:8px;
     cursor:pointer;
     margin-right:8px;
-
 }
 
 .eliminar{
-
     background:#e53935;
     color:white;
     border:none;
     padding:8px 14px;
     border-radius:8px;
     cursor:pointer;
-
 }
 
 .total-ofertas{
-
-    margin-top:35px;
-    margin-bottom:12px;
-
+    margin-top:30px;
+    margin-bottom:15px;
     font-size:18px;
-
     font-weight:bold;
-
     color:#0d5bd7;
-
 }
 
-.panel{
+/* ========================= */
+/* Vista previa */
+/* ========================= */
 
-    display:grid;
-    grid-template-columns:420px 350px;
-    gap:40px;
-
-    max-width:1000px;
-
+.preview{
+    position:sticky;
+    top:20px;
+    align-self:start;
 }
 
 .preview h2{
-
     color:#0d5bd7;
     margin-bottom:20px;
-
 }
 
 .preview-card{
+    width:320px;
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    position:relative;
+}
 
-    position:sticky;
-    top:30px;
+.preview-card img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
 
+.preview-card h2{
+    margin:15px 0;
+    font-size:22px;
+}
+
+.old{
+    text-decoration:line-through;
+    color:#888;
+    font-size:18px;
+}
+
+.price{
+    color:#e60023;
+    font-size:38px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.descuento{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:#e60023;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.btn-codigo{
+    width:100%;
+    margin-top:15px;
+    margin-bottom:10px;
+    padding:14px;
+    background:#16a34a;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.btn-oferta{
+    display:block;
+    width:100%;
+    padding:15px;
+    background:#ff9900;
+    color:white;
+    text-decoration:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.btn-oferta:hover{
+    background:#e68a00;
 }
