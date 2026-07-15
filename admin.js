@@ -42,31 +42,30 @@ async function cargarOfertas() {
     });
 
     // Botones eliminar
-    document.querySelectorAll(".eliminar").forEach((boton) => {
+    // Botones editar
+document.querySelectorAll(".editar").forEach((boton)=>{
 
-        boton.addEventListener("click", async () => {
+    boton.addEventListener("click",async()=>{
 
-            const id = boton.dataset.id;
+        const documento=await getDoc(doc(db,"ofertas",boton.dataset.id));
 
-            if (!confirm("¿Eliminar esta oferta?")) return;
+        const oferta=documento.data();
 
-            try {
+        document.getElementById("nombre").value=oferta.nombre;
+        document.getElementById("precio").value=oferta.precio;
+        document.getElementById("antes").value=oferta.antes;
+        document.getElementById("descuento").value=oferta.descuento;
+        document.getElementById("ahorro").value=oferta.ahorro;
+        document.getElementById("categoria").value=oferta.categoria;
+        document.getElementById("enlace").value=oferta.enlace;
 
-                await deleteDoc(doc(db, "ofertas", id));
+        editando=boton.dataset.id;
 
-                cargarOfertas();
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert("Error al eliminar");
-
-            }
-
-        });
+        formulario.querySelector("button").textContent="💾 GUARDAR CAMBIOS";
 
     });
+
+});
 
 }
 
