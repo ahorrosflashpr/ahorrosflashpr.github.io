@@ -16,68 +16,104 @@
 
 <div class="panel">
 
-    <h1>⚡ Panel Flash</h1>
+    <!-- IZQUIERDA -->
+    <div>
 
-    <p>Publica nuevas ofertas en segundos.</p>
+        <h1>⚡ Panel Flash</h1>
 
-    <form id="formOferta">
+        <p>Publica nuevas ofertas en segundos.</p>
 
-        <label>🔗 Enlace de Afiliado</label>
-        <input type="text" id="enlace" placeholder="Pega aquí tu enlace de afiliado">
+        <form id="formOferta">
 
-        <label>📝 Nombre del producto</label>
-        <input type="text" id="nombre">
+            <label>🔗 Enlace de Afiliado</label>
+            <input type="text" id="enlace" placeholder="Pega aquí tu enlace de afiliado">
 
-        <label>💲 Precio</label>
-        <input type="text" id="precio">
+            <label>📝 Nombre del producto</label>
+            <input type="text" id="nombre">
 
-        <label>💸 Precio anterior</label>
-        <input type="text" id="antes">
+            <label>💲 Precio</label>
+            <input type="text" id="precio">
 
-        <label>🖼 Nombre de la imagen</label>
+            <label>💸 Precio anterior</label>
+            <input type="text" id="antes">
 
-<input
-    type="text"
-    id="imagen"
-    placeholder="Ejemplo: Aspiradora.jpg">
+            <label>🖼 Nombre de la imagen</label>
+            <input
+                type="text"
+                id="imagen"
+                placeholder="Ejemplo: Aspiradora.jpg">
 
-<label>🏷 Código de descuento (opcional)</label>
+            <label>🏷 Código de descuento (opcional)</label>
+            <input
+                type="text"
+                id="codigo"
+                placeholder="Ejemplo: SAVE20">
 
-<input
-    type="text"
-    id="codigo"
-    placeholder="Ejemplo: SAVE20">
+            <button type="submit">
+                🚀 PUBLICAR OFERTA
+            </button>
 
-        <button type="submit">
-            🚀 PUBLICAR OFERTA
-        </button>
+        </form>
 
-    </form>
+        <p id="totalOfertas" class="total-ofertas"></p>
 
-<p id="totalOfertas" class="total-ofertas"></p>
-    
-    <h2 style="margin-top:40px;">📦 Ofertas Publicadas</h2>
+        <h2 style="margin-top:40px;">📦 Ofertas Publicadas</h2>
 
-    <table id="tablaOfertas">
+        <table id="tablaOfertas">
 
-        <thead>
+            <thead>
 
-            <tr>
+                <tr>
 
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Categoría</th>
-                <th>Acciones</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
 
-            </tr>
+                </tr>
 
-        </thead>
+            </thead>
 
-        <tbody>
+            <tbody>
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div class="preview">
+
+        <h2>👀 Vista previa</h2>
+
+        <div class="card preview-card">
+
+            <div class="descuento" id="pDescuento">-0%</div>
+
+            <img id="pImagen" src="images/logo.png" alt="Vista previa">
+
+            <h2 id="pNombre">Nombre del producto</h2>
+
+            <p class="old" id="pAntes">$0.00</p>
+
+            <p class="price" id="pPrecio">$0.00</p>
+
+            <button
+                class="btn-codigo"
+                id="pCodigo"
+                style="display:none;">
+
+                📋 COPIAR CÓDIGO
+
+            </button>
+
+            <a class="btn-oferta">
+                🔥 VER OFERTA AHORA
+            </a>
+
+        </div>
+
+    </div>
 
 </div>
 
