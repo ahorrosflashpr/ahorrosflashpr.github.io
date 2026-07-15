@@ -77,6 +77,8 @@ async function cargarOfertas() {
             document.getElementById("imagen").value =
                 oferta.imagen.replace("images/", "");
             document.getElementById("codigo").value = oferta.codigo || "";
+            document.getElementById("estado").value =
+    oferta.estado || "activa";
 
             editando = boton.dataset.id;
 
