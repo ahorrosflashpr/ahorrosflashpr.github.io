@@ -802,10 +802,64 @@ main{
 
 }
 
+/* ===========================
+   BOTÓN SUBIR
+=========================== */
+
+#btnSubir{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:20px;
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#0b5ed7,#3b82f6);
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+    display:none;
+
+    z-index:998;
+
+    transition:.3s;
+
+}
+
 #btnSubir:hover{
 
-    background:#0848aa;
+    transform:translateY(-4px) scale(1.08);
 
-    transform:translateY(-3px);
+}
+
+@media(max-width:768px){
+
+#btnSubir{
+
+    left:15px;
+
+    bottom:15px;
+
+    width:52px;
+
+    height:52px;
+
+    font-size:22px;
+
+}
 
 }
