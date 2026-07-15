@@ -12,11 +12,11 @@ body{
 header{
     background:linear-gradient(90deg,#0b5ed7,#0047b3);
     color:white;
-    padding:12px 30px;
+    padding:10px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
+    gap:15px;
 }
 
 .logo{
