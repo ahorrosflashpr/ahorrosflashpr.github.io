@@ -140,7 +140,9 @@ async function cargarOfertasFirebase() {
             oferta.imagen = "images/" + oferta.imagen;
         }
 
-        ofertas.push(oferta);
+        if ((oferta.estado || "activa") === "activa") {
+    ofertas.push(oferta);
+}
 
     });
 
