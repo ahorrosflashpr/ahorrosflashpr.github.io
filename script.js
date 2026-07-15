@@ -53,8 +53,6 @@ function mostrarOfertas(lista) {
         contenedor.innerHTML += `
         <div class="card">
 
-            <div class="badge">${oferta.etiqueta || "🔥 Oferta Flash"}</div>
-
             <div class="descuento">-${oferta.descuento}</div>
 
             <img src="${oferta.imagen}" alt="${oferta.nombre}">
