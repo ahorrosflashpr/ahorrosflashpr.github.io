@@ -24,8 +24,12 @@ async function cargarOfertas() {
 
     tbody.innerHTML = "";
 
-    // Temporalmente quitamos el orden por fecha
-    const consulta = await getDocs(collection(db, "ofertas"));
+    const q = query(
+    collection(db, "ofertas"),
+    orderBy("fecha", "desc")
+);
+
+const consulta = await getDocs(q);
 
     document.getElementById("totalOfertas").textContent =
         `📦 ${consulta.size} ofertas publicadas`;
