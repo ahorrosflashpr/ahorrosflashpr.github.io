@@ -164,6 +164,40 @@ async function cargarOfertasFirebase() {
 });
     mostrarOfertas(ofertas);
 
+    if (ofertas.length) {
+
+    const minutos = Math.floor(
+        (Date.now() - ofertas[0].fecha) / 60000
+    );
+
+    let texto = "";
+
+    if (minutos < 1) {
+
+        texto = "🚨 ¡Nueva oferta recién publicada!";
+
+    } else if (minutos < 60) {
+
+        texto = `🆕 Nueva oferta publicada hace ${minutos} minuto${minutos > 1 ? "s" : ""}`;
+
+    } else if (minutos < 1440) {
+
+        const horas = Math.floor(minutos / 60);
+
+        texto = `🕒 Última oferta publicada hace ${horas} hora${horas > 1 ? "s" : ""}`;
+
+    } else {
+
+        const dias = Math.floor(minutos / 1440);
+
+        texto = `📅 Última oferta publicada hace ${dias} día${dias > 1 ? "s" : ""}`;
+
+    }
+
+    document.getElementById("nuevaOferta").innerHTML = texto;
+
+}
+
 }
 
 cargarOfertasFirebase();
