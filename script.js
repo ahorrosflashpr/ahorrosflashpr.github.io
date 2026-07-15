@@ -63,7 +63,13 @@ function mostrarOfertas(lista) {
 
             <p class="price">${oferta.precio}</p>
 
-            <a href="${oferta.enlace}" target="_blank" class="btn-oferta">
+            ${oferta.codigo ? `
+<button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
+📋 COPIAR CÓDIGO: ${oferta.codigo}
+</button>
+` : ""}
+
+<a href="${oferta.enlace}" target="_blank" class="btn-oferta">
 🔥 VER OFERTA AHORA
 </a>
 
@@ -135,3 +141,27 @@ async function cargarOfertasFirebase() {
 }
 
 cargarOfertasFirebase();
+
+window.copiarCodigo = async function(codigo, boton){
+
+    try{
+
+        await navigator.clipboard.writeText(codigo);
+
+        const texto = boton.innerHTML;
+
+        boton.innerHTML = "✅ ¡Código copiado!";
+
+        setTimeout(()=>{
+
+            boton.innerHTML = texto;
+
+        },2000);
+
+    }catch{
+
+        alert("No se pudo copiar el código.");
+
+    }
+
+}
