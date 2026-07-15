@@ -191,3 +191,18 @@ tr:hover{
 .btn-oferta:hover{
     background:#e68a00;
 }
+
+.miniatura{
+
+    width:55px;
+    height:55px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    background:white;
+
+    padding:4px;
+
+}
