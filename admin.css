@@ -81,3 +81,55 @@ button:hover{
     background:#0849af;
 
 }
+
+table{
+
+    width:100%;
+    margin-top:30px;
+    border-collapse:collapse;
+
+}
+
+th{
+
+    background:#0d5bd7;
+    color:white;
+    padding:14px;
+
+}
+
+td{
+
+    padding:14px;
+    border-bottom:1px solid #ddd;
+
+}
+
+tr:hover{
+
+    background:#f5f5f5;
+
+}
+
+.editar{
+
+    background:#0d5bd7;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-right:8px;
+
+}
+
+.eliminar{
+
+    background:#e53935;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
