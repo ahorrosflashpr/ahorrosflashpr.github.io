@@ -805,3 +805,33 @@ main{
 }
 
 }
+
+/* ===========================
+   NUEVA OFERTA
+=========================== */
+
+.nueva-oferta{
+
+    max-width:1400px;
+
+    margin:15px auto;
+
+    padding:14px 20px;
+
+    background:#d1fae5;
+
+    color:#065f46;
+
+    border:1px solid #10b981;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
