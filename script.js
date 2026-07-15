@@ -177,7 +177,7 @@ window.copiarCodigo = async function(codigo, boton){
 }
 
 // ===============================
-// Botón subir
+// BOTÓN SUBIR
 // ===============================
 
 const btnSubir = document.getElementById("btnSubir");
@@ -186,7 +186,7 @@ window.addEventListener("scroll", () => {
 
     if (window.scrollY > 500) {
 
-        btnSubir.style.display = "block";
+        btnSubir.style.display = "flex";
 
     } else {
 
@@ -201,7 +201,6 @@ btnSubir.addEventListener("click", () => {
     window.scrollTo({
 
         top:0,
-
         behavior:"smooth"
 
     });
