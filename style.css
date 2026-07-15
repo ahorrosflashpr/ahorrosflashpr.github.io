@@ -398,3 +398,35 @@ main{
     color:#dbeafe;
     font-weight:500;
 }
+
+.btn-codigo{
+
+    width:100%;
+    margin-top:15px;
+    margin-bottom:10px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#16a34a;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-codigo:hover{
+
+    background:#15803d;
+
+}
