@@ -51,3 +51,43 @@ formulario.addEventListener("submit", async (e)=>{
     }
 
 });
+
+const tbody = document.querySelector("#tablaOfertas tbody");
+
+async function cargarOfertas(){
+
+    tbody.innerHTML = "";
+
+    const consulta = await getDocs(collection(db,"ofertas"));
+
+    consulta.forEach((doc)=>{
+
+        const oferta = doc.data();
+
+        tbody.innerHTML += `
+
+        <tr>
+
+            <td>${oferta.nombre}</td>
+
+            <td>${oferta.precio}</td>
+
+            <td>${oferta.categoria}</td>
+
+            <td>
+
+                <button class="editar">Editar</button>
+
+                <button class="eliminar">Eliminar</button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+cargarOfertas();
