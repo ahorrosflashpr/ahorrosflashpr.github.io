@@ -166,3 +166,65 @@ if (editando) {
 // Iniciar
 // ===============================
 cargarOfertas();
+
+const nombre=document.getElementById("nombre");
+const precio=document.getElementById("precio");
+const antes=document.getElementById("antes");
+const imagen=document.getElementById("imagen");
+const codigo=document.getElementById("codigo");
+
+function actualizarPreview(){
+
+    document.getElementById("pNombre").textContent=
+        nombre.value || "Nombre del producto";
+
+    document.getElementById("pPrecio").textContent=
+        "$"+(precio.value || "0.00");
+
+    document.getElementById("pAntes").textContent=
+        "$"+(antes.value || "0.00");
+
+    if(precio.value && antes.value){
+
+        const d=Math.round(((antes.value-precio.value)/antes.value)*100);
+
+        document.getElementById("pDescuento").textContent="-"+d+"%";
+
+    }
+
+    if(imagen.value){
+
+        document.getElementById("pImagen").src=
+            "images/"+imagen.value;
+
+    }
+
+    if(codigo.value){
+
+        document.getElementById("pCodigo").style.display="block";
+
+        document.getElementById("pCodigo").textContent=
+            "📋 "+codigo.value;
+
+    }else{
+
+        document.getElementById("pCodigo").style.display="none";
+
+    }
+
+}
+
+[
+nombre,
+precio,
+antes,
+imagen,
+codigo
+
+].forEach(campo=>{
+
+    campo.addEventListener("input",actualizarPreview);
+
+});
+
+actualizarPreview();
