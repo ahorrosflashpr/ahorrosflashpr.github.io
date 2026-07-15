@@ -142,7 +142,7 @@ if (editando) {
     enlace: document.getElementById("enlace").value,
     imagen: "images/" + document.getElementById("imagen").value,
     codigo: document.getElementById("codigo").value,
-    estado: document.getElementById("estado").value
+    estado: document.getElementById("estado").value,
 
     fecha: Date.now()
 
