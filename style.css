@@ -768,40 +768,6 @@ main{
 
 /* Botón subir */
 
-#btnSubir{
-
-    position:fixed;
-
-    bottom:25px;
-
-    left:25px;
-
-    width:55px;
-
-    height:55px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#0b5ed7;
-
-    color:white;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    box-shadow:0 6px 15px rgba(0,0,0,.25);
-
-    display:none;
-
-    z-index:999;
-
-    transition:.3s;
-
-}
-
 /* ===========================
    BOTÓN SUBIR
 =========================== */
