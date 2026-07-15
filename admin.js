@@ -156,6 +156,7 @@ if (editando) {
 } else {
 
     console.log("Guardando fecha:", Date.now());
+    
     await addDoc(collection(db, "ofertas"), {
 
     nombre: document.getElementById("nombre").value,
@@ -166,6 +167,7 @@ if (editando) {
     enlace: document.getElementById("enlace").value,
     imagen: "images/" + document.getElementById("imagen").value,
     codigo: document.getElementById("codigo").value,
+    estado: document.getElementById("estado").value,
 
     fecha: Date.now()
 
