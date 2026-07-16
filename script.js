@@ -59,18 +59,25 @@ function mostrarOfertas(lista) {
 
         const fecha = new Date(oferta.fecha);
 
-        const hoy = new Date();
+const hoy = new Date();
 
-        const hoy0 = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+const inicioHoy = new Date();
+inicioHoy.setHours(0, 0, 0, 0);
 
-        const fecha0 = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
+const inicioManana = new Date(inicioHoy);
+inicioManana.setDate(inicioManana.getDate() + 1);
 
-        const dias = Math.floor((hoy0 - fecha0) / 86400000);
+const inicioAyer = new Date(inicioHoy);
+inicioAyer.setDate(inicioAyer.getDate() - 1);
+
+const esHoy = fecha >= inicioHoy && fecha < inicioManana;
+
+const esAyer = fecha >= inicioAyer && fecha < inicioHoy;
 
         let titulo = "";
 let subtitulo = "";
 
-if (dias === 0) {
+if (esHoy) {
 
     titulo = "Ofertas de Hoy";
 
@@ -84,7 +91,7 @@ if (dias === 0) {
 
     subtitulo = `💙 Hoy hemos publicado ${cantidadHoy} ofertas para ayudarte a ahorrar.`;
 
-} else if (dias === 1) {
+} else if (esAyer) {
 
     titulo = "📅 AYER";
 
