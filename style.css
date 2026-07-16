@@ -231,11 +231,15 @@ main{
 
 .titulo-seccion p{
 
-    font-size:22px;
+    font-size:24px;
 
-    color:#666;
+    font-weight:600;
 
-    margin:0;
+    color:#555;
+
+    font-style:italic;
+
+    margin-top:15px;
 
 }
 
