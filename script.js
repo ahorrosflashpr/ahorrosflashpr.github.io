@@ -304,6 +304,20 @@ document.querySelectorAll("#listaCategorias button").forEach(boton => {
         listaCategorias.style.display = "none";
         flechaCategoria.textContent = "▼";
 
+        const texto = boton.textContent.trim();
+
+        if (texto.includes("Todas")) {
+            btnCategorias.innerHTML = `
+                🛍️ Buscar por categoría
+                <span id="flechaCategoria">▼</span>
+            `;
+        } else {
+            btnCategorias.innerHTML = `
+                ${texto}
+                <span id="flechaCategoria">▼</span>
+            `;
+        }
+
     });
 
 });
