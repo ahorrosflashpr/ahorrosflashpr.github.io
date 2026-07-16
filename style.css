@@ -912,3 +912,90 @@ main{
 
 }
 
+.selector-categorias{
+
+    max-width:1300px;
+    margin:15px auto;
+    padding:0 20px;
+
+}
+
+#btnCategorias{
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#ffffff;
+
+    border:2px solid #d9d9d9;
+
+    border-radius:15px;
+
+    padding:16px 20px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#btnCategorias:hover{
+
+    border-color:#0b5ed7;
+
+}
+
+#flechaCategoria{
+
+    transition:.3s;
+
+}
+
+.lista-categorias{
+
+    display:none;
+
+    margin-top:10px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.lista-categorias button{
+
+    width:100%;
+
+    border:none;
+
+    background:white;
+
+    padding:16px;
+
+    text-align:left;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.lista-categorias button:hover{
+
+    background:#f5f8ff;
+
+}
