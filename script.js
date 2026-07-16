@@ -53,31 +53,7 @@ function mostrarOfertas(lista) {
 
     contenedor.innerHTML = "";
 
-    let ultimoGrupo = "";
-
     lista.forEach(oferta => {
-
-const fecha = new Date(Number(oferta.fecha));
-
-const hoy = new Date();
-
-const inicioHoy = new Date();
-inicioHoy.setHours(0, 0, 0, 0);
-
-const inicioManana = new Date(inicioHoy);
-inicioManana.setDate(inicioManana.getDate() + 1);
-
-const inicioAyer = new Date(inicioHoy);
-inicioAyer.setDate(inicioAyer.getDate() - 1);
-
-const esHoy = fecha >= inicioHoy && fecha < inicioManana;
-
-const esAyer = fecha >= inicioAyer && fecha < inicioHoy;
-
-let titulo = "";
-
-        // No mostrar encabezados de fecha
-
         const ahorro = (
     parseFloat(oferta.antes) - parseFloat(oferta.precio)
 ).toFixed(2);
