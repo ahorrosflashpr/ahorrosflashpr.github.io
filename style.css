@@ -877,16 +877,13 @@ main{
 
 .grupo-fecha h2{
 
-    font-size:36px;
-
+    font-size:52px;
     color:#0b5ed7;
-
-    margin:0;
-
     font-weight:800;
 
-}
+    margin:0 0 5px 0;
 
+}
 .grupo-fecha p{
 
     margin-top:8px;
