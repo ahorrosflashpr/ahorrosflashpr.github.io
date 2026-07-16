@@ -57,7 +57,7 @@ function mostrarOfertas(lista) {
 
     lista.forEach(oferta => {
 
-        const fecha = new Date(oferta.fecha);
+const fecha = new Date(Number(oferta.fecha));
 
 const hoy = new Date();
 
@@ -83,7 +83,7 @@ if (esHoy) {
 
     const cantidadHoy = lista.filter(o => {
 
-    const f = new Date(o.fecha);
+    const f = new Date(Number(o.fecha));
 
     return f >= inicioHoy && f < inicioManana;
 
