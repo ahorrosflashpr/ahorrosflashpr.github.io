@@ -79,17 +79,23 @@ let subtitulo = "";
 
 if (esHoy) {
 
-    titulo = "Ofertas de Hoy";
-
     const cantidadHoy = lista.filter(o => {
 
-    const f = Number(o.fecha);
+        const f = Number(o.fecha);
 
-    return f >= inicioHoy.getTime() &&
-           f < inicioManana.getTime();
+        return f >= inicioHoy.getTime() &&
+               f < inicioManana.getTime();
 
-}).length;
-    
+    }).length;
+
+    if (cantidadHoy === 0) {
+
+        return;
+
+    }
+
+    titulo = "Ofertas de Hoy";
+
     subtitulo = `💙 Hoy hemos publicado ${cantidadHoy} ofertas para ayudarte a ahorrar.`;
 
 } else if (esAyer) {
