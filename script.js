@@ -82,7 +82,7 @@ if (dias === 0) {
 
     }).length;
 
-    subtitulo = `🛍️ ${cantidadHoy} nuevas ofertas publicadas hoy`;
+    subtitulo = `💙 Hoy hemos publicado ${cantidadHoy} ofertas para ayudarte a ahorrar.`;
 
 } else if (dias === 1) {
 
