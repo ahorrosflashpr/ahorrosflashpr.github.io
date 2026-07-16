@@ -208,20 +208,35 @@ main{
 }
 
 .titulo-seccion{
+
     max-width:1300px;
+
     margin:40px auto 20px;
+
     padding:0 40px;
+
+    text-align:center;
+
 }
 
 .titulo-seccion h2{
-    font-size:34px;
+
+    font-size:48px;
+
     color:#0b5ed7;
-    margin-bottom:8px;
+
+    margin-bottom:12px;
+
 }
 
 .titulo-seccion p{
-    font-size:18px;
+
+    font-size:22px;
+
     color:#666;
+
+    margin:0;
+
 }
 
 .topbar{
