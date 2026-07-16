@@ -53,45 +53,88 @@ function mostrarOfertas(lista) {
 
     contenedor.innerHTML = "";
 
+    let ultimoGrupo = "";
+
     lista.forEach(oferta => {
 
+        const fecha = new Date(oferta.fecha);
+
+        const hoy = new Date();
+
+        const hoy0 = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+
+        const fecha0 = new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
+
+        const dias = Math.floor((hoy0 - fecha0) / 86400000);
+
+        let titulo = "";
+
+        if (dias === 0) {
+
+            titulo = "🔥 HOY";
+
+        } else if (dias === 1) {
+
+            titulo = "📅 AYER";
+
+        } else {
+
+            titulo = fecha.toLocaleDateString("es-PR", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+        }
+
+        if (titulo !== ultimoGrupo) {
+
+            contenedor.innerHTML += `
+                <div class="grupo-fecha">
+                    ${titulo}
+                </div>
+            `;
+
+            ultimoGrupo = titulo;
+        }
+
         const ahorro = (
-            parseFloat(oferta.antes) - parseFloat(oferta.precio)
-        ).toFixed(2);
+    parseFloat(oferta.antes) - parseFloat(oferta.precio)
+).toFixed(2);
 
-        contenedor.innerHTML += `
-        <div class="card">
+contenedor.innerHTML += `
+<div class="card">
 
-            <div class="descuento">-${oferta.descuento}</div>
+    <div class="descuento">-${oferta.descuento}</div>
 
-            <img src="${oferta.imagen}" alt="${oferta.nombre}">
+    <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
-            <h2>${oferta.nombre}</h2>
+    <h2>${oferta.nombre}</h2>
 
-            <p class="old">$${oferta.antes}</p>
+    <p class="old">$${oferta.antes}</p>
 
-            <p class="price">$${oferta.precio}</p>
+    <p class="price">$${oferta.precio}</p>
 
-            <p class="ahorro">
-                💰 Ahorras $${ahorro}
-            </p>
+    <p class="ahorro">
+        💰 Ahorras $${ahorro}
+    </p>
 
-            ${oferta.codigo ? `
-                <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
-                    📋 COPIAR CÓDIGO: ${oferta.codigo}
-                </button>
-            ` : ""}
+    ${oferta.codigo ? `
+        <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
+            📋 COPIAR CÓDIGO: ${oferta.codigo}
+        </button>
+    ` : ""}
 
-            <button
-    class="btn-oferta"
-    onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
+    <button
+        class="btn-oferta"
+        onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
 
-    🔥 VER OFERTA AHORA
+        🔥 VER OFERTA AHORA
 
-</button>
+    </button>
 
-        </div>
-        `;
+</div>
+`;
 
     });
 
