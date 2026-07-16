@@ -118,6 +118,38 @@ const consulta = await getDocs(q);
 // ===============================
 // Guardar / Editar
 // ===============================
+function detectarCategoria(nombre){
+
+    nombre = nombre.toLowerCase();
+
+    if(nombre.includes("lego") || nombre.includes("barbie") || nombre.includes("hot wheels") || nombre.includes("juguete"))
+        return "Juguetes";
+
+    if(nombre.includes("bebé") || nombre.includes("baby") || nombre.includes("pañal") || nombre.includes("biberón"))
+        return "Bebés";
+
+    if(nombre.includes("maquillaje") || nombre.includes("perfume") || nombre.includes("shampoo") || nombre.includes("labial"))
+        return "Belleza";
+
+    if(nombre.includes("mouse") || nombre.includes("teclado") || nombre.includes("monitor") || nombre.includes("impresora") || nombre.includes("bluetooth") || nombre.includes("cargador") || nombre.includes("usb"))
+        return "Tecnología";
+
+    if(nombre.includes("freidora") || nombre.includes("olla") || nombre.includes("sartén") || nombre.includes("licuadora") || nombre.includes("cafetera"))
+        return "Cocina";
+
+    if(nombre.includes("organizador") || nombre.includes("almohada") || nombre.includes("mueble") || nombre.includes("lámpara"))
+        return "Hogar";
+
+    if(nombre.includes("perro") || nombre.includes("gato") || nombre.includes("mascota"))
+        return "Mascotas";
+
+    if(nombre.includes("camisa") || nombre.includes("vestido") || nombre.includes("zapato") || nombre.includes("tenis"))
+        return "Moda";
+
+    return "Otros";
+
+}
+
 formulario.addEventListener("submit", async (e) => {
 
     e.preventDefault();
@@ -163,10 +195,13 @@ if (editando) {
 } else {
 
     console.log("Guardando fecha:", Date.now());
+
+    const categoria = detectarCategoria(document.getElementById("nombre").value);
     
     await addDoc(collection(db, "ofertas"), {
 
     nombre: document.getElementById("nombre").value,
+        categoria: categoria,
     precio: precio.toFixed(2),
     antes: antes.toFixed(2),
     descuento: descuento + "%",
