@@ -74,60 +74,9 @@ const esHoy = fecha >= inicioHoy && fecha < inicioManana;
 
 const esAyer = fecha >= inicioAyer && fecha < inicioHoy;
 
-        let titulo = "";
-let subtitulo = "";
+let titulo = "";
 
-if (esHoy) {
-
-    const cantidadHoy = lista.filter(o => {
-
-        const f = Number(o.fecha);
-
-        return f >= inicioHoy.getTime() &&
-               f < inicioManana.getTime();
-
-    }).length;
-
-    if (cantidadHoy === 0) {
-
-        return;
-
-    }
-
-    titulo = "Ofertas de Hoy";
-
-    subtitulo = `💙 Hoy hemos publicado ${cantidadHoy} ofertas para ayudarte a ahorrar.`;
-
-} else if (esAyer) {
-
-    titulo = "📅 AYER";
-
-} else {
-
-    titulo = fecha.toLocaleDateString("es-PR", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    });
-
-}
-
-        if (titulo !== ultimoGrupo) {
-
-contenedor.innerHTML += `
-<div class="grupo-fecha">
-
-    <h2>${titulo}</h2>
-
-    ${subtitulo ? `<p>${subtitulo}</p>` : ""}
-
-    <div class="linea-grupo"></div>
-
-</div>
-`;
-
-            ultimoGrupo = titulo;
-        }
+        // No mostrar encabezados de fecha
 
         const ahorro = (
     parseFloat(oferta.antes) - parseFloat(oferta.precio)
