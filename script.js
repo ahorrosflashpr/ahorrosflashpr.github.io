@@ -275,3 +275,35 @@ function mostrarMasCategorias() {
 }
 
 window.mostrarMasCategorias = mostrarMasCategorias;
+
+const btnCategorias = document.getElementById("btnCategorias");
+const listaCategorias = document.getElementById("listaCategorias");
+const flechaCategoria = document.getElementById("flechaCategoria");
+
+btnCategorias.addEventListener("click", () => {
+
+    if (listaCategorias.style.display === "block") {
+
+        listaCategorias.style.display = "none";
+        flechaCategoria.textContent = "▼";
+
+    } else {
+
+        listaCategorias.style.display = "block";
+        flechaCategoria.textContent = "▲";
+
+    }
+
+});
+
+// Cerrar el menú al elegir una categoría
+document.querySelectorAll("#listaCategorias button").forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        listaCategorias.style.display = "none";
+        flechaCategoria.textContent = "▼";
+
+    });
+
+});
