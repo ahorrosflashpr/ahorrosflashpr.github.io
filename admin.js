@@ -317,6 +317,7 @@ function detectarCategoria(nombre){
     nombre.includes("café") ||
     nombre.includes("cafe") ||
     nombre.includes("coffee") ||
+    nombre.includes("expreso") ||
     nombre.includes("espresso") ||
     nombre.includes("keurig") ||
     nombre.includes("nespresso") ||
