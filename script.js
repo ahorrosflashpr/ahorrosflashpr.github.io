@@ -83,11 +83,13 @@ if (esHoy) {
 
     const cantidadHoy = lista.filter(o => {
 
-    const f = new Date(Number(o.fecha));
+    const f = Number(o.fecha);
 
-    return f >= inicioHoy && f < inicioManana;
+    return f >= inicioHoy.getTime() &&
+           f < inicioManana.getTime();
 
 }).length;
+    
     subtitulo = `💙 Hoy hemos publicado ${cantidadHoy} ofertas para ayudarte a ahorrar.`;
 
 } else if (esAyer) {
