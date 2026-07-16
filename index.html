@@ -47,31 +47,26 @@
             type="text"
             id="buscador"
             placeholder="🔍 Buscar ofertas...">
-            <div class="categorias">
+            <div class="selector-categorias">
 
-    <button onclick="filtrarCategoria('Todas')">🛍️ Todas</button>
+    <button id="btnCategorias">
+        🛍️ Buscar por categoría
+        <span id="flechaCategoria">▼</span>
+    </button>
 
-    <button onclick="filtrarCategoria('Tecnología')">💻 Tecnología</button>
+    <div id="listaCategorias" class="lista-categorias">
 
-    <button onclick="filtrarCategoria('Hogar')">🏠 Hogar</button>
-                
-    <button onclick="filtrarCategoria('Cocina')">🍳 Cocina</button>            
-    
-    <button onclick="filtrarCategoria('Mascotas')">🐶 Mascotas</button>
+        <button onclick="filtrarCategoria('Todas')">🛍️ Todas</button>
+        <button onclick="filtrarCategoria('Tecnología')">💻 Tecnología</button>
+        <button onclick="filtrarCategoria('Hogar')">🏠 Hogar</button>
+        <button onclick="filtrarCategoria('Cocina')">🍳 Cocina</button>
+        <button onclick="filtrarCategoria('Mascotas')">🐶 Mascotas</button>
+        <button onclick="filtrarCategoria('Belleza')">💄 Belleza</button>
+        <button onclick="filtrarCategoria('Moda')">👗 Moda</button>
+        <button onclick="filtrarCategoria('Juguetes')">🧸 Juguetes</button>
+        <button onclick="filtrarCategoria('Bebés')">👶 Bebés</button>
 
-    <button onclick="mostrarMasCategorias()">➕ Más</button>
-
-</div>
-
-<div id="masCategorias" class="categorias" style="display:none;">
-
-    <button onclick="filtrarCategoria('Belleza')">💄 Belleza</button>
-
-    <button onclick="filtrarCategoria('Moda')">👗 Moda</button>
-
-    <button onclick="filtrarCategoria('Juguetes')">🧸 Juguetes</button>
-
-    <button onclick="filtrarCategoria('Bebés')">👶 Bebés</button>
+    </div>
 
 </div>
         <div class="ultima-actualizacion">
