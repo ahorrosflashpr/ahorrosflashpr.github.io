@@ -68,32 +68,47 @@ function mostrarOfertas(lista) {
         const dias = Math.floor((hoy0 - fecha0) / 86400000);
 
         let titulo = "";
+let subtitulo = "";
 
-        if (dias === 0) {
+if (dias === 0) {
 
-            titulo = "🔥 HOY";
+    titulo = "🔥 HOY";
 
-        } else if (dias === 1) {
+    const cantidadHoy = lista.filter(o => {
 
-            titulo = "📅 AYER";
+        const f = new Date(o.fecha);
 
-        } else {
+        return f.toDateString() === hoy.toDateString();
 
-            titulo = fecha.toLocaleDateString("es-PR", {
-                day: "numeric",
-                month: "long",
-                year: "numeric"
-            });
+    }).length;
 
-        }
+    subtitulo = `🛍️ ${cantidadHoy} nuevas ofertas publicadas hoy`;
+
+} else if (dias === 1) {
+
+    titulo = "📅 AYER";
+
+} else {
+
+    titulo = fecha.toLocaleDateString("es-PR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+}
 
         if (titulo !== ultimoGrupo) {
 
-            contenedor.innerHTML += `
-                <div class="grupo-fecha">
-                    ${titulo}
-                </div>
-            `;
+contenedor.innerHTML += `
+<div class="grupo-fecha">
+
+    <h2>${titulo}</h2>
+
+    ${subtitulo ? `<p>${subtitulo}</p>` : ""}
+
+</div>
+`;
 
             ultimoGrupo = titulo;
         }
