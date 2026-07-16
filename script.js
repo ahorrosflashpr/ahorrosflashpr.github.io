@@ -72,7 +72,7 @@ let subtitulo = "";
 
 if (dias === 0) {
 
-    titulo = "🔥 HOY";
+    titulo = "Ofertas de Hoy";
 
     const cantidadHoy = lista.filter(o => {
 
