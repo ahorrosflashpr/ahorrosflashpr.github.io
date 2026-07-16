@@ -123,6 +123,8 @@ function filtrarCategoria(categoria){
 
 }
 
+window.filtrarCategoria = filtrarCategoria;
+
 const ahora = new Date();
 
 const opciones = {
