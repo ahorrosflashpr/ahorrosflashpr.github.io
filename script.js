@@ -107,6 +107,8 @@ contenedor.innerHTML += `
 
     ${subtitulo ? `<p>${subtitulo}</p>` : ""}
 
+    <div class="linea-grupo"></div>
+
 </div>
 `;
 
