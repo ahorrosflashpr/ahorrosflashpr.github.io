@@ -11,7 +11,8 @@ import {
     increment
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-let ofertas = [];
+let ofertasFiltradas = [];
+let ofertasMostradas = 20;
 
 const contenedor = document.getElementById("productos");
 const buscador = document.getElementById("buscador");
@@ -228,8 +229,10 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     });
 
-    mostrarOfertas(ofertas);
-
+    ofertasFiltradas = [...ofertas];
+    ofertasMostradas = 20;
+    mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
+    actualizarBotonVerMas();
 }
 
 window.cargarOfertasFirebase = cargarOfertasFirebase;
@@ -387,3 +390,29 @@ document.querySelectorAll("#listaCategorias button").forEach(boton => {
     });
 
 });
+
+function actualizarBotonVerMas(){
+
+    const btn = document.getElementById("btnVerMas");
+
+    if(!btn) return;
+
+    if(ofertasMostradas >= ofertasFiltradas.length){
+        btn.style.display = "none";
+    }else{
+        btn.style.display = "block";
+    }
+
+}
+
+window.verMasOfertas = function(){
+
+    ofertasMostradas += 20;
+
+    mostrarOfertas(
+        ofertasFiltradas.slice(0, ofertasMostradas)
+    );
+
+    actualizarBotonVerMas();
+
+}
