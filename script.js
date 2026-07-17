@@ -151,6 +151,8 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     let q;
 
+let q;
+
 if (filtro === "todas") {
 
     q = query(
@@ -160,12 +162,19 @@ if (filtro === "todas") {
 
 } else {
 
-    const inicioHoy = new Date();
-    inicioHoy.setHours(0, 0, 0, 0);
+    let fechaInicio = new Date();
+
+    if (filtro === "hoy") {
+        fechaInicio.setHours(0, 0, 0, 0);
+
+    } else if (filtro === "ayer") {
+        fechaInicio.setDate(fechaInicio.getDate() - 1);
+        fechaInicio.setHours(0, 0, 0, 0);
+    }
 
     q = query(
         collection(db, "ofertas"),
-        where("fecha", ">=", inicioHoy.getTime()),
+        where("fecha", ">=", fechaInicio.getTime()),
         orderBy("fecha", "desc")
     );
 
