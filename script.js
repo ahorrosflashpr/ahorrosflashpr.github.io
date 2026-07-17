@@ -183,10 +183,6 @@ async function cargarOfertasFirebase(filtro = "hoy") {
                 inicio.setDate(inicio.getDate() - 7);
                 break;
 
-            case "mes":
-                inicio.setMonth(inicio.getMonth() - 1);
-                break;
-
             default:
                 inicio.setHours(0, 0, 0, 0);
         }
