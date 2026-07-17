@@ -208,11 +208,11 @@ if (fin) {
         orderBy("fecha", "desc")
     );
 
-} 
+}   // ← AGREGA ESTA LLAVE
 
-    const consulta = await getDocs(q);
+const consulta = await getDocs(q);
 
-    consulta.forEach((documento) => {
+consulta.forEach((documento) => {
 
         const oferta = documento.data();
 
