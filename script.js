@@ -149,10 +149,27 @@ async function cargarOfertasFirebase(filtro = "hoy") {
     
     ofertas = [];
 
-    const q = query(
-    collection(db, "ofertas"),
-    orderBy("fecha", "desc"),
-);
+    let q;
+
+if (filtro === "todas") {
+
+    q = query(
+        collection(db, "ofertas"),
+        orderBy("fecha", "desc")
+    );
+
+} else {
+
+    const inicioHoy = new Date();
+    inicioHoy.setHours(0, 0, 0, 0);
+
+    q = query(
+        collection(db, "ofertas"),
+        where("fecha", ">=", inicioHoy.getTime()),
+        orderBy("fecha", "desc")
+    );
+
+}
     const consulta = await getDocs(q);
 
     consulta.forEach((documento) => {
