@@ -213,16 +213,24 @@ tr:hover{
 
 #btnCategoria{
     width:100%;
-    padding:12px;
-    border:none;
-    border-radius:10px;
+    margin-top:0;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:14px;
     background:#fff;
-    cursor:pointer;
+    color:#222;
     font-size:16px;
+    font-weight:600;
+    cursor:pointer;
     display:flex;
     justify-content:space-between;
     align-items:center;
     box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+#btnCategoria span{
+    color:#555;
+    font-size:14px;
 }
 
 .menuCategorias{
