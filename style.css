@@ -1040,7 +1040,7 @@ main{
 }
 
 .filtros-fecha button{
-    background:linear-gradient(135deg,#0d6efd,#3b82f6);
+    background:linear-gradient(135deg,#ff9800,#ff6a00);
     color:#fff;
     border:none;
     border-radius:30px;
@@ -1049,8 +1049,8 @@ main{
     font-weight:700;
     white-space:nowrap;
     cursor:pointer;
-    box-shadow:0 4px 12px rgba(13,110,253,.25);
-    transition:.2s;
+    box-shadow:0 6px 15px rgba(255,106,0,.35);
+    transition:.25s;
 }
 
 .filtros-fecha button:hover{
@@ -1058,5 +1058,6 @@ main{
 }
 
 .filtros-fecha button.activo{
-    background:linear-gradient(135deg,#ff9800,#ff5722);
+    background:#d84315;
+    transform:scale(1.05);
 }
