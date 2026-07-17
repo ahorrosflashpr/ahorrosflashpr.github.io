@@ -1028,10 +1028,11 @@ main{
 
 .filtros-fecha{
     display:flex;
+    justify-content:center;
+    align-items:center;
     gap:10px;
-    overflow-x:auto;
-    padding:12px 8px;
-    scrollbar-width:none;
+    flex-wrap:wrap;
+    margin:15px auto;
 }
 
 .filtros-fecha::-webkit-scrollbar{
