@@ -208,7 +208,7 @@ if (fin) {
         orderBy("fecha", "desc")
     );
 
-}
+} 
 
     const consulta = await getDocs(q);
 
