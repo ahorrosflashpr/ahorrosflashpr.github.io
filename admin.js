@@ -597,4 +597,3 @@ window.seleccionarCategoria = function(valor, texto) {
     btnCategoria.innerHTML = `${texto}<span>▼</span>`;
     menuCategorias.style.display = "none";
 };
-});
