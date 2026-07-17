@@ -398,22 +398,20 @@ function actualizarBotonVerMas(){
 
     if(!btn) return;
 
-    if(ofertasMostradas >= ofertasFiltradas.length){
+    const restantes = ofertasFiltradas.length - ofertasMostradas;
+
+    if(restantes <= 0){
+
         btn.style.display = "none";
+
     }else{
+
         btn.style.display = "block";
+
+        const cantidad = restantes >= 20 ? 20 : restantes;
+
+        btn.innerHTML = `⬇️ Ver ${cantidad} ofertas más`;
+
     }
-
-}
-
-window.verMasOfertas = function(){
-
-    ofertasMostradas += 20;
-
-    mostrarOfertas(
-        ofertasFiltradas.slice(0, ofertasMostradas)
-    );
-
-    actualizarBotonVerMas();
 
 }
