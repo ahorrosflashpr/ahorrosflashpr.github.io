@@ -152,7 +152,6 @@ async function cargarOfertasFirebase() {
     const q = query(
     collection(db, "ofertas"),
     orderBy("fecha", "desc"),
-    limit(50)
 );
     const consulta = await getDocs(q);
 
