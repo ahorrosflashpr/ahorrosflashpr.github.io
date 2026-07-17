@@ -1004,6 +1004,22 @@ main{
 
 }
 
+.categoria-activa{
+    background:#e8f1ff !important;
+    color:#0b5ed7 !important;
+    font-weight:700;
+    position:relative;
+}
+
+.categoria-activa::after{
+    content:"✓";
+    position:absolute;
+    right:18px;
+    color:#16a34a;
+    font-size:18px;
+    font-weight:bold;
+}
+
 .lista-categorias button:hover{
 
     background:#f5f8ff;
