@@ -194,7 +194,7 @@ if (filtro === "todas") {
 
 }
  
-cargarOfertasFirebase();
+cargarOfertasFirebase("hoy");
 
 window.copiarCodigo = async function(codigo, boton){
 
