@@ -592,8 +592,6 @@ const categoria =
 // ===============================
 cargarOfertas();
 
-vence7Dias();
-
 const btnCategoria = document.getElementById("btnCategoria");
 const menuCategorias = document.getElementById("menuCategorias");
 
@@ -647,3 +645,5 @@ window.vence7Dias = function(){
     document.getElementById("btnManana").style.color = "#333";
 
 }
+
+vence7Dias();
