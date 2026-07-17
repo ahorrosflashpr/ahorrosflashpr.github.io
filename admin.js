@@ -614,22 +614,36 @@ document.addEventListener("click", (e) => {
     }
 });
 
-window.venceManana = function () {
+window.venceManana = function(){
 
     const fecha = new Date();
+
     fecha.setDate(fecha.getDate() + 1);
 
     document.getElementById("fechaExpiracion").value =
         fecha.toISOString().split("T")[0];
 
-};
+    document.getElementById("btnManana").style.background = "#f59e0b";
+    document.getElementById("btnManana").style.color = "#fff";
 
-window.vence7Dias = function () {
+    document.getElementById("btn7Dias").style.background = "#e5e7eb";
+    document.getElementById("btn7Dias").style.color = "#333";
+
+}
+
+window.vence7Dias = function(){
 
     const fecha = new Date();
+
     fecha.setDate(fecha.getDate() + 7);
 
     document.getElementById("fechaExpiracion").value =
         fecha.toISOString().split("T")[0];
 
-};
+    document.getElementById("btn7Dias").style.background = "#f59e0b";
+    document.getElementById("btn7Dias").style.color = "#fff";
+
+    document.getElementById("btnManana").style.background = "#e5e7eb";
+    document.getElementById("btnManana").style.color = "#333";
+
+}
