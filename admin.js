@@ -120,9 +120,7 @@ const consulta = await getDocs(q);
 // ===============================
 function detectarCategoria(nombre){
 
-    nombre = nombre.toLowerCase();
-
-    // ...todas las categorías
+    nombre = nombre.toLowerCase()
 
     if (
     nombre.includes("juguete") ||
