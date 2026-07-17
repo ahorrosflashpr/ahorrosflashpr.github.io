@@ -85,6 +85,11 @@ const consulta = await getDocs(q);
             document.getElementById("codigo").value = oferta.codigo || "";
             document.getElementById("estado").value =
     oferta.estado || "activa";
+            document.getElementById("categoria").value =
+    oferta.categoria || "Automática";
+
+btnCategoria.innerHTML =
+    `${oferta.categoria || "🤖 Automática"}<span>▼</span>`;
 
             editando = boton.dataset.id;
 
@@ -530,7 +535,12 @@ const categoria =
 
     console.log("Guardando fecha:", Date.now());
 
-    const categoria = detectarCategoria(document.getElementById("nombre").value);
+    const categoriaSeleccionada = document.getElementById("categoria").value;
+
+const categoria =
+    categoriaSeleccionada === "Automática"
+        ? detectarCategoria(document.getElementById("nombre").value)
+        : categoriaSeleccionada;
     
     await addDoc(collection(db, "ofertas"), {
 
