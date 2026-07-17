@@ -146,84 +146,82 @@ document.getElementById("fechaActualizacion").textContent =
     "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
 
 async function cargarOfertasFirebase(filtro = "hoy") {
-    
+
     ofertas = [];
 
     let q;
 
-if (filtro === "todas") {
+    if (filtro === "todas") {
 
-    q = query(
-        collection(db, "ofertas"),
-        orderBy("fecha", "desc")
-    );
+        q = query(
+            collection(db, "ofertas"),
+            orderBy("fecha", "desc")
+        );
 
-} else {
+    } else {
 
-    const ahora = new Date();
+        let inicio = new Date();
+        let fin = null;
 
-let inicio = new Date();
-let fin = null;
+        switch (filtro) {
 
-switch (filtro) {
+            case "hoy":
+                inicio.setHours(0, 0, 0, 0);
+                break;
 
-    case "hoy":
-        inicio.setHours(0, 0, 0, 0);
-        break;
+            case "ayer":
+                fin = new Date();
+                fin.setHours(0, 0, 0, 0);
 
-    case "ayer":
-        fin = new Date();
-        fin.setHours(0, 0, 0, 0);
+                inicio = new Date(fin);
+                inicio.setDate(inicio.getDate() - 1);
+                break;
 
-        inicio = new Date(fin);
-        inicio.setDate(inicio.getDate() - 1);
-        break;
+            case "semana":
+                inicio.setDate(inicio.getDate() - 7);
+                break;
 
-    case "semana":
-        inicio.setDate(inicio.getDate() - 7);
-        break;
+            case "mes":
+                inicio.setMonth(inicio.getMonth() - 1);
+                break;
 
-    case "mes":
-        inicio.setMonth(inicio.getMonth() - 1);
-        break;
+            default:
+                inicio.setHours(0, 0, 0, 0);
+        }
 
-    default:
-        inicio.setHours(0, 0, 0, 0);
-}
+        if (fin) {
 
-if (fin) {
+            q = query(
+                collection(db, "ofertas"),
+                where("fecha", ">=", inicio.getTime()),
+                where("fecha", "<", fin.getTime()),
+                orderBy("fecha", "desc")
+            );
 
-    q = query(
-        collection(db, "ofertas"),
-        where("fecha", ">=", inicio.getTime()),
-        where("fecha", "<", fin.getTime()),
-        orderBy("fecha", "desc")
-    );
+        } else {
 
-} else {
+            q = query(
+                collection(db, "ofertas"),
+                where("fecha", ">=", inicio.getTime()),
+                orderBy("fecha", "desc")
+            );
 
-    q = query(
-        collection(db, "ofertas"),
-        where("fecha", ">=", inicio.getTime()),
-        orderBy("fecha", "desc")
-    );
+        }
 
-}   // ← AGREGA ESTA LLAVE
+    }
 
-const consulta = await getDocs(q);
+    const consulta = await getDocs(q);
 
-consulta.forEach((documento) => {
+    consulta.forEach((documento) => {
 
         const oferta = documento.data();
 
         oferta.id = documento.id;
 
-        // Si la imagen solo tiene el nombre, agrega la carpeta images/
         if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
             oferta.imagen = "images/" + oferta.imagen;
         }
 
-        // Solo mostrar ofertas activas
         if ((oferta.estado || "activa") === "activa") {
             ofertas.push(oferta);
         }
