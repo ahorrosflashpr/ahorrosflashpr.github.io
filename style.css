@@ -914,6 +914,8 @@ main{
 
 .selector-categorias{
 
+    position:relative;
+
     max-width:1300px;
     margin:15px auto;
     padding:0 20px;
@@ -961,6 +963,10 @@ main{
 .lista-categorias{
 
     display:none;
+    position:absolute;
+    top:100%;
+    left:20px;
+    right:20px;
 
     margin-top:10px;
 
@@ -969,8 +975,12 @@ main{
     border-radius:15px;
 
     overflow:hidden;
+    overflow-y:auto;
+    max-height:320px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+    z-index:9999;
 
 }
 
