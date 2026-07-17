@@ -597,3 +597,9 @@ window.seleccionarCategoria = function(valor, texto) {
     btnCategoria.innerHTML = `${texto}<span>▼</span>`;
     menuCategorias.style.display = "none";
 };
+
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".selectorCategoria")) {
+        menuCategorias.style.display = "none";
+    }
+});
