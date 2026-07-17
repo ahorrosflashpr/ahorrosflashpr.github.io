@@ -496,7 +496,12 @@ formulario.addEventListener("submit", async (e) => {
 
 if (editando) {
 
-    const categoria = detectarCategoria(document.getElementById("nombre").value);
+    const categoriaSeleccionada = document.getElementById("categoria").value;
+
+const categoria =
+    categoriaSeleccionada === "Automática"
+        ? detectarCategoria(document.getElementById("nombre").value)
+        : categoriaSeleccionada;
 
     await updateDoc(doc(db, "ofertas", editando), {
 
