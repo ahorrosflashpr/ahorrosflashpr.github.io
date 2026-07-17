@@ -557,7 +557,9 @@ const categoria =
 
     clics: 0,
 
-    fecha: Date.now()
+    fecha: Date.now(),
+
+    fechaExpiracion: document.getElementById("fechaExpiracion").value
 
 });
 
@@ -603,3 +605,23 @@ document.addEventListener("click", (e) => {
         menuCategorias.style.display = "none";
     }
 });
+
+window.venceManana = function () {
+
+    const fecha = new Date();
+    fecha.setDate(fecha.getDate() + 1);
+
+    document.getElementById("fechaExpiracion").value =
+        fecha.toISOString().split("T")[0];
+
+};
+
+window.vence7Dias = function () {
+
+    const fecha = new Date();
+    fecha.setDate(fecha.getDate() + 7);
+
+    document.getElementById("fechaExpiracion").value =
+        fecha.toISOString().split("T")[0];
+
+};
