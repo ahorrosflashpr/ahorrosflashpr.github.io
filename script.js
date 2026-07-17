@@ -281,7 +281,7 @@ window.abrirOferta = async function(id, enlace){
 
     }
 
-    window.open(enlace, "_blank");
+    window.location.href = enlace;
 
 }
 
