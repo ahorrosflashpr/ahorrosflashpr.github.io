@@ -5,7 +5,7 @@ import {
     getDocs,
     query,
     orderBy,
-    limit,
+    where,
     doc,
     updateDoc,
     increment
