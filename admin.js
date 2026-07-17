@@ -503,8 +503,6 @@ if (editando) {
 
     await updateDoc(doc(db, "ofertas", editando), {
 
-    await updateDoc(doc(db, "ofertas", editando), {
-
     nombre: document.getElementById("nombre").value,
     categoria: categoria,
     precio: precio.toFixed(2),
