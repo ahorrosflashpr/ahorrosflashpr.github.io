@@ -583,3 +583,23 @@ const categoria =
 // Iniciar
 // ===============================
 cargarOfertas();
+
+const btnCategoria = document.getElementById("btnCategoria");
+const menuCategorias = document.getElementById("menuCategorias");
+
+btnCategoria.addEventListener("click", () => {
+    menuCategorias.style.display =
+        menuCategorias.style.display === "block" ? "none" : "block";
+});
+
+function seleccionarCategoria(valor, texto) {
+    document.getElementById("categoria").value = valor;
+    btnCategoria.innerHTML = `${texto}<span>▼</span>`;
+    menuCategorias.style.display = "none";
+}
+
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".selectorCategoria")) {
+        menuCategorias.style.display = "none";
+    }
+});
