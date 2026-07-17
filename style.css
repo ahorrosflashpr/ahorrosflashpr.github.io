@@ -508,10 +508,8 @@ header{
 }
 
 .logo img{
-
-    width:75px;
-    height:75px;
-
+    width: 180px;
+    height: auto;
 }
 
 .logo h2{
