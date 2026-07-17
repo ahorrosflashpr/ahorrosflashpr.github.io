@@ -5,6 +5,7 @@ import {
     getDocs,
     query,
     orderBy,
+    limit,
     doc,
     updateDoc,
     increment
@@ -149,10 +150,10 @@ async function cargarOfertasFirebase() {
     ofertas = [];
 
     const q = query(
-        collection(db, "ofertas"),
-        orderBy("fecha", "desc")
-    );
-
+    collection(db, "ofertas"),
+    orderBy("fecha", "desc"),
+    limit(50)
+);
     const consulta = await getDocs(q);
 
     consulta.forEach((documento) => {
