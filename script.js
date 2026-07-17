@@ -151,8 +151,6 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     let q;
 
-let q;
-
 if (filtro === "todas") {
 
     q = query(
