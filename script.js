@@ -415,3 +415,23 @@ function actualizarBotonVerMas(){
     }
 
 }
+
+window.verMasOfertas = function(){
+
+    ofertasMostradas += 20;
+
+    mostrarOfertas(
+        ofertasFiltradas.slice(0, ofertasMostradas)
+    );
+
+    actualizarBotonVerMas();
+
+    setTimeout(() => {
+        document.getElementById("btnVerMas")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+    }, 100);
+
+}
