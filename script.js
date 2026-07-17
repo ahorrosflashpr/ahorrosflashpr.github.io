@@ -220,9 +220,18 @@ async function cargarOfertasFirebase(filtro = "hoy") {
             oferta.imagen = "images/" + oferta.imagen;
         }
 
-        if ((oferta.estado || "activa") === "activa") {
-            ofertas.push(oferta);
-        }
+        const hoy = new Date();
+hoy.setHours(0, 0, 0, 0);
+
+const activa = (oferta.estado || "activa") === "activa";
+
+const vigente =
+    !oferta.fechaExpiracion ||
+    new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
+
+if (activa && vigente) {
+    ofertas.push(oferta);
+}
 
     });
 
