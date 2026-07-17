@@ -34,32 +34,33 @@
 <label>📂 Categoría</label>
 
 <select id="categoria">
+<div class="selectorCategoria">
 
-    <option value="Automática">🤖 Automática</option>
+    <button type="button" id="btnCategoria">
+        🤖 Automática
+        <span>▼</span>
+    </button>
 
-    <option value="Tecnología">💻 Tecnología</option>
+    <div id="menuCategorias" class="menuCategorias">
 
-    <option value="Hogar">🏠 Hogar</option>
+        <div onclick="seleccionarCategoria('Automática','🤖 Automática')">🤖 Automática</div>
+        <div onclick="seleccionarCategoria('Tecnología','💻 Tecnología')">💻 Tecnología</div>
+        <div onclick="seleccionarCategoria('Hogar','🏠 Hogar')">🏠 Hogar</div>
+        <div onclick="seleccionarCategoria('Cocina','🍳 Cocina')">🍳 Cocina</div>
+        <div onclick="seleccionarCategoria('Belleza','💄 Belleza')">💄 Belleza</div>
+        <div onclick="seleccionarCategoria('Moda','👗 Moda')">👗 Moda</div>
+        <div onclick="seleccionarCategoria('Mascotas','🐶 Mascotas')">🐶 Mascotas</div>
+        <div onclick="seleccionarCategoria('Bebés','👶 Bebés')">👶 Bebés</div>
+        <div onclick="seleccionarCategoria('Juguetes','🧸 Juguetes')">🧸 Juguetes</div>
+        <div onclick="seleccionarCategoria('Viajes','✈️ Viajes')">✈️ Viajes</div>
+        <div onclick="seleccionarCategoria('Oficina','💼 Oficina')">💼 Oficina</div>
+        <div onclick="seleccionarCategoria('Otros','📦 Otros')">📦 Otros</div>
 
-    <option value="Cocina">🍳 Cocina</option>
+    </div>
 
-    <option value="Belleza">💄 Belleza</option>
+    <input type="hidden" id="categoria" value="Automática">
 
-    <option value="Moda">👗 Moda</option>
-
-    <option value="Mascotas">🐶 Mascotas</option>
-
-    <option value="Bebés">👶 Bebés</option>
-
-    <option value="Juguetes">🧸 Juguetes</option>
-
-    <option value="Viajes">✈️ Viajes</option>
-
-    <option value="Oficina">💼 Oficina</option>
-
-    <option value="Otros">📦 Otros</option>
-
-</select>
+</div>
 
             <label>💲 Precio</label>
             <input type="text" id="precio">
