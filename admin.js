@@ -123,7 +123,6 @@ function detectarCategoria(nombre){
     nombre = nombre.toLowerCase();
 
     // ...todas las categorías
-}
 
     if (
     nombre.includes("juguete") ||
