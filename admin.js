@@ -573,6 +573,8 @@ const categoria =
 
         formulario.reset();
 
+        vence7Dias();
+
         cargarOfertas();
 
     } catch (error) {
@@ -589,6 +591,8 @@ const categoria =
 // Iniciar
 // ===============================
 cargarOfertas();
+
+vence7Dias();
 
 const btnCategoria = document.getElementById("btnCategoria");
 const menuCategorias = document.getElementById("menuCategorias");
