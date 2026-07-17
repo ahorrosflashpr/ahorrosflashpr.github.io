@@ -160,23 +160,56 @@ if (filtro === "todas") {
 
 } else {
 
-    let fechaInicio = new Date();
+    const ahora = new Date();
 
-    if (filtro === "hoy") {
-        fechaInicio.setHours(0, 0, 0, 0);
+let inicio = new Date();
+let fin = null;
 
-    } else if (filtro === "ayer") {
-        fechaInicio.setDate(fechaInicio.getDate() - 1);
-        fechaInicio.setHours(0, 0, 0, 0);
-    }
+switch (filtro) {
+
+    case "hoy":
+        inicio.setHours(0, 0, 0, 0);
+        break;
+
+    case "ayer":
+        fin = new Date();
+        fin.setHours(0, 0, 0, 0);
+
+        inicio = new Date(fin);
+        inicio.setDate(inicio.getDate() - 1);
+        break;
+
+    case "semana":
+        inicio.setDate(inicio.getDate() - 7);
+        break;
+
+    case "mes":
+        inicio.setMonth(inicio.getMonth() - 1);
+        break;
+
+    default:
+        inicio.setHours(0, 0, 0, 0);
+}
+
+if (fin) {
 
     q = query(
         collection(db, "ofertas"),
-        where("fecha", ">=", fechaInicio.getTime()),
+        where("fecha", ">=", inicio.getTime()),
+        where("fecha", "<", fin.getTime()),
+        orderBy("fecha", "desc")
+    );
+
+} else {
+
+    q = query(
+        collection(db, "ofertas"),
+        where("fecha", ">=", inicio.getTime()),
         orderBy("fecha", "desc")
     );
 
 }
+
     const consulta = await getDocs(q);
 
     consulta.forEach((documento) => {
