@@ -85,6 +85,8 @@ const consulta = await getDocs(q);
             document.getElementById("codigo").value = oferta.codigo || "";
             document.getElementById("estado").value =
     oferta.estado || "activa";
+            document.getElementById("fechaExpiracion").value =
+    oferta.fechaExpiracion || "";
             document.getElementById("categoria").value =
     oferta.categoria || "Automática";
 
@@ -521,7 +523,9 @@ const categoria =
     codigo: document.getElementById("codigo").value,
     estado: document.getElementById("estado").value,
 
-    fecha: Date.now()
+    fechaExpiracion: document.getElementById("fechaExpiracion").value,
+
+fecha: Date.now()
 
 });
 
