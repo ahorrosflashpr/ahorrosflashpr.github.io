@@ -1061,3 +1061,27 @@ main{
     background:#d84315;
     transform:scale(1.05);
 }
+
+#btnVerMas{
+    display:none;
+    margin:35px auto;
+    padding:16px 36px;
+    background:linear-gradient(135deg,#ff9800,#ff6a00);
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(255,106,0,.35);
+    transition:all .25s ease;
+}
+
+#btnVerMas:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(255,106,0,.45);
+}
+
+#btnVerMas:active{
+    transform:scale(.97);
+}
