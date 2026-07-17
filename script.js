@@ -110,6 +110,15 @@ buscador.addEventListener("input", () => {
 
 function filtrarCategoria(categoria){
 
+    // Resaltar la categoría seleccionada
+    document.querySelectorAll("#listaCategorias button").forEach(btn=>{
+        btn.classList.remove("categoria-activa");
+
+        if(btn.textContent.includes(categoria)){
+            btn.classList.add("categoria-activa");
+        }
+    });
+
     if(categoria === "Todas"){
         mostrarOfertas(ofertas);
         return;
