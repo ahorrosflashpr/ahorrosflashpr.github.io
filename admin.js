@@ -592,14 +592,9 @@ btnCategoria.addEventListener("click", () => {
         menuCategorias.style.display === "block" ? "none" : "block";
 });
 
-function seleccionarCategoria(valor, texto) {
+window.seleccionarCategoria = function(valor, texto) {
     document.getElementById("categoria").value = valor;
     btnCategoria.innerHTML = `${texto}<span>▼</span>`;
     menuCategorias.style.display = "none";
-}
-
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".selectorCategoria")) {
-        menuCategorias.style.display = "none";
-    }
+};
 });
