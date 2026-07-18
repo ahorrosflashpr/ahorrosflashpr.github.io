@@ -528,8 +528,6 @@ const categoria =
 
     fechaExpiracion: document.getElementById("fechaExpiracion").value,
 
-fecha: Date.now()
-
 });
 
     alert("✅ Oferta actualizada");
