@@ -420,29 +420,30 @@ main{
 }
 
 .btn-codigo{
-
+    display:block;
     width:100%;
-    margin-top:15px;
-    margin-bottom:10px;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#16a34a;
-
-    color:white;
-
-    font-size:17px;
-
+    padding:12px;
+    border-radius:8px;
+    color:#fff;
     font-weight:bold;
+    text-align:center;
+    margin:10px 0;
+}
 
+/* 🟢 Bajo precio */
+.btn-precio{
+    background:#16a34a;
+}
+
+/* 🟠 Cupón */
+.btn-cupon{
+    background:#f97316;
+}
+
+/* 🔵 Código */
+.btn-codigo-color{
+    background:#2563eb;
     cursor:pointer;
-
-    transition:.25s;
-
 }
 
 .btn-codigo:hover{
