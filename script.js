@@ -218,19 +218,6 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     const consulta = await getDocs(q);
 
-    const aviso = document.getElementById("sinOfertasHoy");
-
-if (filtro === "hoy" && consulta.empty) {
-
-    contenedor.innerHTML = "";
-
-    aviso.style.display = "block";
-
-    return;
-
-}
-
-aviso.style.display = "none";
     
     consulta.forEach((documento) => {
 
