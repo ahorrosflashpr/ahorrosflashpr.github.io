@@ -446,10 +446,16 @@ main{
     cursor:pointer;
 }
 
-.btn-codigo:hover{
-
+.btn-precio:hover{
     background:#15803d;
+}
 
+.btn-cupon:hover{
+    background:#ea580c;
+}
+
+.btn-codigo-color:hover{
+    background:#1d4ed8;
 }
 
 .ahorro{
