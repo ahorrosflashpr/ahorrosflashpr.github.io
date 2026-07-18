@@ -88,7 +88,7 @@ contenedor.innerHTML += `
     </div>
 ` : `
     <div class="btn-codigo">
-        💰 PRECIO REBAJADO • NO REQUIERE CUPÓN
+        💰 BAJO PRECIO • NO REQUIERE CUPÓN
     </div>
 `}
 
