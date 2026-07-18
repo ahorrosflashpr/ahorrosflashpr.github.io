@@ -79,15 +79,15 @@ contenedor.innerHTML += `
     </p>
 
     ${oferta.tipoDescuento === "codigo" ? `
-    <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
+    <button class="btn-codigo btn-codigo-color" onclick="copiarCodigo('${oferta.codigo}', this)">
         📋 COPIAR CÓDIGO: ${oferta.codigo}
     </button>
 ` : oferta.tipoDescuento === "cupon" ? `
-    <div class="btn-codigo">
+    <div class="btn-codigo btn-cupon">
         🎟 ACTIVA EL CUPÓN EN AMAZON
     </div>
 ` : `
-    <div class="btn-codigo">
+    <div class="btn-codigo btn-precio">
         💰 BAJO PRECIO • NO REQUIERE CUPÓN
     </div>
 `}
