@@ -1091,3 +1091,40 @@ main{
 #btnVerMas:active{
     transform:scale(.97);
 }
+
+.sin-ofertas{
+    display:none;
+    max-width:700px;
+    margin:50px auto;
+    padding:35px;
+    text-align:center;
+    background:#FFF8DB;
+    border:2px solid #FACC15;
+    border-radius:18px;
+}
+
+.sin-ofertas h2{
+    color:#92400E;
+    margin-bottom:12px;
+}
+
+.sin-ofertas p{
+    color:#555;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.sin-ofertas button{
+    background:#F59E0B;
+    color:#fff;
+    border:none;
+    padding:14px 26px;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.sin-ofertas button:hover{
+    background:#D97706;
+}
