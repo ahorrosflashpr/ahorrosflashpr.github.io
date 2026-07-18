@@ -655,14 +655,38 @@ const codigo = document.getElementById("codigo");
 const etiquetaCodigo = codigo.previousElementSibling;
 
 function actualizarTipoDescuento() {
+
     if (tipo.value === "codigo") {
+
         codigo.style.display = "block";
         etiquetaCodigo.style.display = "block";
-    } else {
+
+        tipo.style.background = "#DBEAFE";
+        tipo.style.border = "2px solid #3B82F6";
+        tipo.style.color = "#1D4ED8";
+
+    } else if (tipo.value === "cupon") {
+
         codigo.style.display = "none";
         etiquetaCodigo.style.display = "none";
         codigo.value = "";
+
+        tipo.style.background = "#FFEDD5";
+        tipo.style.border = "2px solid #F97316";
+        tipo.style.color = "#9A3412";
+
+    } else {
+
+        codigo.style.display = "none";
+        etiquetaCodigo.style.display = "none";
+        codigo.value = "";
+
+        tipo.style.background = "#DCFCE7";
+        tipo.style.border = "2px solid #22C55E";
+        tipo.style.color = "#166534";
+
     }
+
 }
 
 tipo.addEventListener("change", actualizarTipoDescuento);
