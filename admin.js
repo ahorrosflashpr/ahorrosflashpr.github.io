@@ -83,6 +83,8 @@ const consulta = await getDocs(q);
             document.getElementById("imagen").value =
                 oferta.imagen.replace("images/", "");
             document.getElementById("codigo").value = oferta.codigo || "";
+            document.getElementById("tipoDescuento").value =
+    oferta.tipoDescuento || "precio";
             document.getElementById("estado").value =
     oferta.estado || "activa";
             document.getElementById("fechaExpiracion").value =
@@ -521,6 +523,7 @@ const categoria =
     enlace: document.getElementById("enlace").value,
     imagen: "images/" + document.getElementById("imagen").value,
     codigo: document.getElementById("codigo").value,
+    tipoDescuento: document.getElementById("tipoDescuento").value,
     estado: document.getElementById("estado").value,
 
     fechaExpiracion: document.getElementById("fechaExpiracion").value,
@@ -557,6 +560,7 @@ const categoria =
     enlace: document.getElementById("enlace").value,
     imagen: "images/" + document.getElementById("imagen").value,
     codigo: document.getElementById("codigo").value,
+    tipoDescuento: document.getElementById("tipoDescuento").value,
     estado: document.getElementById("estado").value,
 
     clics: 0,
@@ -647,3 +651,21 @@ window.vence7Dias = function(){
 }
 
 vence7Dias();
+
+const tipo = document.getElementById("tipoDescuento");
+const codigo = document.getElementById("codigo");
+const etiquetaCodigo = codigo.previousElementSibling;
+
+function actualizarTipoDescuento() {
+    if (tipo.value === "codigo") {
+        codigo.style.display = "block";
+        etiquetaCodigo.style.display = "block";
+    } else {
+        codigo.style.display = "none";
+        etiquetaCodigo.style.display = "none";
+        codigo.value = "";
+    }
+}
+
+tipo.addEventListener("change", actualizarTipoDescuento);
+actualizarTipoDescuento();
