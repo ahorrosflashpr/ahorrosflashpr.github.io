@@ -218,16 +218,34 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     const consulta = await getDocs(q);
 
-    // Si "Hoy" está vacío, cargar automáticamente "Ayer"
+    const aviso = document.getElementById("sinOfertasHoy");
+
 if (filtro === "hoy" && consulta.empty) {
 
-    document.getElementById("fechaActualizacion").innerHTML =
-        "🟡 Aún no hemos publicado ofertas nuevas hoy. Mostrando las ofertas de ayer.";
+    contenedor.innerHTML = "";
 
-    return cargarOfertasFirebase("ayer");
+    aviso.style.display = "block";
+
+    return;
 
 }
 
+aviso.style.display = "none";
+
+const aviso = document.getElementById("sinOfertasHoy");
+
+if (filtro === "hoy" && consulta.empty) {
+
+    contenedor.innerHTML = "";
+
+    aviso.style.display = "block";
+
+    return;
+
+}
+
+aviso.style.display = "none";
+    
     consulta.forEach((documento) => {
 
         const oferta = documento.data();
