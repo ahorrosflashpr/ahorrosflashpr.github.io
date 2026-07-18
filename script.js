@@ -78,11 +78,19 @@ contenedor.innerHTML += `
         💰 Ahorras $${ahorro}
     </p>
 
-    ${oferta.codigo ? `
-        <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
-            📋 COPIAR CÓDIGO: ${oferta.codigo}
-        </button>
-    ` : ""}
+    ${oferta.tipoDescuento === "codigo" ? `
+    <button class="btn-codigo" onclick="copiarCodigo('${oferta.codigo}', this)">
+        📋 COPIAR CÓDIGO: ${oferta.codigo}
+    </button>
+` : oferta.tipoDescuento === "cupon" ? `
+    <div class="btn-codigo">
+        🎟 ACTIVA EL CUPÓN EN AMAZON
+    </div>
+` : `
+    <div class="btn-codigo">
+        💰 PRECIO REBAJADO • NO REQUIERE CUPÓN
+    </div>
+`}
 
     <button
         class="btn-oferta"
