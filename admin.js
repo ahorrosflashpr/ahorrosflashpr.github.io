@@ -56,7 +56,8 @@ const consulta = await getDocs(q);
 
     <td>
         <button class="editar" data-id="${documento.id}">✏️</button>
-        <button class="eliminar" data-id="${documento.id}">🗑️</button>
+<button class="moverAyer" data-id="${documento.id}">📅</button>
+<button class="eliminar" data-id="${documento.id}">🗑️</button>
     </td>
 
 </tr>
@@ -104,6 +105,32 @@ btnCategoria.innerHTML =
 
     });
 
+// ===============================
+// BOTÓN MOVER A AYER
+// ===============================
+
+document.querySelectorAll(".moverAyer").forEach((boton) => {
+
+    boton.addEventListener("click", async () => {
+
+        if (!confirm("¿Mover esta oferta a AYER?")) return;
+
+        const ayer = new Date();
+        ayer.setDate(ayer.getDate() - 1);
+
+        // Mantener la hora actual
+        const nuevaFecha = ayer.getTime();
+
+        await updateDoc(doc(db, "ofertas", boton.dataset.id), {
+            fecha: nuevaFecha
+        });
+
+        cargarOfertas();
+
+    });
+
+});
+    
     // ===============================
     // BOTONES ELIMINAR
     // ===============================
