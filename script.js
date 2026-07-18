@@ -231,20 +231,6 @@ if (filtro === "hoy" && consulta.empty) {
 }
 
 aviso.style.display = "none";
-
-const aviso = document.getElementById("sinOfertasHoy");
-
-if (filtro === "hoy" && consulta.empty) {
-
-    contenedor.innerHTML = "";
-
-    aviso.style.display = "block";
-
-    return;
-
-}
-
-aviso.style.display = "none";
     
     consulta.forEach((documento) => {
 
