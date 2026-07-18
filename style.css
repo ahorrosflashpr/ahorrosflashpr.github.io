@@ -436,8 +436,9 @@ main{
 }
 
 /* 🟠 Cupón */
+
 .btn-cupon{
-    background:#f97316;
+    background:#7c3aed;
 }
 
 /* 🔵 Código */
@@ -451,7 +452,7 @@ main{
 }
 
 .btn-cupon:hover{
-    background:#ea580c;
+    background:#6d28d9;
 }
 
 .btn-codigo-color:hover{
