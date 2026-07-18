@@ -677,6 +677,21 @@ window.vence7Dias = function(){
 
 vence7Dias();
 
+const imagen = document.getElementById("imagen");
+
+imagen.addEventListener("blur", () => {
+
+    let nombre = imagen.value.trim();
+
+    if (
+        nombre &&
+        !/\.(jpg|jpeg|png|webp)$/i.test(nombre)
+    ) {
+        imagen.value = nombre + ".jpg";
+    }
+
+});
+
 const tipo = document.getElementById("tipoDescuento");
 const codigo = document.getElementById("codigo");
 const etiquetaCodigo = codigo.previousElementSibling;
