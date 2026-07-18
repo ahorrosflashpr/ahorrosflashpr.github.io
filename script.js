@@ -218,6 +218,16 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     const consulta = await getDocs(q);
 
+    // Si "Hoy" está vacío, cargar automáticamente "Ayer"
+if (filtro === "hoy" && consulta.empty) {
+
+    document.getElementById("fechaActualizacion").innerHTML =
+        "🟡 Aún no hemos publicado ofertas nuevas hoy. Mostrando las ofertas de ayer.";
+
+    return cargarOfertasFirebase("ayer");
+
+}
+
     consulta.forEach((documento) => {
 
         const oferta = documento.data();
@@ -245,6 +255,19 @@ if (activa && vigente) {
 
     ofertasFiltradas = [...ofertas];
     ofertasMostradas = 20;
+    if (filtro === "hoy") {
+
+    const ahora = new Date();
+
+    const opciones = {
+        hour: "numeric",
+        minute: "2-digit"
+    };
+
+    document.getElementById("fechaActualizacion").textContent =
+        "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
+
+    }
     mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
     actualizarBotonVerMas();
 }
