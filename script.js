@@ -131,15 +131,55 @@ function filtrarCategoria(categoria){
     });
 
     if(categoria === "Todas"){
-        mostrarOfertas(ofertas);
+        cargarOfertasFirebase("todas");
         return;
     }
 
-    const filtradas = ofertas.filter(oferta =>
-        oferta.categoria === categoria
+    cargarCategoria(categoria);
+
+}
+
+async function cargarCategoria(categoria){
+
+    ofertas = [];
+
+    const consulta = await getDocs(
+        query(
+            collection(db, "ofertas"),
+            where("categoria", "==", categoria),
+            orderBy("fecha", "desc")
+        )
     );
 
-    mostrarOfertas(filtradas);
+    const hoy = new Date();
+    hoy.setHours(0,0,0,0);
+
+    consulta.forEach((documento)=>{
+
+        const oferta = documento.data();
+        oferta.id = documento.id;
+
+        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
+            oferta.imagen = "images/" + oferta.imagen;
+        }
+
+        const activa = (oferta.estado || "activa") === "activa";
+
+        const vigente =
+            !oferta.fechaExpiracion ||
+            new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
+
+        if(activa && vigente){
+            ofertas.push(oferta);
+        }
+
+    });
+
+    ofertasFiltradas = [...ofertas];
+    ofertasMostradas = 20;
+
+    mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
+    actualizarBotonVerMas();
 
 }
 
