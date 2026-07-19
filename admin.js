@@ -373,8 +373,46 @@ const btnCategorias = document.getElementById("btnCategorias");
 const modalCategorias = document.getElementById("modalCategorias");
 const cerrarCategorias = document.getElementById("cerrarCategorias");
 
-btnCategorias.addEventListener("click", () => {
+btnCategorias.addEventListener("click", async () => {
+
     modalCategorias.style.display = "flex";
+
+    const contenedor = document.getElementById("listaCategorias");
+
+    contenedor.innerHTML = "Cargando ofertas...";
+
+    const consulta = await getDocs(
+        query(collection(db, "ofertas"), orderBy("nombre"))
+    );
+
+    contenedor.innerHTML = "";
+
+    consulta.forEach((documento) => {
+
+        const oferta = documento.data();
+
+        contenedor.innerHTML += `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;gap:10px;">
+
+            <span style="flex:1">${oferta.nombre}</span>
+
+            <select class="categoriaMasiva" data-id="${documento.id}">
+                <option value="Tecnología" ${oferta.categoria==="Tecnología"?"selected":""}>Tecnología</option>
+                <option value="Hogar" ${oferta.categoria==="Hogar"?"selected":""}>Hogar</option>
+                <option value="Cocina" ${oferta.categoria==="Cocina"?"selected":""}>Cocina</option>
+                <option value="Belleza" ${oferta.categoria==="Belleza"?"selected":""}>Belleza</option>
+                <option value="Moda" ${oferta.categoria==="Moda"?"selected":""}>Moda</option>
+                <option value="Mascotas" ${oferta.categoria==="Mascotas"?"selected":""}>Mascotas</option>
+                <option value="Bebés" ${oferta.categoria==="Bebés"?"selected":""}>Bebés</option>
+                <option value="Juguetes" ${oferta.categoria==="Juguetes"?"selected":""}>Juguetes</option>
+                <option value="Viajes" ${oferta.categoria==="Viajes"?"selected":""}>Viajes</option>
+                <option value="Oficina" ${oferta.categoria==="Oficina"?"selected":""}>Oficina</option>
+                <option value="Otros" ${oferta.categoria==="Otros"?"selected":""}>Otros</option>
+            </select>
+
+        </div>`;
+    });
+
 });
 
 cerrarCategorias.addEventListener("click", () => {
