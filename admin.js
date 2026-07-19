@@ -368,3 +368,20 @@ function actualizarTipoDescuento() {
 
 tipo.addEventListener("change", actualizarTipoDescuento);
 actualizarTipoDescuento();
+
+const buscador = document.getElementById("buscarOferta");
+
+buscador.addEventListener("keyup", () => {
+
+    const texto = buscador.value.toLowerCase();
+
+    document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
+
+        const producto = fila.children[1].textContent.toLowerCase();
+
+        fila.style.display =
+            producto.includes(texto) ? "" : "none";
+
+    });
+
+});
