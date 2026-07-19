@@ -369,6 +369,24 @@ function actualizarTipoDescuento() {
 tipo.addEventListener("change", actualizarTipoDescuento);
 actualizarTipoDescuento();
 
+const btnCategorias = document.getElementById("btnCategorias");
+const modalCategorias = document.getElementById("modalCategorias");
+const cerrarCategorias = document.getElementById("cerrarCategorias");
+
+btnCategorias.addEventListener("click", () => {
+    modalCategorias.style.display = "flex";
+});
+
+cerrarCategorias.addEventListener("click", () => {
+    modalCategorias.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === modalCategorias) {
+        modalCategorias.style.display = "none";
+    }
+});
+
 const buscador = document.getElementById("buscarOferta");
 
 buscador.addEventListener("keyup", () => {
