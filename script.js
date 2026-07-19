@@ -107,15 +107,57 @@ contenedor.innerHTML += `
 
 }
 
-buscador.addEventListener("input", () => {
+buscador.addEventListener("input", async () => {
 
-    const texto = buscador.value.toLowerCase();
+    const texto = buscador.value.trim().toLowerCase();
 
-    const filtradas = ofertas.filter(oferta =>
-    oferta.nombre.toLowerCase().includes(texto)
-);
+    // Si el buscador está vacío, vuelve al filtro actual
+    if(texto === ""){
+        mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
+        actualizarBotonVerMas();
+        return;
+    }
 
-    mostrarOfertas(filtradas);
+    const consulta = await getDocs(
+        query(
+            collection(db, "ofertas"),
+            orderBy("fecha", "desc")
+        )
+    );
+
+    const hoy = new Date();
+    hoy.setHours(0,0,0,0);
+
+    const resultados = [];
+
+    consulta.forEach(documento => {
+
+        const oferta = documento.data();
+        oferta.id = documento.id;
+
+        const activa = (oferta.estado || "activa") === "activa";
+
+        const vigente =
+            !oferta.fechaExpiracion ||
+            new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
+
+        if(
+            activa &&
+            vigente &&
+            oferta.nombre.toLowerCase().includes(texto)
+        ){
+
+            if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
+                oferta.imagen = "images/" + oferta.imagen;
+            }
+
+            resultados.push(oferta);
+
+        }
+
+    });
+
+    mostrarOfertas(resultados);
 
 });
 
