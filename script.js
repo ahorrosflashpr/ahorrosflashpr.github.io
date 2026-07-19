@@ -504,12 +504,4 @@ window.verMasOfertas = function(){
 
     actualizarBotonVerMas();
 
-    setTimeout(() => {
-        document.getElementById("btnVerMas")
-            .scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-    }, 100);
-
 }
