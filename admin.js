@@ -441,3 +441,25 @@ buscador.addEventListener("keyup", () => {
     });
 
 });
+
+const guardarCategorias = document.getElementById("guardarCategorias");
+
+guardarCategorias.addEventListener("click", async () => {
+
+    const categorias = document.querySelectorAll(".categoriaMasiva");
+
+    for (const item of categorias) {
+
+        await updateDoc(doc(db, "ofertas", item.dataset.id), {
+            categoria: item.value
+        });
+
+    }
+
+    alert("✅ Todas las categorías se guardaron correctamente.");
+
+    modalCategorias.style.display = "none";
+
+    cargarOfertas();
+
+});
