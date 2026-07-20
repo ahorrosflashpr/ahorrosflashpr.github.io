@@ -108,9 +108,17 @@ body{
 @media (max-width:768px){
 
     #relacionadas{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
+        grid-template-columns:1fr;
+        gap:18px;
     }
+
+    .card{
+        width:100%;
+        max-width:340px;
+        margin:auto;
+    }
+
+}
 
     .card{
         width:100%;
