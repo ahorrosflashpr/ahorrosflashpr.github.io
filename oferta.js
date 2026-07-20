@@ -53,29 +53,31 @@ if (!id) {
 
     <div class="info-oferta">
 
-        <h1>${oferta.nombre}</h1>
+    <h1>${oferta.nombre}</h1>
 
-        <div class="precio-grande">
-            $${oferta.precio}
-        </div>
+    <div class="precio-grande">
+        $${oferta.precio}
+    </div>
 
-        <div class="antes">
-            Antes: $${oferta.antes}
-        </div>
+    <div class="antes">
+        Antes: $${oferta.antes}
+    </div>
 
-        <p class="ahorro-grande">
-            💰 Ahorras ${oferta.ahorro}
-        </p>
+    <p class="ahorro-grande">
+        💰 Ahorras ${oferta.ahorro}
+    </p>
 
-        ${
-            oferta.tipoDescuento === "codigo"
-            ? `<div class="btn-codigo btn-codigo-color">📋 USA EL CÓDIGO: ${oferta.codigo}</div>`
-            : oferta.tipoDescuento === "cupon"
-            ? `<div class="btn-codigo btn-cupon">🎟 ACTIVA EL CUPÓN EN AMAZON</div>`
-            : `<div class="btn-codigo btn-precio">💰 BAJO PRECIO • NO REQUIERE CUPÓN</div>`
-        }
+    ${
+        oferta.tipoDescuento === "codigo"
+        ? `<div class="btn-codigo btn-codigo-color">📋 USA EL CÓDIGO: ${oferta.codigo}</div>`
+        : oferta.tipoDescuento === "cupon"
+        ? `<div class="btn-codigo btn-cupon">🎟 ACTIVA EL CUPÓN EN AMAZON</div>`
+        : `<div class="btn-codigo btn-precio">💰 BAJO PRECIO • NO REQUIERE CUPÓN</div>`
+    }
 
-        <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
+</div>
+
+<a class="btn-amazon" href="${oferta.enlace}" target="_blank">
     <span>🔥 VER OFERTA EN AMAZON</span>
     <span class="flecha">➜</span>
 </a>
