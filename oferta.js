@@ -89,6 +89,14 @@ if (!id) {
 
     ⬅️ Ver todas las ofertas
 
+<button
+    class="btn-amazon btn-compartir"
+    onclick="compartirOferta()">
+
+    📤 Compartir esta oferta
+
+</button>
+
 </a>
 
 </div>
@@ -172,3 +180,29 @@ consulta.forEach((documento)=>{
 `;
 
 });
+
+window.compartirOferta = async function(){
+
+    const url = window.location.href;
+
+    if(navigator.share){
+
+        try{
+
+            await navigator.share({
+                title:"Ahorros y Descuentos Flash PR",
+                text:"¡Mira esta oferta que encontré!",
+                url:url
+            });
+
+        }catch(e){}
+
+    }else{
+
+        await navigator.clipboard.writeText(url);
+
+        alert("✅ Enlace copiado.");
+
+    }
+
+}
