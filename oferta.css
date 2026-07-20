@@ -111,151 +111,42 @@ body{
     transition:.25s;
 }
 
-.btn-todas:hover{
-    transform:translateY(-2px);
-}
-
-.relacionadas{
-    max-width:1200px;
-    margin:50px auto;
-    padding:20px;
-}
-
-#relacionadas{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:20px;
-    justify-items:center;
-}
-
-#relacionadas .card{
-    width:280px;
-    max-width:100%;
-    margin:0;
-}
-
-
-.btn-amazon{
-    transition:.25s;
-}
-
-.btn-amazon:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
-}
-
-.oferta-verificada{
-    position:absolute;
-    top:18px;
-    right:18px;
-
-    display:flex;
-    align-items:center;
-    gap:6px;
-
-    background:#ECFDF5;
-    color:#15803D;
-
-    border:1px solid #BBF7D0;
-
-    padding:8px 12px;
-
-    border-radius:999px;
-
-    font-size:13px;
-    font-weight:700;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-    z-index:10;
-}
-/* ===== Móvil ===== */
-
-@media (max-width:768px){
-
-    #relacionadas{
-        grid-template-columns:1fr;
-        gap:18px;
-    }
-
-    .card{
-        width:100%;
-        max-width:340px;
-        margin:auto;
-    }
-
-}
-
-@media (max-width:768px){
-
-    #relacionadas{
-        grid-template-columns:1fr;
-    }
-
-    #relacionadas .card{
-        width:100%;
-        max-width:340px;
-    }
-
-}
-
-.contenedor-oferta{
-    max-width:1200px;
-    margin:30px auto;
-    display:block !important;
-}
-
-#producto{
-    display:flex;
-    justify-content:center;
-    margin-bottom:50px;
-}
+@media (max-width:900px){
 
 .oferta-individual{
-    position:relative;
-}
-
-.oferta-verificada{
-    position:absolute;
-    top:20px;
-    right:20px;
-}
-
-.relacionadas{
-    width:100%;
-}
-
-.relacionadas h2{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.btn-compartir{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin:18px auto 0;
-    width:220px;
-width:28px;
-    height:28px;
-    border-radius:50%;
-    background:#22c55e;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:15px;
+    padding:20px;
 }
 
 .fila-superior{
     display:flex;
-    gap:40px;
-    align-items:flex-start;
+    flex-direction:column;
+    gap:20px;
+}
+
+.oferta-individual img{
+    width:100%;
+    max-width:100%;
+    display:block;
+    margin:auto;
 }
 
 .info-oferta{
-    flex:1;
-    display:flex;
-    flex-direction:column;
+    width:100%;
+}
+
+.precio-grande{
+    font-size:3rem;
+}
+
+.btn-amazon,
+.btn-todas{
+    width:100%;
+    font-size:20px;
+}
+
+.btn-compartir{
+    width:100%;
+    margin-top:15px;
+}
+
 }
