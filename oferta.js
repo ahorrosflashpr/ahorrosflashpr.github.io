@@ -59,9 +59,9 @@ if (!id) {
 
 <div class="oferta-individual">
 
-    <div class="oferta-verificada">
-        ✅ Oferta verificada por Flash PR
-    </div>
+    <div class="oferta-verificada" title="Oferta revisada por Flash PR">
+    ✅ Verificada
+</div>
 
     ${
     oferta.tipoDescuento === "codigo"
