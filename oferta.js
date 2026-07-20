@@ -116,6 +116,10 @@ consulta.forEach((documento)=>{
     if(documento.id === id) return;
 
     const item = documento.data();
+    
+    if (item.imagen && !item.imagen.startsWith("images/")) {
+    item.imagen = "images/" + item.imagen;
+    }
 
     const ahorro = (
         parseFloat(item.antes) - parseFloat(item.precio)
