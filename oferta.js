@@ -57,49 +57,67 @@ if (!id) {
     💰 Ahorras ${oferta.ahorro}
 </p>
 
+contenedor.innerHTML = `
+
 <div class="oferta-individual">
 
     <div class="oferta-verificada" title="Oferta revisada por Flash PR">
-    ✅ Verificada
-</div>
+        ✅ Verificada
+    </div>
 
-    ${
-    oferta.tipoDescuento === "codigo"
-    ? `<div class="btn-codigo btn-codigo-color">
-        📋 USA EL CÓDIGO: ${oferta.codigo}
-       </div>`
-    : oferta.tipoDescuento === "cupon"
-    ? `<div class="btn-codigo btn-cupon">
-        🎟 ACTIVA EL CUPÓN EN AMAZON
-       </div>`
-    : `<div class="btn-codigo btn-precio">
-        💰 BAJO PRECIO • NO REQUIERE CUPÓN
-       </div>`
-}
+    <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
-    <a
-    class="btn-amazon"
-    href="${oferta.enlace}"
-    target="_blank">
+    <div class="info-oferta">
 
-    🔥 VER OFERTA EN AMAZON
+        <h1>${oferta.nombre}</h1>
 
-</a>
+        <div class="precio-grande">
+            $${oferta.precio}
+        </div>
 
-<a
-    href="index.html"
-    class="btn-amazon"
-    style="background:#2563eb;margin-top:12px;">
-    ⬅️ Ver todas las ofertas
-</a>
+        <div class="antes">
+            Antes: $${oferta.antes}
+        </div>
 
-<button
-    class="btn-amazon btn-compartir"
-    onclick="compartirOferta()">
-    📤 Compartir esta oferta
-</button>
+        <p class="ahorro-grande">
+            💰 Ahorras ${oferta.ahorro}
+        </p>
 
-</a>
+        ${
+        oferta.tipoDescuento === "codigo"
+        ? `<div class="btn-codigo btn-codigo-color">
+            📋 USA EL CÓDIGO: ${oferta.codigo}
+           </div>`
+        : oferta.tipoDescuento === "cupon"
+        ? `<div class="btn-codigo btn-cupon">
+            🎟 ACTIVA EL CUPÓN EN AMAZON
+           </div>`
+        : `<div class="btn-codigo btn-precio">
+            💰 BAJO PRECIO • NO REQUIERE CUPÓN
+           </div>`
+        }
+
+        <a
+            class="btn-amazon"
+            href="${oferta.enlace}"
+            target="_blank">
+            🔥 VER OFERTA EN AMAZON
+        </a>
+
+        <a
+            href="index.html"
+            class="btn-amazon"
+            style="background:#2563eb;margin-top:12px;">
+            ⬅️ Ver todas las ofertas
+        </a>
+
+        <button
+            class="btn-compartir"
+            onclick="compartirOferta()">
+            📤 Compartir
+        </button>
+
+    </div>
 
 </div>
 
