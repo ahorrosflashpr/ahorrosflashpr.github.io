@@ -2,7 +2,12 @@ import { db } from "./firebase.js";
 
 import {
     doc,
-    getDoc
+    getDoc,
+    collection,
+    getDocs,
+    query,
+    orderBy,
+    limit
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -83,3 +88,43 @@ if (!id) {
     }
 
 }
+
+// ==============================
+// OFERTAS RELACIONADAS
+// ==============================
+
+const relacionadas = document.getElementById("relacionadas");
+
+const consulta = await getDocs(
+    query(
+        collection(db, "ofertas"),
+        orderBy("fecha", "desc"),
+        limit(4)
+    )
+);
+
+consulta.forEach((documento)=>{
+
+    if(documento.id === id) return;
+
+    const item = documento.data();
+
+    relacionadas.innerHTML += `
+
+    <div class="card-relacionada">
+
+        <img src="${item.imagen}" alt="${item.nombre}">
+
+        <h3>${item.nombre}</h3>
+
+        <p><strong>$${item.precio}</strong></p>
+
+        <a href="oferta.html?id=${documento.id}">
+            Ver oferta
+        </a>
+
+    </div>
+
+    `;
+
+});
