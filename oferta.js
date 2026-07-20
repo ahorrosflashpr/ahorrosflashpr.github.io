@@ -15,6 +15,8 @@ const params = new URLSearchParams(window.location.search);
 
 const id = params.get("id");
 
+let categoria = "";
+
 const contenedor = document.getElementById("producto");
 
 if (!id) {
@@ -33,7 +35,7 @@ if (!id) {
 
         const oferta = documento.data();
 
-        const categoria = oferta.categoria;
+        categoria = oferta.categoria;
 
         contenedor.innerHTML = `
 
@@ -86,15 +88,13 @@ if (!id) {
     href="index.html"
     class="btn-amazon"
     style="background:#2563eb;margin-top:12px;">
-
     ⬅️ Ver todas las ofertas
+</a>
 
 <button
     class="btn-amazon btn-compartir"
     onclick="compartirOferta()">
-
     📤 Compartir esta oferta
-
 </button>
 
 </a>
