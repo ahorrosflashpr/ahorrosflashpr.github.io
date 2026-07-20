@@ -44,6 +44,10 @@ if (!id) {
         $${oferta.precio}
     </div>
 
+    <div class="oferta-verificada">
+    ✅ Oferta verificada por Flash PR
+</div>
+
     <div class="antes">
         Antes: $${oferta.antes}
     </div>
