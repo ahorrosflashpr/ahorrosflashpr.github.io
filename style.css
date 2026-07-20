@@ -274,8 +274,11 @@ main{
 }
 
 .update{
-    color:#ffd54f;
-    font-weight:bold;
+    background:rgba(255,255,255,.18);
+    color:#ffffff;
+    padding:4px 10px;
+    border-radius:20px;
+    font-weight:700;
 }
 
 .info-bar{
