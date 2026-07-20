@@ -68,7 +68,14 @@ if (!id) {
 
         🔥 VER OFERTA EN AMAZON
 
-    </a>
+        <a
+    href="index.html"
+    class="btn-amazon"
+    style="background:#2563eb;margin-top:12px;">
+
+    ⬅️ Ver todas las ofertas
+
+</a>
 
 </div>
 
