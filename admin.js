@@ -429,7 +429,11 @@ const buscador = document.getElementById("buscarOferta");
 
 buscador.addEventListener("keyup", () => {
 
-    const texto = buscador.value.toLowerCase();
+    const texto = buscador.value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 
     document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
 
