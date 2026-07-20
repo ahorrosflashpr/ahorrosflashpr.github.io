@@ -32,6 +32,8 @@ if (!id) {
 
         const oferta = documento.data();
 
+        const categoria = oferta.categoria;
+
         contenedor.innerHTML = `
 
 <div class="oferta-individual">
@@ -104,8 +106,9 @@ const relacionadas = document.getElementById("relacionadas");
 const consulta = await getDocs(
     query(
         collection(db, "ofertas"),
+        where("categoria", "==", categoria),
         orderBy("fecha", "desc"),
-        limit(4)
+        limit(5)
     )
 );
 
