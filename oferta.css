@@ -77,8 +77,15 @@ body{
 
 #relacionadas{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
     gap:20px;
+    justify-items:center;
+}
+
+#relacionadas .card{
+    width:280px;
+    max-width:100%;
+    margin:0;
 }
 
 
@@ -116,6 +123,19 @@ body{
         width:100%;
         max-width:340px;
         margin:auto;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #relacionadas{
+        grid-template-columns:1fr;
+    }
+
+    #relacionadas .card{
+        width:100%;
+        max-width:340px;
     }
 
 }
