@@ -21,19 +21,33 @@ body{
 }
 
 .oferta-individual{
+    position:relative;
+
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:45px;
+
+    align-items:start;
+
     background:#fff;
-    border-radius:22px;
-    padding:30px;
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
 }
 
 .oferta-individual img{
-    display:block;
+
     width:100%;
-    max-width:520px;
-    margin:0 auto 20px;
-    border-radius:18px;
+    height:420px;
+
     object-fit:contain;
+
+    border-radius:20px;
+
+    background:#fff;
 }
 
 .oferta-individual h1{
@@ -192,4 +206,20 @@ body{
 
 .btn-compartir:hover{
     background:#15803d;
+}
+
+@media(max-width:900px){
+
+.oferta-individual{
+
+    grid-template-columns:1fr;
+
+}
+
+.oferta-individual img{
+
+    height:300px;
+
+}
+
 }
