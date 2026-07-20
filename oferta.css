@@ -410,5 +410,10 @@ body{
     display:flex;
     gap:40px;
     align-items:flex-start;
-    margin-bottom:25px;
+}
+
+.info-oferta{
+    flex:1;
+    display:flex;
+    flex-direction:column;
 }
