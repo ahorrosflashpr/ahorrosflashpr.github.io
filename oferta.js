@@ -77,15 +77,15 @@ if (!id) {
 
         <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
     <span>🔥 VER OFERTA EN AMAZON</span>
-    <span class="flecha">›</span>
+    <span class="flecha">➜</span>
 </a>
 
-        <a href="index.html" class="btn-todas">
-    🗂️ Ver todas las ofertas
+<a href="index.html" class="btn-todas">
+    <span>🗂️ Ver todas las ofertas</span>
 </a>
 
-        <button class="btn-compartir" onclick="compartirOferta()">
-    <span class="icono-share">🔗</span>
+<button class="btn-compartir" onclick="compartirOferta()">
+    <span class="icono-share">↗</span>
     <span>Compartir</span>
 </button>
 
