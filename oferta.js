@@ -79,16 +79,6 @@ if (!id) {
 
         </div>
 
-    <div class="info-oferta">
-
-    <h1>...</h1>
-
-    ...
-
-    <div class="btn-codigo ...">
-        ...
-    </div>
-
     <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
         <span>🔥 VER OFERTA EN AMAZON</span>
         <span class="flecha">➜</span>
