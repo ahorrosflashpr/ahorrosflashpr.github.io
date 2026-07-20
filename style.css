@@ -1128,3 +1128,51 @@ main{
 .sin-ofertas button:hover{
     background:#D97706;
 }
+
+.contenedor-oferta{
+    max-width:700px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.oferta-individual{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.oferta-individual img{
+    width:100%;
+    border-radius:15px;
+}
+
+.oferta-individual h1{
+    font-size:30px;
+    margin:15px 0;
+}
+
+.precio-grande{
+    font-size:42px;
+    color:#e53935;
+    font-weight:bold;
+}
+
+.antes{
+    color:#888;
+    text-decoration:line-through;
+    font-size:20px;
+}
+
+.btn-amazon{
+    display:block;
+    background:#ff9900;
+    color:white;
+    text-align:center;
+    padding:18px;
+    margin-top:20px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+}
