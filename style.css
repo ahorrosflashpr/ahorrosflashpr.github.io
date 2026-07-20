@@ -1217,3 +1217,27 @@ main{
     text-decoration:none;
     font-weight:bold;
 }
+
+/* ===== Página de oferta ===== */
+
+.topbar{
+    background:#ff9900;
+    color:#fff;
+    text-align:center;
+    padding:18px;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+/* ===== Página de oferta ===== */
+
+.topbar{
+    background:#ff9900;
+    color:#fff;
+    text-align:center;
+    padding:18px;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
