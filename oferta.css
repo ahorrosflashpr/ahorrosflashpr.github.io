@@ -22,14 +22,18 @@ body{
 
 .oferta-individual{
     background:#fff;
-    border-radius:18px;
-    padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
 }
 
 .oferta-individual img{
+    display:block;
     width:100%;
-    border-radius:15px;
+    max-width:520px;
+    margin:0 auto 20px;
+    border-radius:18px;
+    object-fit:contain;
 }
 
 .oferta-individual h1{
@@ -39,9 +43,10 @@ body{
 }
 
 .precio-grande{
-    font-size:48px;
-    color:#E53935;
-    font-weight:bold;
+    font-size:56px;
+    color:#e60023;
+    font-weight:800;
+    margin:8px 0;
 }
 
 .antes{
@@ -103,4 +108,13 @@ body{
     border-radius:10px;
     margin-top:12px;
     font-weight:bold;
+}
+
+.btn-amazon{
+    transition:.25s;
+}
+
+.btn-amazon:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
 }
