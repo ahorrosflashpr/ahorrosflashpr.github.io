@@ -105,7 +105,7 @@ const consulta = await getDocs(
     query(
         collection(db, "ofertas"),
         orderBy("fecha", "desc"),
-        limit(5)
+        limit(4)
     )
 );
 
