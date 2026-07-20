@@ -109,7 +109,11 @@ contenedor.innerHTML += `
 
 buscador.addEventListener("input", async () => {
 
-    const texto = buscador.value.trim().toLowerCase();
+    const texto = buscador.value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 
     // Si el buscador está vacío, vuelve al filtro actual
     if(texto === ""){
@@ -144,7 +148,11 @@ buscador.addEventListener("input", async () => {
         if(
             activa &&
             vigente &&
-            oferta.nombre.toLowerCase().includes(texto)
+            oferta.nombre
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .includes(texto)
         ){
 
             if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
