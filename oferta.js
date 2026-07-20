@@ -113,20 +113,38 @@ consulta.forEach((documento)=>{
 
     relacionadas.innerHTML += `
 
-    <div class="card-relacionada">
+<div class="card">
 
-        <img src="${item.imagen}" alt="${item.nombre}">
+    <img src="${item.imagen}" alt="${item.nombre}">
 
-        <h3>${item.nombre}</h3>
+    <h2>${item.nombre}</h2>
 
-        <p><strong>$${item.precio}</strong></p>
-
-        <a href="oferta.html?id=${documento.id}">
-            Ver oferta
-        </a>
-
+    <div class="old">
+        Antes: $${item.antes}
     </div>
 
-    `;
+    <div class="price">
+        $${item.precio}
+    </div>
+
+    <div class="saving">
+        💰 Ahorras ${item.ahorro}
+    </div>
+
+    ${
+        item.tipoDescuento === "codigo"
+        ? `<div class="btn-codigo btn-codigo-color">📋 Código: ${item.codigo}</div>`
+        : item.tipoDescuento === "cupon"
+        ? `<div class="btn-codigo btn-cupon">🎟 Activa el cupón</div>`
+        : `<div class="btn-codigo btn-precio">💰 Bajo precio</div>`
+    }
+
+    <a class="btn-oferta" href="oferta.html?id=${documento.id}">
+        👀 Ver oferta
+    </a>
+
+</div>
+
+`;
 
 });
