@@ -39,24 +39,6 @@ if (!id) {
 
         contenedor.innerHTML = `
 
-<div class="oferta-individual">
-
-    <img src="${oferta.imagen}" alt="${oferta.nombre}">
-
-    <h1>${oferta.nombre}</h1>
-
-    <div class="precio-grande">
-    $${oferta.precio}
-</div>
-
-<div class="antes">
-    Antes: $${oferta.antes}
-</div>
-
-<p style="font-size:22px;font-weight:bold;">
-    💰 Ahorras ${oferta.ahorro}
-</p>
-
 contenedor.innerHTML = `
 
 <div class="oferta-individual">
