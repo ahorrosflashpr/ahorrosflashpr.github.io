@@ -5,13 +5,25 @@ body{
 }
 
 .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
     background:#ff9900;
     color:#fff;
-    text-align:center;
-    padding:14px 20px;
-    font-size:18px;
+    padding:12px 24px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.topbar img{
+    height:42px;
+    width:auto;
+}
+
+.topbar h1{
+    margin:0;
+    font-size:28px;
     font-weight:700;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
 .contenedor-oferta{
