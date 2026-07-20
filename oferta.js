@@ -57,18 +57,18 @@ if (!id) {
 </div>
 
     ${
-        oferta.tipoDescuento === "codigo"
-        ? `<div class="btn-codigo btn-codigo-color">
+    oferta.tipoDescuento === "codigo"
+    ? `<div class="btn-codigo btn-codigo-color">
         📋 USA EL CÓDIGO: ${oferta.codigo}
-        </div>`
-        : oferta.tipoDescuento === "cupon"
-        : `<div class="btn-codigo btn-cupon">
+       </div>`
+    : oferta.tipoDescuento === "cupon"
+    ? `<div class="btn-codigo btn-cupon">
         🎟 ACTIVA EL CUPÓN EN AMAZON
-        </div>`
-        : `<div class="btn-codigo btn-precio">
+       </div>`
+    : `<div class="btn-codigo btn-precio">
         💰 BAJO PRECIO • NO REQUIERE CUPÓN
-        </div>``
-    }
+       </div>`
+}
 
     <a
     class="btn-amazon"
