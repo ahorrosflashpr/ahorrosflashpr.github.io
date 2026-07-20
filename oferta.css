@@ -405,3 +405,10 @@ body{
     justify-content:center;
     font-size:15px;
 }
+
+.fila-superior{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
