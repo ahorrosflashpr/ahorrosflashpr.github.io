@@ -41,20 +41,20 @@ if (!id) {
     <h1>${oferta.nombre}</h1>
 
     <div class="precio-grande">
-        $${oferta.precio}
-    </div>
-
-    <div class="oferta-verificada">
-    ✅ Oferta verificada por Flash PR
+    $${oferta.precio}
 </div>
 
-    <div class="antes">
-        Antes: $${oferta.antes}
-    </div>
+<div class="antes">
+    Antes: $${oferta.antes}
+</div>
 
-    <p style="font-size:22px;font-weight:bold;">
-        💰 Ahorras ${oferta.ahorro}
-    </p>
+<p style="font-size:22px;font-weight:bold;">
+    💰 Ahorras ${oferta.ahorro}
+</p>
+
+<div class="oferta-verificada">
+    ✅ Oferta verificada por Flash PR
+</div>
 
     ${
         oferta.tipoDescuento === "codigo"
