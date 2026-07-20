@@ -39,8 +39,6 @@ if (!id) {
 
         contenedor.innerHTML = `
 
-contenedor.innerHTML = `
-
 <div class="oferta-individual">
 
     <div class="oferta-verificada" title="Oferta revisada por Flash PR">
