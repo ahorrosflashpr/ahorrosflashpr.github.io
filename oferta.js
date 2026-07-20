@@ -71,29 +71,37 @@ if (!id) {
 
             ${
                 oferta.tipoDescuento === "codigo"
-                ? `<div class="btn-codigo btn-codigo-color">📋 USA EL CÓDIGO: ${oferta.codigo}</div>`
+                ? `<div class="btn-codigo btn-codigo-color">
+                        📋 USA EL CÓDIGO: ${oferta.codigo}
+                   </div>`
                 : oferta.tipoDescuento === "cupon"
-                ? `<div class="btn-codigo btn-cupon">🎟 ACTIVA EL CUPÓN EN AMAZON</div>`
-                : `<div class="btn-codigo btn-precio">💰 BAJO PRECIO • NO REQUIERE CUPÓN</div>`
+                ? `<div class="btn-codigo btn-cupon">
+                        🎟 ACTIVA EL CUPÓN EN AMAZON
+                   </div>`
+                : `<div class="btn-codigo btn-precio">
+                        💰 BAJO PRECIO • NO REQUIERE CUPÓN
+                   </div>`
             }
+
+            <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
+                <span>🔥 VER OFERTA EN AMAZON</span>
+                <span class="flecha">➜</span>
+            </a>
+
+            <a href="index.html" class="btn-todas">
+                <span>🗂️ Ver todas las ofertas</span>
+            </a>
+
+            <button class="btn-compartir" onclick="compartirOferta()">
+                <span class="icono-share">↗</span>
+                <span>Compartir</span>
+            </button>
 
         </div>
 
-    <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
-        <span>🔥 VER OFERTA EN AMAZON</span>
-        <span class="flecha">➜</span>
-    </a>
+    </div>
 
-    <a href="index.html" class="btn-todas">
-        <span>🗂️ Ver todas las ofertas</span>
-    </a>
-
-    <button class="btn-compartir" onclick="compartirOferta()">
-        <span class="icono-share">↗</span>
-        <span>Compartir</span>
-    </button>
-
-</div> <!-- ESTE ES EL CIERRE DE info-oferta -->
+</div>
 
 `;
     }
