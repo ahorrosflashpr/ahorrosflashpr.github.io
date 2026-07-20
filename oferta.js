@@ -84,36 +84,22 @@ contenedor.innerHTML = `
         </p>
 
         ${
-        oferta.tipoDescuento === "codigo"
-        ? `<div class="btn-codigo btn-codigo-color">
-            📋 USA EL CÓDIGO: ${oferta.codigo}
-           </div>`
-        : oferta.tipoDescuento === "cupon"
-        ? `<div class="btn-codigo btn-cupon">
-            🎟 ACTIVA EL CUPÓN EN AMAZON
-           </div>`
-        : `<div class="btn-codigo btn-precio">
-            💰 BAJO PRECIO • NO REQUIERE CUPÓN
-           </div>`
+            oferta.tipoDescuento === "codigo"
+            ? `<div class="btn-codigo btn-codigo-color">📋 USA EL CÓDIGO: ${oferta.codigo}</div>`
+            : oferta.tipoDescuento === "cupon"
+            ? `<div class="btn-codigo btn-cupon">🎟 ACTIVA EL CUPÓN EN AMAZON</div>`
+            : `<div class="btn-codigo btn-precio">💰 BAJO PRECIO • NO REQUIERE CUPÓN</div>`
         }
 
-        <a
-            class="btn-amazon"
-            href="${oferta.enlace}"
-            target="_blank">
+        <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
             🔥 VER OFERTA EN AMAZON
         </a>
 
-        <a
-            href="index.html"
-            class="btn-amazon"
-            style="background:#2563eb;margin-top:12px;">
+        <a href="index.html" class="btn-amazon" style="background:#2563eb;margin-top:12px;">
             ⬅️ Ver todas las ofertas
         </a>
 
-        <button
-            class="btn-compartir"
-            onclick="compartirOferta()">
+        <button class="btn-compartir" onclick="compartirOferta()">
             📤 Compartir
         </button>
 
