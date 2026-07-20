@@ -59,15 +59,15 @@ if (!id) {
     ${
         oferta.tipoDescuento === "codigo"
         ? `<div class="btn-codigo btn-codigo-color">
-            📋 Código: ${oferta.codigo}
-           </div>`
+        📋 USA EL CÓDIGO: ${oferta.codigo}
+        </div>`
         : oferta.tipoDescuento === "cupon"
-        ? `<div class="btn-codigo btn-cupon">
-            🎟 Activa el cupón en Amazon
-           </div>`
+        : `<div class="btn-codigo btn-cupon">
+        🎟 ACTIVA EL CUPÓN EN AMAZON
+        </div>`
         : `<div class="btn-codigo btn-precio">
-            💰 Bajo precio
-           </div>`
+        💰 BAJO PRECIO • NO REQUIERE CUPÓN
+        </div>``
     }
 
     <a
