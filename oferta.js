@@ -58,7 +58,7 @@ if (!id) {
 </p>
 
 <div class="oferta-verificada">
-    ✅ Oferta verificada por Flash PR
+    ✅ Verificada
 </div>
 
     ${
