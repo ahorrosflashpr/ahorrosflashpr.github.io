@@ -45,6 +45,10 @@ if (!id) {
         ✅ Verificada
     </div>
 
+    <div class="descuento-esquina">
+    -${oferta.descuento}
+</div>
+
     <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
     <div class="info-oferta">
