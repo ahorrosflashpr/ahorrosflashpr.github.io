@@ -141,3 +141,31 @@ body{
     }
 
 }
+
+.btn-precio,
+.btn-cupon,
+.btn-codigo-color{
+
+    display:block;
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    margin:15px 0;
+
+}
+
+.btn-precio{
+    background:#16a34a;
+}
+
+.btn-cupon{
+    background:#7c3aed;
+}
+
+.btn-codigo-color{
+    background:#2563eb;
+}
