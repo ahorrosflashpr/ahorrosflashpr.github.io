@@ -67,13 +67,15 @@ if (!id) {
     }
 
     <a
-        class="btn-amazon"
-        href="${oferta.enlace}"
-        target="_blank">
+    class="btn-amazon"
+    href="${oferta.enlace}"
+    target="_blank">
 
-        🔥 VER OFERTA EN AMAZON
+    🔥 VER OFERTA EN AMAZON
 
-        <a
+</a>
+
+<a
     href="index.html"
     class="btn-amazon"
     style="background:#2563eb;margin-top:12px;">
