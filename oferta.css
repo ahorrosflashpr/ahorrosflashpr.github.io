@@ -57,16 +57,52 @@ body{
 }
 
 .btn-amazon{
-    display:block;
-    text-align:center;
-    background:#ff9900;
-    color:white;
-    text-decoration:none;
-    padding:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    height:64px;
+    padding:0 28px;
     margin-top:20px;
+    background:linear-gradient(180deg,#ff9800,#f57c00);
+    color:#fff;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:700;
     border-radius:12px;
-    font-size:22px;
+    box-shadow:0 6px 18px rgba(255,152,0,.35);
+    transition:.25s;
+}
+
+.btn-amazon:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(255,152,0,.45);
+}
+
+.btn-amazon .flecha{
+    font-size:34px;
     font-weight:bold;
+}
+
+.btn-todas{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:64px;
+    margin-top:15px;
+    background:linear-gradient(180deg,#2b82ff,#005be7);
+    color:#fff;
+    text-decoration:none;
+    font-size:26px;
+    font-weight:700;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,91,231,.30);
+    transition:.25s;
+}
+
+.btn-todas:hover{
+    transform:translateY(-2px);
 }
 
 .relacionadas{
