@@ -245,8 +245,6 @@ const opciones = {
 document.getElementById("fechaActualizacion").textContent =
     "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
 
-document.getElementById("fechaActualizacionBarra").textContent =
-document.getElementById("fechaActualizacion").textContent;
 
 async function cargarOfertasFirebase(filtro = "hoy") {
 
