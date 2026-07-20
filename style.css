@@ -1148,3 +1148,16 @@ main{
     font-weight:bold;
     box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
+
+.ultima-barra{
+    max-width:1400px;
+    margin:15px auto;
+    padding:12px 20px;
+    background:#FFF8DB;
+    border:1px solid #FACC15;
+    border-radius:12px;
+    text-align:center;
+    color:#92400E;
+    font-size:16px;
+    font-weight:700;
+}
