@@ -37,21 +37,21 @@ if (!id) {
 
         categoria = oferta.categoria;
 
-        contenedor.innerHTML = `
-
-<div class="oferta-individual">
-
-    <div class="oferta-verificada">
-        ✅ Verificada
-    </div>
+        <div class="oferta-individual">
 
     <div class="descuento-esquina">
         -${oferta.descuento}
     </div>
 
+    <div class="oferta-verificada">
+        ✅ Oferta verificada por Flash PR
+    </div>
+
     <div class="fila-superior">
 
-        <img src="${oferta.imagen}" alt="${oferta.nombre}">
+        <div class="imagen-producto">
+            <img src="${oferta.imagen}" alt="${oferta.nombre}">
+        </div>
 
         <div class="info-oferta">
 
@@ -65,36 +65,28 @@ if (!id) {
                 Antes: $${oferta.antes}
             </div>
 
-            <p class="ahorro-grande">
+            <div class="ahorro-grande">
                 💰 Ahorras ${oferta.ahorro}
-            </p>
+            </div>
 
             ${
-                oferta.tipoDescuento === "codigo"
-                ? `<div class="btn-codigo btn-codigo-color">
-                        📋 USA EL CÓDIGO: ${oferta.codigo}
-                   </div>`
-                : oferta.tipoDescuento === "cupon"
-                ? `<div class="btn-codigo btn-cupon">
-                        🎟 ACTIVA EL CUPÓN EN AMAZON
-                   </div>`
-                : `<div class="btn-codigo btn-precio">
-                        💰 BAJO PRECIO • NO REQUIERE CUPÓN
-                   </div>`
+                oferta.tipoDescuento==="codigo"
+                ? `<div class="btn-codigo btn-codigo-color">📋 USA EL CÓDIGO: ${oferta.codigo}</div>`
+                : oferta.tipoDescuento==="cupon"
+                ? `<div class="btn-codigo btn-cupon">🎟 ACTIVA EL CUPÓN EN AMAZON</div>`
+                : `<div class="btn-codigo btn-precio">💰 BAJO PRECIO • NO REQUIERE CUPÓN</div>`
             }
 
             <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
-                <span>🔥 VER OFERTA EN AMAZON</span>
-                <span class="flecha">➜</span>
+                🔥 VER OFERTA EN AMAZON
             </a>
 
-            <a href="index.html" class="btn-todas">
-                <span>🗂️ Ver todas las ofertas</span>
+            <a class="btn-todas" href="index.html">
+                🗂️ Ver todas las ofertas
             </a>
 
             <button class="btn-compartir" onclick="compartirOferta()">
-                <span class="icono-share">↗</span>
-                <span>Compartir</span>
+                🔗 Compartir
             </button>
 
         </div>
@@ -102,7 +94,6 @@ if (!id) {
     </div>
 
 </div>
-
 `;
     }
 
