@@ -79,6 +79,14 @@ if (!id) {
 
         </div>
 
+    <div class="info-oferta">
+
+    <h1>...</h1>
+
+    ...
+
+    <div class="btn-codigo ...">
+        ...
     </div>
 
     <a class="btn-amazon" href="${oferta.enlace}" target="_blank">
@@ -87,15 +95,15 @@ if (!id) {
     </a>
 
     <a href="index.html" class="btn-todas">
-        🗂️ Ver todas las ofertas
+        <span>🗂️ Ver todas las ofertas</span>
     </a>
 
     <button class="btn-compartir" onclick="compartirOferta()">
         <span class="icono-share">↗</span>
-        Compartir
+        <span>Compartir</span>
     </button>
 
-</div>
+</div> <!-- ESTE ES EL CIERRE DE info-oferta -->
 
 `;
     }
