@@ -28,20 +28,51 @@ if (!id) {
         const oferta = documento.data();
 
         contenedor.innerHTML = `
-            <h1>${oferta.nombre}</h1>
 
-            <img src="${oferta.imagen}" style="max-width:350px;width:100%;border-radius:12px;">
+<div class="oferta-individual">
 
-            <h2>$${oferta.precio}</h2>
+    <img src="${oferta.imagen}" alt="${oferta.nombre}">
 
-            <p><del>$${oferta.antes}</del></p>
+    <h1>${oferta.nombre}</h1>
 
-            <p>💰 Ahorras ${oferta.ahorro}</p>
+    <div class="precio-grande">
+        $${oferta.precio}
+    </div>
 
-            <a href="${oferta.enlace}" target="_blank">
-                🔥 Comprar en Amazon
-            </a>
-        `;
+    <div class="antes">
+        Antes: $${oferta.antes}
+    </div>
+
+    <p style="font-size:22px;font-weight:bold;">
+        💰 Ahorras ${oferta.ahorro}
+    </p>
+
+    ${
+        oferta.tipoDescuento === "codigo"
+        ? `<div class="btn-codigo btn-codigo-color">
+            📋 Código: ${oferta.codigo}
+           </div>`
+        : oferta.tipoDescuento === "cupon"
+        ? `<div class="btn-codigo btn-cupon">
+            🎟 Activa el cupón en Amazon
+           </div>`
+        : `<div class="btn-codigo btn-precio">
+            💰 Bajo precio
+           </div>`
+    }
+
+    <a
+        class="btn-amazon"
+        href="${oferta.enlace}"
+        target="_blank">
+
+        🔥 VER OFERTA EN AMAZON
+
+    </a>
+
+</div>
+
+`;
     }
 
 }
