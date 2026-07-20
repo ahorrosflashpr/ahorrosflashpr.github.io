@@ -57,9 +57,11 @@ if (!id) {
     💰 Ahorras ${oferta.ahorro}
 </p>
 
-<div class="oferta-verificada">
-    ✅ Verificada
-</div>
+<div class="oferta-individual">
+
+    <div class="oferta-verificada">
+        ✅ Oferta verificada por Flash PR
+    </div>
 
     ${
     oferta.tipoDescuento === "codigo"
