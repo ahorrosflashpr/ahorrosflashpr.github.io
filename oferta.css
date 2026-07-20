@@ -113,34 +113,30 @@ body{
 }
 
 .oferta-verificada{
-
     position:absolute;
-
-    top:20px;
-    right:20px;
+    top:18px;
+    right:18px;
 
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:6px;
 
     background:#ECFDF5;
-
-    color:#166534;
+    color:#15803D;
 
     border:1px solid #BBF7D0;
 
-    padding:10px 16px;
+    padding:8px 12px;
 
-    border-radius:14px;
+    border-radius:999px;
 
-    font-size:14px;
-
+    font-size:13px;
     font-weight:700;
 
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 
+    z-index:10;
 }
-
 /* ===== Móvil ===== */
 
 @media (max-width:768px){
