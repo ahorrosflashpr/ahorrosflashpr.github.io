@@ -105,9 +105,11 @@ const consulta = await getDocs(
     query(
         collection(db, "ofertas"),
         orderBy("fecha", "desc"),
-        limit(4)
+        limit(5)
     )
 );
+
+relacionadas.innerHTML = "";
 
 consulta.forEach((documento)=>{
 
@@ -115,36 +117,46 @@ consulta.forEach((documento)=>{
 
     const item = documento.data();
 
+    const ahorro = (
+        parseFloat(item.antes) - parseFloat(item.precio)
+    ).toFixed(2);
+
     relacionadas.innerHTML += `
 
 <div class="card">
+
+    <div class="descuento">-${item.descuento}</div>
 
     <img src="${item.imagen}" alt="${item.nombre}">
 
     <h2>${item.nombre}</h2>
 
-    <div class="old">
-        Antes: $${item.antes}
-    </div>
+    <p class="old">$${item.antes}</p>
 
-    <div class="price">
-        $${item.precio}
-    </div>
+    <p class="price">$${item.precio}</p>
 
-    <div class="saving">
-        💰 Ahorras ${item.ahorro}
-    </div>
+    <p class="ahorro">
+        💰 Ahorras $${ahorro}
+    </p>
 
     ${
         item.tipoDescuento === "codigo"
-        ? `<div class="btn-codigo btn-codigo-color">📋 Código: ${item.codigo}</div>`
+        ? `<button class="btn-codigo btn-codigo-color">
+            📋 CÓDIGO: ${item.codigo}
+           </button>`
         : item.tipoDescuento === "cupon"
-        ? `<div class="btn-codigo btn-cupon">🎟 Activa el cupón</div>`
-        : `<div class="btn-codigo btn-precio">💰 Bajo precio</div>`
+        ? `<div class="btn-codigo btn-cupon">
+            🎟 ACTIVA EL CUPÓN EN AMAZON
+           </div>`
+        : `<div class="btn-codigo btn-precio">
+            💰 BAJO PRECIO • NO REQUIERE CUPÓN
+           </div>`
     }
 
-    <a class="btn-oferta" href="oferta.html?id=${documento.id}">
-        👀 Ver oferta
+    <a
+        class="btn-oferta"
+        href="oferta.html?id=${documento.id}">
+        🔥 VER OFERTA AHORA
     </a>
 
 </div>
