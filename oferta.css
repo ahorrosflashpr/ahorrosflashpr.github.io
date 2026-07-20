@@ -123,11 +123,11 @@ body{
     align-items:center;
     gap:8px;
 
-    background:#ecfdf5;
-
-    border:1px solid #22c55e;
+    background:#ECFDF5;
 
     color:#166534;
+
+    border:1px solid #BBF7D0;
 
     padding:10px 16px;
 
@@ -138,8 +138,6 @@ body{
     font-weight:700;
 
     box-shadow:0 4px 10px rgba(0,0,0,.08);
-
-    z-index:10;
 
 }
 
