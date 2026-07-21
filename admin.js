@@ -291,6 +291,86 @@ const categoria = document.getElementById("categoria").value;
 // ===============================
 cargarOfertas();
 
+// ===============================
+// BOTÓN SIGUIENTE
+// ===============================
+
+btnSiguiente.addEventListener("click", async () => {
+
+    if (!ultimaOferta) return;
+
+    const q = query(
+
+        collection(db, "ofertas"),
+
+        orderBy("fecha", "desc"),
+
+        startAfter(ultimaOferta),
+
+        limit(OFERTAS_POR_PAGINA)
+
+    );
+
+    const consulta = await getDocs(q);
+
+    if (consulta.empty) return;
+
+    primeraOferta = consulta.docs[0];
+    ultimaOferta = consulta.docs[consulta.docs.length - 1];
+
+    let html = "";
+
+    consulta.forEach((documento) => {
+
+        const oferta = documento.data();
+
+        html += `
+<tr>
+
+<td>
+<input
+type="checkbox"
+class="seleccionOferta"
+value="${documento.id}">
+</td>
+
+<td>
+<img
+src="${oferta.imagen}"
+class="miniatura">
+</td>
+
+<td>${oferta.nombre}</td>
+
+<td>$${oferta.precio}</td>
+
+<td>${oferta.clics || 0}</td>
+
+<td>
+
+<button class="editar" data-id="${documento.id}">
+✏️
+</button>
+
+<button class="moverAyer" data-id="${documento.id}">
+📅
+</button>
+
+<button class="eliminar" data-id="${documento.id}">
+🗑️
+</button>
+
+</td>
+
+</tr>
+`;
+
+    });
+
+    tbody.innerHTML = html;
+
+});
+
 const btnCategoria = document.getElementById("btnCategoria");
 const menuCategorias = document.getElementById("menuCategorias");
 
