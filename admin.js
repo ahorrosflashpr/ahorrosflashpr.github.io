@@ -234,6 +234,8 @@ const categoria = document.getElementById("categoria").value;
 
     fecha: Date.now(),
 
+    dia: new Date().toLocaleDateString("en-CA"),
+
     fechaExpiracion: document.getElementById("fechaExpiracion").value
 
 });
