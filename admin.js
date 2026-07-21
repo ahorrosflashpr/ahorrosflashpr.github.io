@@ -10,11 +10,15 @@ import {
     updateDoc,
     query,
     orderBy,
-    limit
+    limit,
+    startAfter
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
+const btnAnterior = document.getElementById("btnAnterior");
+const btnSiguiente = document.getElementById("btnSiguiente");
+const infoPagina = document.getElementById("infoPagina");
 
 tbody.addEventListener("click", async (e) => {
 
