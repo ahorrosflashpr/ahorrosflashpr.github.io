@@ -1,5 +1,3 @@
-import { db } from "../firebase.js";
-
 import {
     collection,
     addDoc,
@@ -9,13 +7,16 @@ import {
     getDoc,
     updateDoc,
     query,
-    orderBy
+    orderBy,
+    limit
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
 
 let editando = null;
+
+const OFERTAS_POR_PAGINA = 50;
 
 // ===============================
 // Cargar ofertas
@@ -26,7 +27,8 @@ async function cargarOfertas() {
 
     const q = query(
     collection(db, "ofertas"),
-    orderBy("fecha", "desc")
+    orderBy("fecha", "desc"),
+    limit(OFERTAS_POR_PAGINA)
 );
 
 const consulta = await getDocs(q);
