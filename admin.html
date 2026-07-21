@@ -59,40 +59,80 @@
 
 </div>
 
-            <label>💲 Precio</label>
-            <input type="text" id="precio">
+            <div class="fila">
 
-            <label>💸 Precio anterior</label>
-            <input type="text" id="antes">
+    <div class="campo">
 
-            <label>🖼 Nombre de la imagen</label>
-            <input
-                type="text"
-                id="imagen"
-                placeholder="Ejemplo: Aspiradora.jpg">
+        <label>💲 Precio</label>
+        <input type="text" id="precio">
 
-            <label>🏷 Código de descuento (opcional)</label>
-<input
-    type="text"
-    id="codigo"
-    placeholder="Ejemplo: SAVE20">
+    </div>
 
-<label>🏷 Tipo de descuento</label>
-<select id="tipoDescuento">
-    <option value="precio">💰 BAJO PRECIO</option>
-    <option value="cupon">🎟 Cupón de Amazon</option>
-    <option value="codigo">📋 Código promocional</option>
-</select>
+    <div class="campo">
+
+        <label>💸 Precio anterior</label>
+        <input type="text" id="antes">
+
+    </div>
+
+</div>
+
+            <div class="fila">
+
+    <div class="campo">
+
+        <label>🖼 Nombre de la imagen</label>
+
+        <input
+            type="text"
+            id="imagen"
+            placeholder="Ejemplo: Aspiradora.jpg">
+
+    </div>
+
+    <div class="campo">
+
+        <label>🏷 Tipo de descuento</label>
+
+        <select id="tipoDescuento">
+            <option value="precio">💰 BAJO PRECIO</option>
+            <option value="cupon">🎟 Cupón de Amazon</option>
+            <option value="codigo">📋 Código promocional</option>
+        </select>
+
+    </div>
+
+</div>
 
 <button type="submit">
     🚀 PUBLICAR OFERTA
 </button>
 
-<label>Estado</label>
-<select id="estado">
-    <option value="activa">🟢 Activa</option>
-    <option value="oculta">🔴 Oculta</option>
-</select>
+<div class="fila">
+
+    <div class="campo">
+
+        <label>🏷 Código de descuento (opcional)</label>
+
+        <input
+            type="text"
+            id="codigo"
+            placeholder="Ejemplo: SAVE20">
+
+    </div>
+
+    <div class="campo">
+
+        <label>🟢 Estado</label>
+
+        <select id="estado">
+            <option value="activa">🟢 Activa</option>
+            <option value="oculta">🔴 Oculta</option>
+        </select>
+
+    </div>
+
+</div>
 
 <label>📅 Fecha de expiración</label>
 <input type="date" id="fechaExpiracion">
