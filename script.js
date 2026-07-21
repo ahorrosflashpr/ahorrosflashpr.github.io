@@ -251,6 +251,13 @@ async function cargarOfertasFirebase(filtro = "hoy") {
     ofertas = [];
 
     let q;
+    
+    const hoy = new Date().toLocaleDateString("en-CA");
+
+const ayer = new Date();
+ayer.setDate(ayer.getDate() - 1);
+
+const diaAyer = ayer.toLocaleDateString("en-CA");
 
     if (filtro === "todas") {
 
