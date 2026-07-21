@@ -444,6 +444,54 @@ TABLA MODERNA
 
 }
 
+/*=========================
+ZONA PARA IMÁGENES
+=========================*/
+
+.zonaImagen{
+
+    border:2px dashed #ff9900;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    background:#fffaf3;
+
+    transition:.25s;
+
+}
+
+.zonaImagen:hover{
+
+    background:#fff3dd;
+
+}
+
+.zonaImagen.dragover{
+
+    background:#ffe4b3;
+
+    border-color:#ff7b00;
+
+}
+
+.zonaImagen input{
+
+    margin-bottom:8px;
+
+}
+
+.zonaImagen small{
+
+    display:block;
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
 #tablaOfertas tbody tr:hover{
 
     background:#fff8ef;
