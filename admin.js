@@ -38,6 +38,13 @@ async function cargarOfertas() {
 
 const consulta = await getDocs(q);
 
+    if (!consulta.empty) {
+
+    primeraOferta = consulta.docs[0];
+    ultimaOferta = consulta.docs[consulta.docs.length - 1];
+
+}
+
     const total = document.getElementById("totalOfertas");
 
 if (total) {
