@@ -14,6 +14,21 @@ import {
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
 
+tbody.addEventListener("click", (e) => {
+
+    const boton = e.target.closest("button");
+
+    if (!boton) return;
+
+    console.log(
+        "Botón:",
+        boton.className,
+        "ID:",
+        boton.dataset.id
+    );
+
+});
+
 let editando = null;
 
 const OFERTAS_POR_PAGINA = 50;
