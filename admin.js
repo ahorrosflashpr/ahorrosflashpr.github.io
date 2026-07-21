@@ -578,6 +578,8 @@ if (zonaImagen && inputImagen) {
         zonaImagen.classList.remove("dragover");
 
         const archivo = e.dataTransfer.files[0];
+        
+        console.log("Imagen detectada:", archivo);
 
         if (!archivo) return;
 
