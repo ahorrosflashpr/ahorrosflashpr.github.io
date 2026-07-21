@@ -350,3 +350,38 @@ tr:hover{
     }
 
 }
+
+/* ===========================
+   HERRAMIENTAS
+=========================== */
+
+.herramientas{
+    margin:40px 0 20px;
+}
+
+.herramientas h2{
+    margin-bottom:15px;
+}
+
+.herramientas input{
+    width:100%;
+    box-sizing:border-box;
+    margin-bottom:15px;
+}
+
+.acciones{
+    display:flex;
+    gap:12px;
+}
+
+.acciones button{
+    flex:1;
+}
+
+@media(max-width:768px){
+
+    .acciones{
+        flex-direction:column;
+    }
+
+}
