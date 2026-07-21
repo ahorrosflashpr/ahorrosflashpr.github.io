@@ -385,3 +385,67 @@ tr:hover{
     }
 
 }
+
+/*=========================
+TABLA MODERNA
+=========================*/
+
+.tablaResponsive{
+
+    overflow-x:auto;
+
+    margin-top:20px;
+
+}
+
+#tablaOfertas{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#fff;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+#tablaOfertas thead{
+
+    background:#ff9800;
+
+    color:#fff;
+
+}
+
+#tablaOfertas th{
+
+    padding:14px;
+
+    text-align:center;
+
+}
+
+#tablaOfertas td{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+
+    text-align:center;
+
+}
+
+#tablaOfertas tbody tr{
+
+    transition:.25s;
+
+}
+
+#tablaOfertas tbody tr:hover{
+
+    background:#fff8ef;
+
+}
