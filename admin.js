@@ -72,7 +72,7 @@ let html = "";
 
         const oferta = documento.data();
 
-    html += ` `
+    html += `
 <tr>
 
     <td>
