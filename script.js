@@ -252,12 +252,20 @@ async function cargarOfertasFirebase(filtro = "hoy") {
 
     let q;
     
-    const hoy = new Date().toLocaleDateString("en-CA");
+    const fecha = new Date();
+
+const hoy =
+    fecha.getFullYear() + "-" +
+    String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
+    String(fecha.getDate()).padStart(2, "0");
 
 const ayer = new Date();
 ayer.setDate(ayer.getDate() - 1);
 
-const diaAyer = ayer.toLocaleDateString("en-CA");
+const diaAyer =
+    ayer.getFullYear() + "-" +
+    String(ayer.getMonth() + 1).padStart(2, "0") + "-" +
+    String(ayer.getDate()).padStart(2, "0");
 
     if (filtro === "todas") {
 
