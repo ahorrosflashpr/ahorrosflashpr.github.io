@@ -274,8 +274,14 @@ const diaAyer = ayer.toLocaleDateString("en-CA");
         switch (filtro) {
 
             case "hoy":
-                inicio.setHours(0, 0, 0, 0);
-                break;
+
+    q = query(
+        collection(db, "ofertas"),
+        where("dia", "==", hoy),
+        orderBy("fecha", "desc")
+    );
+
+    break;
 
             case "ayer":
                 fin = new Date();
@@ -293,26 +299,28 @@ const diaAyer = ayer.toLocaleDateString("en-CA");
                 inicio.setHours(0, 0, 0, 0);
         }
 
-        if (fin) {
+        if (!q) {
 
-            q = query(
-                collection(db, "ofertas"),
-                where("fecha", ">=", inicio.getTime()),
-                where("fecha", "<", fin.getTime()),
-                orderBy("fecha", "desc")
-            );
+    if (fin) {
 
-        } else {
+        q = query(
+            collection(db, "ofertas"),
+            where("fecha", ">=", inicio.getTime()),
+            where("fecha", "<", fin.getTime()),
+            orderBy("fecha", "desc")
+        );
 
-            q = query(
-                collection(db, "ofertas"),
-                where("fecha", ">=", inicio.getTime()),
-                orderBy("fecha", "desc")
-            );
+    } else {
 
-        }
+        q = query(
+            collection(db, "ofertas"),
+            where("fecha", ">=", inicio.getTime()),
+            orderBy("fecha", "desc")
+        );
 
     }
+
+}
 
     const consulta = await getDocs(q);
     
