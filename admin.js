@@ -477,3 +477,35 @@ guardarCategorias.addEventListener("click", async () => {
     cargarOfertas();
 
 });
+
+const btnMoverSeleccionadas = document.getElementById("btnMoverSeleccionadas");
+
+btnMoverSeleccionadas.addEventListener("click", async () => {
+
+    const seleccionadas = document.querySelectorAll(".seleccionOferta:checked");
+
+    if (seleccionadas.length === 0) {
+        alert("Selecciona al menos una oferta.");
+        return;
+    }
+
+    if (!confirm(`¿Mover ${seleccionadas.length} ofertas a AYER?`)) return;
+
+    const ayer = new Date();
+    ayer.setDate(ayer.getDate() - 1);
+
+    const nuevaFecha = ayer.getTime();
+
+    for (const item of seleccionadas) {
+
+        await updateDoc(doc(db, "ofertas", item.value), {
+            fecha: nuevaFecha
+        });
+
+    }
+
+    alert("✅ Ofertas movidas correctamente.");
+
+    cargarOfertas();
+
+});
