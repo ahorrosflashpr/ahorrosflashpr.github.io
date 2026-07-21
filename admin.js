@@ -51,11 +51,13 @@ if (total) {
     total.textContent = `📦 ${consulta.size} ofertas publicadas`;
 }
 
+let html = "";
+    
     consulta.forEach((documento) => {
 
         const oferta = documento.data();
 
-    tbody.innerHTML += `
+    html += ` `
 <tr>
 
     <td>
@@ -88,6 +90,8 @@ if (total) {
 `;
 
     });
+
+    tbody.innerHTML = html;
 
     // ===============================
     // BOTONES EDITAR
