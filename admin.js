@@ -545,3 +545,44 @@ btnCorregirDias.addEventListener("click", async () => {
     alert(`✅ ${contador} ofertas actualizadas.`);
 
 });
+
+// ===========================
+// ARRASTRAR IMAGEN
+// ===========================
+
+const zonaImagen = document.getElementById("zonaImagen");
+const inputImagen = document.getElementById("imagen");
+
+if (zonaImagen && inputImagen) {
+
+    zonaImagen.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        zonaImagen.classList.add("dragover");
+    });
+
+    zonaImagen.addEventListener("dragleave", () => {
+        zonaImagen.classList.remove("dragover");
+    });
+
+    zonaImagen.addEventListener("drop", (e) => {
+
+        e.preventDefault();
+
+        zonaImagen.classList.remove("dragover");
+
+        const archivo = e.dataTransfer.files[0];
+
+        if (!archivo) return;
+
+        // Solo permite imágenes
+        if (!archivo.type.startsWith("image/")) {
+            alert("Solo puedes arrastrar imágenes.");
+            return;
+        }
+
+        // Escribe automáticamente el nombre del archivo
+        inputImagen.value = archivo.name;
+
+    });
+
+}
