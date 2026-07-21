@@ -18,6 +18,11 @@ let editando = null;
 
 const OFERTAS_POR_PAGINA = 50;
 
+let ultimaOferta = null;
+let primeraOferta = null;
+
+const historialPaginas = [];
+
 // ===============================
 // Cargar ofertas
 // ===============================
