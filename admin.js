@@ -39,7 +39,6 @@ const consulta = await getDocs(q);
         const oferta = documento.data();
 
     tbody.innerHTML += `
-tbody.innerHTML += `
 <tr>
 
     <td>
@@ -55,8 +54,6 @@ tbody.innerHTML += `
             class="miniatura"
             alt="${oferta.nombre}">
     </td>
-
-    <td>${oferta.nombre}</td>
 
     <td>${oferta.nombre}</td>
 
