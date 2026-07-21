@@ -559,6 +559,15 @@ if (btnCorregirDias) {
 
 const zonaImagen = document.getElementById("zonaImagen");
 const inputImagen = document.getElementById("imagen");
+const selectorImagen = document.getElementById("selectorImagen");
+
+zonaImagen.addEventListener("click", (e) => {
+
+    if (e.target !== inputImagen) {
+        selectorImagen.click();
+    }
+
+});
 
 if (zonaImagen && inputImagen) {
 
@@ -594,4 +603,20 @@ if (zonaImagen && inputImagen) {
 
     });
 
+selectorImagen.addEventListener("change", () => {
+
+    if (!selectorImagen.files.length) return;
+
+    const archivo = selectorImagen.files[0];
+
+    inputImagen.value = archivo.name;
+
+    const texto = zonaImagen.querySelector("small");
+
+    if (texto) {
+        texto.textContent = "✅ " + archivo.name;
+    }
+
+});
+    
 }
