@@ -25,7 +25,7 @@ featured.innerHTML = `
 <div class="featured">
 
     <div class="featured-image">
-    <img src="${oferta.imagen}" alt="${oferta.nombre}">
+        <img src="${oferta.imagen}" alt="${oferta.nombre}">
     </div>
 
     <div class="featured-info">
@@ -52,55 +52,82 @@ featured.innerHTML = `
 
 }
 
-function mostrarOfertas(lista) {
+function mostrarOfertas(lista){
 
-    contenedor.innerHTML = "";
+    contenedor.innerHTML="";
 
-    lista.forEach(oferta => {
-        const ahorro = (
-    parseFloat(oferta.antes) - parseFloat(oferta.precio)
-).toFixed(2);
+    lista.forEach(oferta=>{
 
-contenedor.innerHTML += `
+        const ahorro=(
+            parseFloat(oferta.antes)-
+            parseFloat(oferta.precio)
+        ).toFixed(2);
+
+        contenedor.innerHTML+=`
+
 <div class="card">
 
-    <div class="descuento">-${oferta.descuento}</div>
+<div class="descuento">
+-${oferta.descuento}
+</div>
 
-    <img src="${oferta.imagen}" alt="${oferta.nombre}">
+<img src="${oferta.imagen}" alt="${oferta.nombre}">
 
-    <h2>${oferta.nombre}</h2>
+<h2>${oferta.nombre}</h2>
 
-    <p class="old">$${oferta.antes}</p>
+<p class="old">$${oferta.antes}</p>
 
-    <p class="price">$${oferta.precio}</p>
+<p class="price">$${oferta.precio}</p>
 
-    <p class="ahorro">
-        💰 Ahorras $${ahorro}
-    </p>
+<p class="ahorro">
+💰 Ahorras $${ahorro}
+</p>
 
-    ${oferta.tipoDescuento === "codigo" ? `
-    <button class="btn-codigo btn-codigo-color" onclick="copiarCodigo('${oferta.codigo}', this)">
-        📋 COPIAR CÓDIGO: ${oferta.codigo}
-    </button>
-` : oferta.tipoDescuento === "cupon" ? `
-    <div class="btn-codigo btn-cupon">
-        🎟 ACTIVA EL CUPÓN EN AMAZON
-    </div>
-` : `
-    <div class="btn-codigo btn-precio">
-        💰 BAJO PRECIO • NO REQUIERE CUPÓN
-    </div>
-`}
+${
+oferta.tipoDescuento==="codigo"
 
-    <button
-        class="btn-oferta"
-        onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
+?`
 
-        🔥 VER OFERTA AHORA
+<button
+class="btn-codigo btn-codigo-color"
+onclick="copiarCodigo('${oferta.codigo}',this)">
+📋 COPIAR CÓDIGO:
+${oferta.codigo}
+</button>
 
-    </button>
+`
+
+:
+
+oferta.tipoDescuento==="cupon"
+
+?`
+
+<div class="btn-codigo btn-cupon">
+🎟 ACTIVA EL CUPÓN EN AMAZON
+</div>
+
+`
+
+:`
+
+<div class="btn-codigo btn-precio">
+💰 BAJO PRECIO • NO REQUIERE CUPÓN
+</div>
+
+`
+}
+
+<button
+class="btn-oferta"
+onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
+
+🔥 VER OFERTA AHORA
+
+</button>
 
 </div>
+
 `;
 
     });
@@ -110,13 +137,12 @@ contenedor.innerHTML += `
 buscador.addEventListener("input", async () => {
 
     const texto = buscador.value
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
-    // Si el buscador está vacío, vuelve al filtro actual
-    if(texto === ""){
+    if (texto === "") {
         mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
         actualizarBotonVerMas();
         return;
@@ -134,29 +160,32 @@ buscador.addEventListener("input", async () => {
 
     const resultados = [];
 
-    consulta.forEach(documento => {
+    consulta.forEach(documento=>{
 
-        const oferta = documento.data();
-        oferta.id = documento.id;
+        const oferta=documento.data();
+        oferta.id=documento.id;
 
-        const activa = (oferta.estado || "activa") === "activa";
+        const activa=(oferta.estado||"activa")==="activa";
 
-        const vigente =
-            !oferta.fechaExpiracion ||
-            new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
+        const vigente=
+            !oferta.fechaExpiracion||
+            new Date(oferta.fechaExpiracion).getTime()>=hoy.getTime();
 
         if(
             activa &&
             vigente &&
             oferta.nombre
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .includes(texto)
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g,"")
+                .includes(texto)
         ){
 
-            if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
-                oferta.imagen = "images/" + oferta.imagen;
+            if(
+                oferta.imagen &&
+                !oferta.imagen.startsWith("images/")
+            ){
+                oferta.imagen="images/"+oferta.imagen;
             }
 
             resultados.push(oferta);
@@ -171,16 +200,19 @@ buscador.addEventListener("input", async () => {
 
 function filtrarCategoria(categoria){
 
-    // Resaltar la categoría seleccionada
-    document.querySelectorAll("#listaCategorias button").forEach(btn=>{
+    document
+    .querySelectorAll("#listaCategorias button")
+    .forEach(btn=>{
+
         btn.classList.remove("categoria-activa");
 
         if(btn.textContent.includes(categoria)){
             btn.classList.add("categoria-activa");
         }
+
     });
 
-    if(categoria === "Todas"){
+    if(categoria==="Todas"){
         cargarOfertasFirebase("todas");
         return;
     }
@@ -191,160 +223,217 @@ function filtrarCategoria(categoria){
 
 async function cargarCategoria(categoria){
 
-    ofertas = [];
+    ofertas=[];
 
-    const consulta = await getDocs(
+    const consulta=await getDocs(
+
         query(
-            collection(db, "ofertas"),
-            where("categoria", "==", categoria),
-            orderBy("fecha", "desc")
+
+            collection(db,"ofertas"),
+
+            where("categoria","==",categoria),
+
+            orderBy("fecha","desc")
+
         )
+
     );
 
-    const hoy = new Date();
+    const hoy=new Date();
     hoy.setHours(0,0,0,0);
 
-    consulta.forEach((documento)=>{
+    consulta.forEach(documento=>{
 
-        const oferta = documento.data();
-        oferta.id = documento.id;
+        const oferta=documento.data();
 
-        if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
-            oferta.imagen = "images/" + oferta.imagen;
+        oferta.id=documento.id;
+
+        if(
+            oferta.imagen &&
+            !oferta.imagen.startsWith("images/")
+        ){
+            oferta.imagen="images/"+oferta.imagen;
         }
 
-        const activa = (oferta.estado || "activa") === "activa";
+        const activa=(oferta.estado||"activa")==="activa";
 
-        const vigente =
-            !oferta.fechaExpiracion ||
-            new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
+        const vigente=
+            !oferta.fechaExpiracion||
+            new Date(oferta.fechaExpiracion).getTime()>=hoy.getTime();
 
         if(activa && vigente){
+
             ofertas.push(oferta);
+
         }
 
     });
 
-    ofertasFiltradas = [...ofertas];
-    ofertasMostradas = 20;
+    ofertasFiltradas=[...ofertas];
 
-    mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
+    ofertasMostradas=20;
+
+    mostrarOfertas(
+        ofertasFiltradas.slice(0,ofertasMostradas)
+    );
+
     actualizarBotonVerMas();
 
 }
 
-window.filtrarCategoria = filtrarCategoria;
+window.filtrarCategoria=filtrarCategoria;
 
-const ahora = new Date();
+const ahora=new Date();
 
-const opciones = {
-    hour: "numeric",
-    minute: "2-digit"
+const opciones={
+
+    hour:"numeric",
+    minute:"2-digit"
+
 };
 
-document.getElementById("fechaActualizacion").textContent =
-    "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
+document.getElementById("fechaActualizacion").textContent=
 
+"Hoy "+ahora.toLocaleTimeString("es-PR",opciones);
 
 async function cargarOfertasFirebase(filtro = "hoy") {
 
     ofertas = [];
 
-    let q;
-    
-    const fecha = new Date();
+    const hoyFecha = new Date();
 
-const hoy =
-    fecha.getFullYear() + "-" +
-    String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
-    String(fecha.getDate()).padStart(2, "0");
+    const hoy =
+        hoyFecha.getFullYear() + "-" +
+        String(hoyFecha.getMonth() + 1).padStart(2, "0") + "-" +
+        String(hoyFecha.getDate()).padStart(2, "0");
 
-const ayer = new Date();
-ayer.setDate(ayer.getDate() - 1);
+    const ayerFecha = new Date();
+    ayerFecha.setDate(ayerFecha.getDate() - 1);
 
-const diaAyer =
-    ayer.getFullYear() + "-" +
-    String(ayer.getMonth() + 1).padStart(2, "0") + "-" +
-    String(ayer.getDate()).padStart(2, "0");
+    const diaAyer =
+        ayerFecha.getFullYear() + "-" +
+        String(ayerFecha.getMonth() + 1).padStart(2, "0") + "-" +
+        String(ayerFecha.getDate()).padStart(2, "0");
 
-    if (filtro === "todas") {
+    let consulta;
 
-        q = query(
-            collection(db, "ofertas"),
-            orderBy("fecha", "desc")
-        );
+    switch (filtro) {
 
-    } else {
+        case "hoy":
 
-        let inicio = new Date();
-        let fin = null;
+            consulta = await getDocs(
+                query(
+                    collection(db, "ofertas"),
+                    where("dia", "==", hoy),
+                    orderBy("fecha", "desc")
+                )
+            );
 
-        switch (filtro) {
+            break;
 
-            case "hoy":
+        case "ayer":
 
-    q = query(
-        collection(db, "ofertas"),
-        where("dia", "==", hoy),
-        orderBy("fecha", "desc")
-    );
+            consulta = await getDocs(
+                query(
+                    collection(db, "ofertas"),
+                    where("dia", "==", diaAyer),
+                    orderBy("fecha", "desc")
+                )
+            );
 
-    break;
+            break;
 
-            case "ayer":
-                fin = new Date();
-                fin.setHours(0, 0, 0, 0);
+        case "semana":
 
-                inicio = new Date(fin);
-                inicio.setDate(inicio.getDate() - 1);
-                break;
+            const hace7Dias = new Date();
+            hace7Dias.setDate(hace7Dias.getDate() - 7);
 
-            case "semana":
-                inicio.setDate(inicio.getDate() - 7);
-                break;
+            consulta = await getDocs(
+                query(
+                    collection(db, "ofertas"),
+                    where("fecha", ">=", hace7Dias.getTime()),
+                    orderBy("fecha", "desc")
+                )
+            );
 
-            default:
-                inicio.setHours(0, 0, 0, 0);
-        }
+            break;
 
-        if (!q) {
+        default:
 
-    if (fin) {
-
-        q = query(
-            collection(db, "ofertas"),
-            where("fecha", ">=", inicio.getTime()),
-            where("fecha", "<", fin.getTime()),
-            orderBy("fecha", "desc")
-        );
-
-    } else {
-
-        q = query(
-            collection(db, "ofertas"),
-            where("fecha", ">=", inicio.getTime()),
-            orderBy("fecha", "desc")
-        );
+            consulta = await getDocs(
+                query(
+                    collection(db, "ofertas"),
+                    orderBy("fecha", "desc")
+                )
+            );
 
     }
 
+    const aviso = document.getElementById("sinOfertasHoy");
+
+    if (filtro === "hoy" && consulta.empty) {
+
+        contenedor.innerHTML = "";
+        aviso.style.display = "block";
+        actualizarBotonVerMas();
+        return;
+
+    }
+
+    aviso.style.display = "none";
+
+    const hoyCero = new Date();
+    hoyCero.setHours(0,0,0,0);
+
+    consulta.forEach(documento=>{
+
+        const oferta=documento.data();
+
+        oferta.id=documento.id;
+
+        if(
+            oferta.imagen &&
+            !oferta.imagen.startsWith("images/")
+        ){
+            oferta.imagen="images/"+oferta.imagen;
+        }
+
+        const activa=(oferta.estado||"activa")==="activa";
+
+        const vigente=
+            !oferta.fechaExpiracion ||
+            new Date(oferta.fechaExpiracion).getTime() >= hoyCero.getTime();
+
+        if(activa && vigente){
+
+            ofertas.push(oferta);
+
+        }
+
+    });
+
+    ofertasFiltradas=[...ofertas];
+
+    ofertasMostradas=20;
+
+    if(filtro==="hoy"){
+
+        document.getElementById("fechaActualizacion").textContent =
+            "Hoy " +
+            new Date().toLocaleTimeString("es-PR",{
+                hour:"numeric",
+                minute:"2-digit"
+            });
+
+    }
+
+    mostrarOfertas(
+        ofertasFiltradas.slice(0,ofertasMostradas)
+    );
+
+    actualizarBotonVerMas();
+
 }
-
-    const consulta = await getDocs(q);
-    
-const aviso = document.getElementById("sinOfertasHoy");
-
-if (filtro === "hoy" && consulta.empty) {
-
-    contenedor.innerHTML = "";
-    aviso.style.display = "block";
-    return;
-
-}
-
-aviso.style.display = "none";
-    
-    consulta.forEach((documento) => {
 
 window.cargarOfertasFirebase = cargarOfertasFirebase;
 
@@ -361,9 +450,7 @@ window.copiarCodigo = async function(codigo, boton){
         boton.innerHTML = "✅ ¡Código copiado!";
 
         setTimeout(()=>{
-
             boton.innerHTML = texto;
-
         },2000);
 
     }catch{
@@ -372,18 +459,18 @@ window.copiarCodigo = async function(codigo, boton){
 
     }
 
-}
+};
 
 // ===============================
 // CONTADOR DE CLICS
 // ===============================
 
-window.abrirOferta = async function(id, enlace){
+window.abrirOferta = async function(id,enlace){
 
     try{
 
         await updateDoc(
-            doc(db, "ofertas", id),
+            doc(db,"ofertas",id),
             {
                 clics: increment(1)
             }
@@ -397,7 +484,7 @@ window.abrirOferta = async function(id, enlace){
 
     window.location.href = enlace;
 
-}
+};
 
 // ===============================
 // BOTÓN SUBIR
@@ -405,135 +492,127 @@ window.abrirOferta = async function(id, enlace){
 
 const btnSubir = document.getElementById("btnSubir");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 500) {
+    if(window.scrollY>500){
 
-        btnSubir.style.display = "flex";
+        btnSubir.style.display="flex";
 
-    } else {
+    }else{
 
-        btnSubir.style.display = "none";
+        btnSubir.style.display="none";
 
     }
 
 });
 
-btnSubir.addEventListener("click", () => {
+btnSubir.addEventListener("click",()=>{
 
     window.scrollTo({
-
-        top: 0,
-        behavior: "smooth"
-
-    });
-
-});
-
-window.mostrarMasCategorias = function () {
-
-    const div = document.getElementById("masCategorias");
-
-    if (div.style.display === "none") {
-        div.style.display = "flex";
-    } else {
-        div.style.display = "none";
-    }
-
-};
-
-function mostrarMasCategorias() {
-
-    const div = document.getElementById("masCategorias");
-
-    if (div.style.display === "none" || div.style.display === "") {
-        div.style.display = "flex";
-    } else {
-        div.style.display = "none";
-    }
-
-}
-
-window.mostrarMasCategorias = mostrarMasCategorias;
-
-const btnCategorias = document.getElementById("btnCategorias");
-const listaCategorias = document.getElementById("listaCategorias");
-const flechaCategoria = document.getElementById("flechaCategoria");
-
-btnCategorias.addEventListener("click", () => {
-
-    if (listaCategorias.style.display === "block") {
-
-        listaCategorias.style.display = "none";
-        flechaCategoria.textContent = "▼";
-
-    } else {
-
-        listaCategorias.style.display = "block";
-        flechaCategoria.textContent = "▲";
-
-    }
-
-});
-
-// Cerrar el menú al elegir una categoría
-document.querySelectorAll("#listaCategorias button").forEach(boton => {
-
-    boton.addEventListener("click", () => {
-
-        listaCategorias.style.display = "none";
-        flechaCategoria.textContent = "▼";
-
-        const texto = boton.textContent.trim();
-
-        if (texto.includes("Todas")) {
-            btnCategorias.innerHTML = `
-                🛍️ Buscar por categoría
-                <span id="flechaCategoria">▼</span>
-            `;
-        } else {
-            btnCategorias.innerHTML = `
-                ${texto}
-                <span id="flechaCategoria">▼</span>
-            `;
-        }
-
+        top:0,
+        behavior:"smooth"
     });
 
 });
 
 function actualizarBotonVerMas(){
 
-    const btn = document.getElementById("btnVerMas");
+    const btn=document.getElementById("btnVerMas");
 
     if(!btn) return;
 
-    const restantes = ofertasFiltradas.length - ofertasMostradas;
+    const restantes=ofertasFiltradas.length-ofertasMostradas;
 
-    if(restantes <= 0){
+    if(restantes<=0){
 
-        btn.style.display = "none";
+        btn.style.display="none";
 
     }else{
 
-        btn.style.display = "block";
+        btn.style.display="block";
 
-        const cantidad = restantes >= 20 ? 20 : restantes;
+        const cantidad=restantes>=20?20:restantes;
 
-        btn.innerHTML = `⬇️ Ver ${cantidad} ofertas más`;
+        btn.innerHTML=`⬇️ Ver ${cantidad} ofertas más`;
 
     }
 
 }
 
-window.verMasOfertas = function(){
+window.verMasOfertas=function(){
 
-    ofertasMostradas += 20;
+    ofertasMostradas+=20;
 
     mostrarOfertas(
-        ofertasFiltradas.slice(0, ofertasMostradas)
+        ofertasFiltradas.slice(0,ofertasMostradas)
     );
 
     actualizarBotonVerMas();
 
-}
+};
+
+// ===============================
+// MENÚ CATEGORÍAS
+// ===============================
+
+window.mostrarMasCategorias=function(){
+
+    const div=document.getElementById("masCategorias");
+
+    div.style.display=
+        (div.style.display==="none"||div.style.display==="")
+        ?"flex"
+        :"none";
+
+};
+
+const btnCategorias=document.getElementById("btnCategorias");
+const listaCategorias=document.getElementById("listaCategorias");
+const flechaCategoria=document.getElementById("flechaCategoria");
+
+btnCategorias.addEventListener("click",()=>{
+
+    if(listaCategorias.style.display==="block"){
+
+        listaCategorias.style.display="none";
+        flechaCategoria.textContent="▼";
+
+    }else{
+
+        listaCategorias.style.display="block";
+        flechaCategoria.textContent="▲";
+
+    }
+
+});
+
+document
+.querySelectorAll("#listaCategorias button")
+.forEach(boton=>{
+
+    boton.addEventListener("click",()=>{
+
+        listaCategorias.style.display="none";
+        flechaCategoria.textContent="▼";
+
+        const texto=boton.textContent.trim();
+
+        if(texto.includes("Todas")){
+
+            btnCategorias.innerHTML=`
+🛍️ Buscar por categoría
+<span id="flechaCategoria">▼</span>
+`;
+
+        }else{
+
+            btnCategorias.innerHTML=`
+${texto}
+<span id="flechaCategoria">▼</span>
+`;
+
+        }
+
+    });
+
+});
