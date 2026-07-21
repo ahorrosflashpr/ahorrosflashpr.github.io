@@ -31,8 +31,11 @@ async function cargarOfertas() {
 
 const consulta = await getDocs(q);
 
-    document.getElementById("totalOfertas").textContent =
-        `📦 ${consulta.size} ofertas publicadas`;
+    const total = document.getElementById("totalOfertas");
+
+if (total) {
+    total.textContent = `📦 ${consulta.size} ofertas publicadas`;
+}
 
     consulta.forEach((documento) => {
 
@@ -511,7 +514,9 @@ btnMoverSeleccionadas.addEventListener("click", async () => {
 
 const btnCorregirDias = document.getElementById("btnCorregirDias");
 
-btnCorregirDias.addEventListener("click", async () => {
+if (btnCorregirDias) {
+
+    btnCorregirDias.addEventListener("click", async () => {
 
     if (!confirm("¿Agregar el campo 'dia' a todas las ofertas?")) return;
 
@@ -542,9 +547,11 @@ btnCorregirDias.addEventListener("click", async () => {
 
     }
 
-    alert(`✅ ${contador} ofertas actualizadas.`);
+        alert(`✅ ${contador} ofertas actualizadas.`);
 
-});
+    });
+
+}
 
 // ===========================
 // ARRASTRAR IMAGEN
