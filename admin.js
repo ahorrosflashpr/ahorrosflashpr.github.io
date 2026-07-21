@@ -16,18 +16,83 @@ import {
 const formulario = document.getElementById("formOferta");
 const tbody = document.querySelector("#tablaOfertas tbody");
 
-tbody.addEventListener("click", (e) => {
+tbody.addEventListener("click", async (e) => {
 
     const boton = e.target.closest("button");
 
     if (!boton) return;
 
-    console.log(
-        "Botón:",
-        boton.className,
-        "ID:",
-        boton.dataset.id
-    );
+    const id = boton.dataset.id;
+
+    // ==========================
+    // EDITAR
+    // ==========================
+
+    if (boton.classList.contains("editar")) {
+
+        const documento = await getDoc(doc(db, "ofertas", id));
+        const oferta = documento.data();
+
+        document.getElementById("nombre").value = oferta.nombre;
+        document.getElementById("precio").value = oferta.precio;
+        document.getElementById("antes").value = oferta.antes;
+        document.getElementById("enlace").value = oferta.enlace;
+        document.getElementById("imagen").value =
+            oferta.imagen.replace("images/", "");
+        document.getElementById("codigo").value = oferta.codigo || "";
+        document.getElementById("tipoDescuento").value =
+            oferta.tipoDescuento || "precio";
+        document.getElementById("estado").value =
+            oferta.estado || "activa";
+        document.getElementById("fechaExpiracion").value =
+            oferta.fechaExpiracion || "";
+        document.getElementById("categoria").value =
+            oferta.categoria || "Automática";
+
+        btnCategoria.innerHTML =
+            `${oferta.categoria || "🤖 Automática"}<span>▼</span>`;
+
+        editando = id;
+
+        formulario.querySelector("button").textContent =
+            "💾 GUARDAR CAMBIOS";
+
+        return;
+    }
+
+    // ==========================
+    // MOVER A AYER
+    // ==========================
+
+    if (boton.classList.contains("moverAyer")) {
+
+        if (!confirm("¿Mover esta oferta a AYER?")) return;
+
+        const ayer = new Date();
+        ayer.setDate(ayer.getDate() - 1);
+
+        await updateDoc(doc(db, "ofertas", id), {
+            fecha: ayer.getTime()
+        });
+
+        cargarOfertas();
+
+        return;
+    }
+
+    // ==========================
+    // ELIMINAR
+    // ==========================
+
+    if (boton.classList.contains("eliminar")) {
+
+        if (!confirm("¿Eliminar esta oferta?")) return;
+
+        await deleteDoc(doc(db, "ofertas", id));
+
+        cargarOfertas();
+
+    }
 
 });
 
@@ -111,91 +176,10 @@ let html = "";
     tbody.innerHTML = html;
 
     // ===============================
-    // BOTONES EDITAR
-    // ===============================
-
-    document.querySelectorAll(".editar").forEach((boton) => {
-
-        boton.addEventListener("click", async () => {
-
-            const documento = await getDoc(doc(db, "ofertas", boton.dataset.id));
-
-            const oferta = documento.data();
-
-            document.getElementById("nombre").value = oferta.nombre;
-            document.getElementById("precio").value = oferta.precio;
-            document.getElementById("antes").value = oferta.antes;
-            document.getElementById("enlace").value = oferta.enlace;
-            document.getElementById("imagen").value =
-                oferta.imagen.replace("images/", "");
-            document.getElementById("codigo").value = oferta.codigo || "";
-            document.getElementById("tipoDescuento").value =
-    oferta.tipoDescuento || "precio";
-            document.getElementById("estado").value =
-    oferta.estado || "activa";
-            document.getElementById("fechaExpiracion").value =
-    oferta.fechaExpiracion || "";
-            document.getElementById("categoria").value =
-    oferta.categoria || "Automática";
-
-btnCategoria.innerHTML =
-    `${oferta.categoria || "🤖 Automática"}<span>▼</span>`;
-
-            editando = boton.dataset.id;
-
-            formulario.querySelector("button").textContent =
-                "💾 GUARDAR CAMBIOS";
-
-        });
-
-    });
-
+// EVENTOS DE LA TABLA
 // ===============================
-// BOTÓN MOVER A AYER
-// ===============================
-
-document.querySelectorAll(".moverAyer").forEach((boton) => {
-
-    boton.addEventListener("click", async () => {
-
-        if (!confirm("¿Mover esta oferta a AYER?")) return;
-
-        const ayer = new Date();
-        ayer.setDate(ayer.getDate() - 1);
-
-        // Mantener la hora actual
-        const nuevaFecha = ayer.getTime();
-
-        await updateDoc(doc(db, "ofertas", boton.dataset.id), {
-            fecha: nuevaFecha
-        });
-
-        cargarOfertas();
-
-    });
-
-});
-    
-    // ===============================
-    // BOTONES ELIMINAR
-    // ===============================
-
-    document.querySelectorAll(".eliminar").forEach((boton) => {
-
-        boton.addEventListener("click", async () => {
-
-            if (!confirm("¿Eliminar esta oferta?")) return;
-
-            await deleteDoc(doc(db, "ofertas", boton.dataset.id));
-
-            cargarOfertas();
-
-        });
-
-    });
 
 }
-
 // ===============================
 // Guardar / Editar
 // ===============================
