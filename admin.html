@@ -151,27 +151,28 @@
 
         </form>
 
-        <p id="totalOfertas" class="total-ofertas"></p>
+        <div class="herramientas">
 
-        <h2 style="margin-top:40px;">📦 Ofertas Publicadas</h2>
+    <h2>📦 Ofertas Publicadas</h2>
 
-<button id="btnCategorias" class="btnCategorias">
-    🗂 Administrar categorías
-</button>
+    <input
+        type="text"
+        id="buscarOferta"
+        placeholder="🔍 Buscar producto...">
 
-<button id="btnCorregirDias" class="btnCategorias">
-    🔄 Corregir campo "día"
-</button>
+    <div class="acciones">
 
-<input
-    type="text"
-    id="buscarOferta"
-    placeholder="🔍 Buscar producto..."
-    style="width:100%;padding:12px;margin:15px 0;font-size:16px;border-radius:8px;border:1px solid #ccc;">
+        <button id="btnCategorias" class="btnCategorias">
+            🗂 Categorías
+        </button>
 
-<button id="btnMoverSeleccionadas">
-    📅 Mover seleccionadas a AYER
-</button>
+        <button id="btnMoverSeleccionadas">
+            📅 Mover a AYER
+        </button>
+
+    </div>
+
+</div>
 
 <table id="tablaOfertas">
 
