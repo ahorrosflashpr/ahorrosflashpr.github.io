@@ -39,7 +39,15 @@ const consulta = await getDocs(q);
         const oferta = documento.data();
 
     tbody.innerHTML += `
+tbody.innerHTML += `
 <tr>
+
+    <td>
+        <input
+            type="checkbox"
+            class="seleccionOferta"
+            value="${documento.id}">
+    </td>
 
     <td>
         <img
@@ -47,6 +55,8 @@ const consulta = await getDocs(q);
             class="miniatura"
             alt="${oferta.nombre}">
     </td>
+
+    <td>${oferta.nombre}</td>
 
     <td>${oferta.nombre}</td>
 
