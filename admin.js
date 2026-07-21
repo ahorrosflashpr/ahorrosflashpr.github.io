@@ -313,6 +313,8 @@ btnSiguiente.addEventListener("click", async () => {
 
     const consulta = await getDocs(q);
 
+    historialPaginas.push(primeraOferta);
+
     if (consulta.empty) return;
 
     primeraOferta = consulta.docs[0];
