@@ -508,3 +508,40 @@ btnMoverSeleccionadas.addEventListener("click", async () => {
     cargarOfertas();
 
 });
+
+const btnCorregirDias = document.getElementById("btnCorregirDias");
+
+btnCorregirDias.addEventListener("click", async () => {
+
+    if (!confirm("¿Agregar el campo 'dia' a todas las ofertas?")) return;
+
+    const consulta = await getDocs(
+        query(collection(db, "ofertas"))
+    );
+
+    let contador = 0;
+
+    for (const documento of consulta.docs) {
+
+        const oferta = documento.data();
+
+        if (!oferta.fecha) continue;
+
+        const fecha = new Date(oferta.fecha);
+
+        const dia =
+            fecha.getFullYear() + "-" +
+            String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
+            String(fecha.getDate()).padStart(2, "0");
+
+        await updateDoc(doc(db, "ofertas", documento.id), {
+            dia: dia
+        });
+
+        contador++;
+
+    }
+
+    alert(`✅ ${contador} ofertas actualizadas.`);
+
+});
