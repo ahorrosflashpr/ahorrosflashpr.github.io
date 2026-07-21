@@ -346,46 +346,128 @@ aviso.style.display = "none";
     
     consulta.forEach((documento) => {
 
-        const oferta = documento.data();
+async function cargarOfertasFirebase(filtro = "hoy") {
 
+    ofertas = [];
+
+    const fecha = new Date();
+
+    const hoy =
+        fecha.getFullYear() + "-" +
+        String(fecha.getMonth() + 1).padStart(2, "0") + "-" +
+        String(fecha.getDate()).padStart(2, "0");
+
+    const ayerFecha = new Date();
+    ayerFecha.setDate(ayerFecha.getDate() - 1);
+
+    const diaAyer =
+        ayerFecha.getFullYear() + "-" +
+        String(ayerFecha.getMonth() + 1).padStart(2, "0") + "-" +
+        String(ayerFecha.getDate()).padStart(2, "0");
+
+    let q;
+
+    switch (filtro) {
+
+        case "hoy":
+
+            q = query(
+                collection(db, "ofertas"),
+                where("dia", "==", hoy),
+                orderBy("fecha", "desc")
+            );
+
+            break;
+
+        case "ayer":
+
+            q = query(
+                collection(db, "ofertas"),
+                where("dia", "==", diaAyer),
+                orderBy("fecha", "desc")
+            );
+
+            break;
+
+        case "semana":
+
+            const hace7Dias = new Date();
+            hace7Dias.setDate(hace7Dias.getDate() - 7);
+
+            q = query(
+                collection(db, "ofertas"),
+                where("fecha", ">=", hace7Dias.getTime()),
+                orderBy("fecha", "desc")
+            );
+
+            break;
+
+        default:
+
+            q = query(
+                collection(db, "ofertas"),
+                orderBy("fecha", "desc")
+            );
+
+    }
+
+    const consulta = await getDocs(q);
+
+    const aviso = document.getElementById("sinOfertasHoy");
+
+    if (filtro === "hoy" && consulta.empty) {
+
+        contenedor.innerHTML = "";
+        aviso.style.display = "block";
+        actualizarBotonVerMas();
+        return;
+
+    }
+
+    aviso.style.display = "none";
+
+    const hoyDate = new Date();
+    hoyDate.setHours(0, 0, 0, 0);
+
+    consulta.forEach((documento) => {
+
+        const oferta = documento.data();
         oferta.id = documento.id;
 
         if (oferta.imagen && !oferta.imagen.startsWith("images/")) {
             oferta.imagen = "images/" + oferta.imagen;
         }
 
-        const hoy = new Date();
-hoy.setHours(0, 0, 0, 0);
+        const activa = (oferta.estado || "activa") === "activa";
 
-const activa = (oferta.estado || "activa") === "activa";
+        const vigente =
+            !oferta.fechaExpiracion ||
+            new Date(oferta.fechaExpiracion).getTime() >= hoyDate.getTime();
 
-const vigente =
-    !oferta.fechaExpiracion ||
-    new Date(oferta.fechaExpiracion).getTime() >= hoy.getTime();
-
-if (activa && vigente) {
-    ofertas.push(oferta);
-}
+        if (activa && vigente) {
+            ofertas.push(oferta);
+        }
 
     });
 
     ofertasFiltradas = [...ofertas];
     ofertasMostradas = 20;
+
     if (filtro === "hoy") {
 
-    const ahora = new Date();
+        const opciones = {
+            hour: "numeric",
+            minute: "2-digit"
+        };
 
-    const opciones = {
-        hour: "numeric",
-        minute: "2-digit"
-    };
-
-    document.getElementById("fechaActualizacion").textContent =
-        "Hoy " + ahora.toLocaleTimeString("es-PR", opciones);
+        document.getElementById("fechaActualizacion").textContent =
+            "Hoy " + new Date().toLocaleTimeString("es-PR", opciones);
 
     }
+
     mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
     actualizarBotonVerMas();
+
 }
 
 window.cargarOfertasFirebase = cargarOfertasFirebase;
