@@ -297,62 +297,6 @@ cargarOfertas();
 
 btnSiguiente.addEventListener("click", async () => {
 
-    // ===============================
-// BOTÓN ANTERIOR
-// ===============================
-
-btnAnterior.addEventListener("click", async () => {
-
-    if (historialPaginas.length === 0) return;
-
-    const cursor = historialPaginas.pop();
-
-    const q = query(
-        collection(db, "ofertas"),
-        orderBy("fecha", "desc"),
-        startAt(cursor),
-        limit(OFERTAS_POR_PAGINA)
-    );
-
-    const consulta = await getDocs(q);
-
-    if (consulta.empty) return;
-
-    primeraOferta = consulta.docs[0];
-    ultimaOferta = consulta.docs[consulta.docs.length - 1];
-
-    let html = "";
-
-    consulta.forEach((documento) => {
-
-        const oferta = documento.data();
-
-        html += `
-<tr>
-
-<td><input type="checkbox" class="seleccionOferta" value="${documento.id}"></td>
-
-<td><img src="${oferta.imagen}" class="miniatura"></td>
-
-<td>${oferta.nombre}</td>
-
-<td>$${oferta.precio}</td>
-
-<td>${oferta.clics || 0}</td>
-
-<td>
-<button class="editar" data-id="${documento.id}">✏️</button>
-<button class="moverAyer" data-id="${documento.id}">📅</button>
-<button class="eliminar" data-id="${documento.id}">🗑️</button>
-</td>
-
-</tr>`;
-    });
-
-    tbody.innerHTML = html;
-
-});
-
     if (!ultimaOferta) return;
 
     const q = query(
