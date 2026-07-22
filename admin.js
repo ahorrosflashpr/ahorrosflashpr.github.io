@@ -11,7 +11,8 @@ import {
     query,
     orderBy,
     limit,
-    startAfter
+    startAfter,
+    startAt
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const formulario = document.getElementById("formOferta");
@@ -388,7 +389,7 @@ btnAnterior.addEventListener("click", async () => {
     const q = query(
         collection(db, "ofertas"),
         orderBy("fecha", "desc"),
-        startAfter(cursor),
+        startAt(cursor),
         limit(OFERTAS_POR_PAGINA)
     );
 
