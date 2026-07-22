@@ -110,6 +110,8 @@ let primeraOferta = null;
 
 const historialPaginas = [];
 
+let paginaActual = 1;
+
 // ===============================
 // Cargar ofertas
 // ===============================
@@ -179,6 +181,8 @@ let html = "";
     });
 
     tbody.innerHTML = html;
+
+    infoPagina.textContent = `Página ${paginaActual}`;
 
     // ===============================
 // EVENTOS DE LA TABLA
@@ -323,6 +327,10 @@ btnSiguiente.addEventListener("click", async () => {
 
     btnAnterior.disabled = false;
 
+    paginaActual++;
+
+    infoPagina.textContent = `Página ${paginaActual}`;
+
     let html = "";
 
     consulta.forEach((documento) => {
@@ -401,6 +409,14 @@ btnAnterior.addEventListener("click", async () => {
     ultimaOferta = consulta.docs[consulta.docs.length - 1];
 
     btnAnterior.disabled = historialPaginas.length === 0;
+
+    paginaActual--;
+
+    if (paginaActual < 1) {
+    paginaActual = 1;
+}
+
+infoPagina.textContent = `Página ${paginaActual}`;
 
     let html = "";
 
