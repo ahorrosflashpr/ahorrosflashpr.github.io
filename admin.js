@@ -320,6 +320,8 @@ btnSiguiente.addEventListener("click", async () => {
     primeraOferta = consulta.docs[0];
     ultimaOferta = consulta.docs[consulta.docs.length - 1];
 
+    btnAnterior.disabled = false;
+
     let html = "";
 
     consulta.forEach((documento) => {
