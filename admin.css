@@ -290,8 +290,12 @@ tr:hover{
 
 #tipoDescuento{
     transition: .25s;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: bold;
+    padding: 14px;
+    border: 2px solid #222;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .modal{
