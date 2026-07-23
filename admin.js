@@ -17,7 +17,7 @@ import {
 
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
-const btnPegar = document.getElementById("btnPegar");
+const btnNuevaOferta = document.getElementById("btnNuevaOferta");
 function procesarPegadoRapido() {
 
     const texto = txtPegadoRapido.value.trim();
@@ -55,7 +55,7 @@ function procesarPegadoRapido() {
 
 }
 
-btnPegar.addEventListener("click", async () => {
+btnNuevaOferta.addEventListener("click", async () => {
 
     try {
 
@@ -64,6 +64,9 @@ btnPegar.addEventListener("click", async () => {
         txtPegadoRapido.value = texto;
 
         procesarPegadoRapido();
+
+        // Ir automáticamente al selector de categoría
+        document.getElementById("categoria").focus();
 
     } catch (error) {
 
