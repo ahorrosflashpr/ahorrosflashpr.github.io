@@ -60,23 +60,23 @@ function actualizarColorTipoDescuento() {
 
     switch (tipoDescuento.value) {
 
-        case "Bajo precio":
-            tipoDescuento.style.background = "#16a34a";
+        case "precio":
+            tipoDescuento.style.backgroundColor = "#16a34a";
             tipoDescuento.style.color = "#fff";
             break;
 
-        case "Cupón":
-            tipoDescuento.style.background = "#7c3aed";
+        case "cupon":
+            tipoDescuento.style.backgroundColor = "#7c3aed";
             tipoDescuento.style.color = "#fff";
             break;
 
-        case "Código":
-            tipoDescuento.style.background = "#2563eb";
+        case "codigo":
+            tipoDescuento.style.backgroundColor = "#2563eb";
             tipoDescuento.style.color = "#fff";
             break;
 
         default:
-            tipoDescuento.style.background = "";
+            tipoDescuento.style.backgroundColor = "";
             tipoDescuento.style.color = "";
     }
 
@@ -859,3 +859,6 @@ selectorImagen.addEventListener("change", () => {
 });
     
 }
+
+tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
+actualizarColorTipoDescuento();
