@@ -613,7 +613,6 @@ imagen.addEventListener("blur", () => {
 
 });
 
-const tipo = document.getElementById("tipoDescuento");
 const codigo = document.getElementById("codigo");
 const etiquetaCodigo = codigo.previousElementSibling;
 
@@ -886,13 +885,3 @@ selectorImagen.addEventListener("change", () => {
 });
     
 }
-
-btnProcesar.addEventListener("click", procesarPegadoRapido);
-
-txtPegadoRapido.addEventListener("paste", () => {
-
-    setTimeout(() => {
-        procesarPegadoRapido();
-    }, 50);
-
-});
