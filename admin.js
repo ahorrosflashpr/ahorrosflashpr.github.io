@@ -56,6 +56,32 @@ function procesarPegadoRapido(texto) {
 
 }
 
+function actualizarColorTipoDescuento() {
+
+    switch (tipoDescuento.value) {
+
+        case "Bajo precio":
+            tipoDescuento.style.background = "#16a34a";
+            tipoDescuento.style.color = "#fff";
+            break;
+
+        case "Cupón":
+            tipoDescuento.style.background = "#7c3aed";
+            tipoDescuento.style.color = "#fff";
+            break;
+
+        case "Código":
+            tipoDescuento.style.background = "#2563eb";
+            tipoDescuento.style.color = "#fff";
+            break;
+
+        default:
+            tipoDescuento.style.background = "";
+            tipoDescuento.style.color = "";
+    }
+
+}
+
 btnNuevaOferta.addEventListener("click", async () => {
 
     try {
