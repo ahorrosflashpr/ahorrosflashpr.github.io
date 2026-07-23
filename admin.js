@@ -643,8 +643,9 @@ function actualizarColorTipoDescuento() {
 
 }
 
-tipo.addEventListener("change", actualizarTipoDescuento);
-actualizarTipoDescuento();
+tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
+
+actualizarColorTipoDescuento();
 
 const btnCategorias = document.getElementById("btnCategorias");
 const modalCategorias = document.getElementById("modalCategorias");
@@ -895,7 +896,3 @@ txtPegadoRapido.addEventListener("paste", () => {
     }, 50);
 
 });
-
-tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
-
-actualizarColorTipoDescuento();
