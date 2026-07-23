@@ -18,11 +18,11 @@ import {
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
 const btnNuevaOferta = document.getElementById("btnNuevaOferta");
-function procesarPegadoRapido() {
-
-    const texto = txtPegadoRapido.value.trim();
+function procesarPegadoRapido(texto) {
 
     if (!texto) return;
+
+    texto = texto.trim();
 
     const lineas = texto
         .split("\n")
@@ -61,9 +61,7 @@ btnNuevaOferta.addEventListener("click", async () => {
 
         const texto = await navigator.clipboard.readText();
 
-        txtPegadoRapido.value = texto;
-
-        procesarPegadoRapido();
+        procesarPegadoRapido(texto);
 
         // Ir automáticamente al selector de categoría
         document.getElementById("categoria").focus();
