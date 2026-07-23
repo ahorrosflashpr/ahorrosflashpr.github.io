@@ -17,8 +17,26 @@ import {
 
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
-const btnProcesar = document.getElementById("btnProcesar");
+const btnPegar = document.getElementById("btnPegar");
 function procesarPegadoRapido() {
+
+    btnPegar.addEventListener("click", async () => {
+
+    try {
+
+        const texto = await navigator.clipboard.readText();
+
+        txtPegadoRapido.value = texto;
+
+        procesarPegadoRapido();
+
+    } catch (error) {
+
+        alert("No se pudo acceder al portapapeles.");
+
+    }
+
+});
 
     const texto = txtPegadoRapido.value.trim();
 
