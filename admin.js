@@ -616,32 +616,6 @@ imagen.addEventListener("blur", () => {
 const codigo = document.getElementById("codigo");
 const etiquetaCodigo = codigo.previousElementSibling;
 
-function actualizarColorTipoDescuento() {
-
-    switch (tipoDescuento.value) {
-
-        case "precio":
-            tipoDescuento.style.background = "#16a34a"; // Verde
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        case "cupon":
-            tipoDescuento.style.background = "#7c3aed"; // Violeta
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        case "codigo":
-            tipoDescuento.style.background = "#2563eb"; // Azul
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        default:
-            tipoDescuento.style.background = "";
-            tipoDescuento.style.color = "";
-    }
-
-}
-
 tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
 
 actualizarColorTipoDescuento();
