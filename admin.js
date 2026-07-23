@@ -16,6 +16,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const formulario = document.getElementById("formOferta");
+const txtPegadoRapido = document.getElementById("pegadoRapido");
+const btnProcesar = document.getElementById("btnProcesar");
 const tbody = document.querySelector("#tablaOfertas tbody");
 const btnAnterior = document.getElementById("btnAnterior");
 const btnSiguiente = document.getElementById("btnSiguiente");
@@ -809,3 +811,19 @@ selectorImagen.addEventListener("change", () => {
 });
     
 }
+
+btnProcesar.addEventListener("click", () => {
+
+    const texto = txtPegadoRapido.value.trim();
+
+    if (!texto) return;
+
+    const lineas = texto
+        .split("\n")
+        .map(l => l.trim())
+        .filter(l => l !== "");
+
+    // Nombre
+    document.getElementById("nombre").value = lineas[0] || "";
+
+});
