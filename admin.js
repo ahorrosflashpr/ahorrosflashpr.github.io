@@ -617,37 +617,28 @@ const tipo = document.getElementById("tipoDescuento");
 const codigo = document.getElementById("codigo");
 const etiquetaCodigo = codigo.previousElementSibling;
 
-function actualizarTipoDescuento() {
+function actualizarColorTipoDescuento() {
 
-    if (tipo.value === "codigo") {
+    switch (tipoDescuento.value) {
 
-        codigo.style.display = "block";
-        etiquetaCodigo.style.display = "block";
+        case "precio":
+            tipoDescuento.style.background = "#16a34a"; // Verde
+            tipoDescuento.style.color = "#fff";
+            break;
 
-        tipo.style.background = "#DBEAFE";
-        tipo.style.border = "2px solid #3B82F6";
-        tipo.style.color = "#1D4ED8";
+        case "cupon":
+            tipoDescuento.style.background = "#7c3aed"; // Violeta
+            tipoDescuento.style.color = "#fff";
+            break;
 
-    } else if (tipo.value === "cupon") {
+        case "codigo":
+            tipoDescuento.style.background = "#2563eb"; // Azul
+            tipoDescuento.style.color = "#fff";
+            break;
 
-        codigo.style.display = "none";
-        etiquetaCodigo.style.display = "none";
-        codigo.value = "";
-
-        tipo.style.background = "#FFEDD5";
-        tipo.style.border = "2px solid #F97316";
-        tipo.style.color = "#9A3412";
-
-    } else {
-
-        codigo.style.display = "none";
-        etiquetaCodigo.style.display = "none";
-        codigo.value = "";
-
-        tipo.style.background = "#DCFCE7";
-        tipo.style.border = "2px solid #22C55E";
-        tipo.style.color = "#166534";
-
+        default:
+            tipoDescuento.style.background = "";
+            tipoDescuento.style.color = "";
     }
 
 }
