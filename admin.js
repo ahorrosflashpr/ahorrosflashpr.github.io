@@ -904,3 +904,7 @@ txtPegadoRapido.addEventListener("paste", () => {
     }, 50);
 
 });
+
+tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
+
+actualizarColorTipoDescuento();
