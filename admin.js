@@ -48,11 +48,18 @@ function procesarPegadoRapido(texto) {
     }
 
     // Enlace
-    const enlace = texto.match(/https?:\/\/\S+/);
+const enlace = texto.match(/https?:\/\/\S+/);
 
-    if (enlace) {
-        document.getElementById("enlace").value = enlace[0];
-    }
+if (enlace) {
+    document.getElementById("enlace").value = enlace[0];
+}
+
+// Código promocional
+const codigo = texto.match(/(?:código|codigo)(?:\s+promocional)?[:\s]*([A-Z0-9-]+)/i);
+
+if (codigo) {
+    document.getElementById("codigo").value = codigo[1];
+}
 
 }
 
