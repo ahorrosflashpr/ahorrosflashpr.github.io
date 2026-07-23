@@ -885,3 +885,21 @@ selectorImagen.addEventListener("change", () => {
 });
     
 }
+
+btnNuevaOferta.addEventListener("click", async () => {
+
+    try {
+
+        const texto = await navigator.clipboard.readText();
+
+        procesarPegadoRapido(texto);
+
+        document.getElementById("categoria").focus();
+
+    } catch (error) {
+
+        alert("No se pudo acceder al portapapeles.");
+
+    }
+
+});
