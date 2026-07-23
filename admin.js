@@ -111,6 +111,7 @@ let primeraOferta = null;
 const historialPaginas = [];
 
 let paginaActual = 1;
+let totalPaginas = 1;
 
 // ===============================
 // Cargar ofertas
@@ -126,6 +127,12 @@ async function cargarOfertas() {
 );
 
 const consulta = await getDocs(q);
+
+    const totalConsulta = await getDocs(collection(db, "ofertas"));
+
+totalPaginas = Math.ceil(totalConsulta.size / OFERTAS_POR_PAGINA);
+
+if (totalPaginas === 0) totalPaginas = 1;
 
     if (!consulta.empty) {
 
@@ -182,8 +189,9 @@ let html = "";
 
     tbody.innerHTML = html;
 
-    infoPagina.textContent = `Página ${paginaActual}`;
-
+    infoPagina.textContent =
+    `Página ${paginaActual} de ${totalPaginas}`;
+    
     // ===============================
 // EVENTOS DE LA TABLA
 // ===============================
