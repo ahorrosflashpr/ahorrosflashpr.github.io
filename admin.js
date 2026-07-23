@@ -18,6 +18,43 @@ import {
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
 const btnProcesar = document.getElementById("btnProcesar");
+function procesarPegadoRapido() {
+
+    const texto = txtPegadoRapido.value.trim();
+
+    if (!texto) return;
+
+    const lineas = texto
+        .split("\n")
+        .map(l => l.trim())
+        .filter(l => l !== "");
+
+    // Nombre
+    document.getElementById("nombre").value = lineas[0] || "";
+
+    // Precio
+    const precio = texto.match(/💲\s?(\d+(?:\.\d+)?)/);
+
+    if (precio) {
+        document.getElementById("precio").value = precio[1];
+    }
+
+    // Precio anterior
+    const antes = texto.match(/Antes\s*💲\s?(\d+(?:\.\d+)?)/i);
+
+    if (antes) {
+        document.getElementById("antes").value = antes[1];
+    }
+
+    // Enlace
+    const enlace = texto.match(/https?:\/\/\S+/);
+
+    if (enlace) {
+        document.getElementById("enlace").value = enlace[0];
+    }
+
+}
+
 const tbody = document.querySelector("#tablaOfertas tbody");
 const btnAnterior = document.getElementById("btnAnterior");
 const btnSiguiente = document.getElementById("btnSiguiente");
@@ -812,38 +849,12 @@ selectorImagen.addEventListener("change", () => {
     
 }
 
-btnProcesar.addEventListener("click", () => {
+btnProcesar.addEventListener("click", procesarPegadoRapido);
 
-    const texto = txtPegadoRapido.value.trim();
+txtPegadoRapido.addEventListener("paste", () => {
 
-    if (!texto) return;
-
-    const lineas = texto
-        .split("\n")
-        .map(l => l.trim())
-        .filter(l => l !== "");
-
-    // Nombre
-    document.getElementById("nombre").value = lineas[0] || "";
-
-    // Buscar precios
-    const precios = texto.match(/\$\d+(?:\.\d{2})?/g);
-
-    if (precios && precios.length > 0) {
-        document.getElementById("precio").value =
-            precios[0].replace("$", "");
-    }
-
-    if (precios && precios.length > 1) {
-        document.getElementById("antes").value =
-            precios[1].replace("$", "");
-    }
-
-    // Buscar enlace
-    const enlace = texto.match(/https?:\/\/\S+/);
-
-    if (enlace) {
-        document.getElementById("enlace").value = enlace[0];
-    }
+    setTimeout(() => {
+        procesarPegadoRapido();
+    }, 50);
 
 });
