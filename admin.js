@@ -259,7 +259,7 @@ const categoria = document.getElementById("categoria").value;
     await addDoc(collection(db, "ofertas"), {
 
     nombre: document.getElementById("nombre").value,
-        categoria: categoria,
+    categoria: categoria,
     precio: precio.toFixed(2),
     antes: antes.toFixed(2),
     descuento: descuento + "%",
@@ -825,5 +825,25 @@ btnProcesar.addEventListener("click", () => {
 
     // Nombre
     document.getElementById("nombre").value = lineas[0] || "";
+
+    // Buscar precios
+    const precios = texto.match(/\$\d+(?:\.\d{2})?/g);
+
+    if (precios && precios.length > 0) {
+        document.getElementById("precio").value =
+            precios[0].replace("$", "");
+    }
+
+    if (precios && precios.length > 1) {
+        document.getElementById("antes").value =
+            precios[1].replace("$", "");
+    }
+
+    // Buscar enlace
+    const enlace = texto.match(/https?:\/\/\S+/);
+
+    if (enlace) {
+        document.getElementById("enlace").value = enlace[0];
+    }
 
 });
