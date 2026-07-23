@@ -58,28 +58,15 @@ function procesarPegadoRapido(texto) {
 
 function actualizarColorTipoDescuento() {
 
-    switch (tipoDescuento.value) {
-
-        case "precio":
-            tipoDescuento.style.backgroundColor = "#16a34a";
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        case "cupon":
-            tipoDescuento.style.backgroundColor = "#7c3aed";
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        case "codigo":
-            tipoDescuento.style.backgroundColor = "#2563eb";
-            tipoDescuento.style.color = "#fff";
-            break;
-
-        default:
-            tipoDescuento.style.backgroundColor = "";
-            tipoDescuento.style.color = "";
+    if (tipoDescuento.value === "precio") {
+        tipoDescuento.style.backgroundColor = "#16a34a";
+    } else if (tipoDescuento.value === "cupon") {
+        tipoDescuento.style.backgroundColor = "#7c3aed";
+    } else if (tipoDescuento.value === "codigo") {
+        tipoDescuento.style.backgroundColor = "#2563eb";
     }
 
+    tipoDescuento.style.color = "#ffffff";
 }
 
 btnNuevaOferta.addEventListener("click", async () => {
