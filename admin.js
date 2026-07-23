@@ -18,6 +18,7 @@ import {
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
 const btnNuevaOferta = document.getElementById("btnNuevaOferta");
+const tipoDescuento = document.getElementById("tipoDescuento");
 function procesarPegadoRapido(texto) {
 
     if (!texto) return;
