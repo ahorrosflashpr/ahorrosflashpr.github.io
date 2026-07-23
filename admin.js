@@ -177,8 +177,7 @@ let html = "";
     <td>${oferta.clics || 0}</td>
 
     <td>
-        <button class="editar" data-id="${documento.id}">✏️</button>
-<button class="moverAyer" data-id="${documento.id}">📅</button>
+<button class="editar" data-id="${documento.id}">✏️</button>
 <button class="eliminar" data-id="${documento.id}">🗑️</button>
     </td>
 
