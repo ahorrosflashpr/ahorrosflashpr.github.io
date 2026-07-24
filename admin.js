@@ -361,7 +361,12 @@ const categoria = document.getElementById("categoria").value;
 
 }
 
+        const tipoActual = tipoDescuento.value;
+
         formulario.reset();
+
+        tipoDescuento.value = tipoActual;
+        actualizarColorTipoDescuento();
 
         vence7Dias();
 
