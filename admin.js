@@ -155,9 +155,15 @@ tbody.addEventListener("click", async (e) => {
         const ayer = new Date();
         ayer.setDate(ayer.getDate() - 1);
 
-        await updateDoc(doc(db, "ofertas", id), {
-            fecha: ayer.getTime()
-        });
+        const diaAyer =
+    ayer.getFullYear() + "-" +
+    String(ayer.getMonth() + 1).padStart(2, "0") + "-" +
+    String(ayer.getDate()).padStart(2, "0");
+
+await updateDoc(doc(db, "ofertas", id), {
+    fecha: ayer.getTime(),
+    dia: diaAyer
+});
 
         cargarOfertas();
 
