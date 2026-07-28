@@ -724,44 +724,6 @@ guardarCategorias.addEventListener("click", async () => {
 
 });
 
-const btnMoverSeleccionadas = document.getElementById("btnMoverSeleccionadas");
-
-btnMoverSeleccionadas.addEventListener("click", async () => {
-
-    const seleccionadas = document.querySelectorAll(".seleccionOferta:checked");
-
-    if (seleccionadas.length === 0) {
-        alert("Selecciona al menos una oferta.");
-        return;
-    }
-
-    if (!confirm(`¿Mover ${seleccionadas.length} ofertas a AYER?`)) return;
-
-    const ayer = new Date();
-    ayer.setDate(ayer.getDate() - 1);
-
-    const nuevaFecha = ayer.getTime();
-
-    for (const item of seleccionadas) {
-
-        const diaAyer =
-    ayer.getFullYear() + "-" +
-    String(ayer.getMonth() + 1).padStart(2, "0") + "-" +
-    String(ayer.getDate()).padStart(2, "0");
-
-await updateDoc(doc(db, "ofertas", item.value), {
-    fecha: nuevaFecha,
-    dia: diaAyer
-});
-
-    }
-
-    alert("✅ Ofertas movidas correctamente.");
-
-    cargarOfertas();
-
-});
-
 const btnCorregirDias = document.getElementById("btnCorregirDias");
 
 if (btnCorregirDias) {
