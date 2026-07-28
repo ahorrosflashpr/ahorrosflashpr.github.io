@@ -744,9 +744,15 @@ btnMoverSeleccionadas.addEventListener("click", async () => {
 
     for (const item of seleccionadas) {
 
-        await updateDoc(doc(db, "ofertas", item.value), {
-            fecha: nuevaFecha
-        });
+        const diaAyer =
+    ayer.getFullYear() + "-" +
+    String(ayer.getMonth() + 1).padStart(2, "0") + "-" +
+    String(ayer.getDate()).padStart(2, "0");
+
+await updateDoc(doc(db, "ofertas", item.value), {
+    fecha: nuevaFecha,
+    dia: diaAyer
+});
 
     }
 
