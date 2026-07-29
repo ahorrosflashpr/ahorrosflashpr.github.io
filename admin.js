@@ -623,8 +623,8 @@ window.vence4Dias = function(){
     document.getElementById("fechaExpiracion").value =
         fecha.toISOString().split("T")[0];
 
-    document.getElementById("btn7Dias").style.background = "#f59e0b";
-    document.getElementById("btn7Dias").style.color = "#fff";
+    document.getElementById("btn4Dias").style.background = "#f59e0b";
+    document.getElementById("btn4Dias").style.color = "#fff";
 
     document.getElementById("btnManana").style.background = "#e5e7eb";
     document.getElementById("btnManana").style.color = "#333";
