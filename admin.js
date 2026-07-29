@@ -388,10 +388,40 @@ const categoria = document.getElementById("categoria").value;
 
 });
 
+async function iniciarPanel() {
+
+    const consulta = await getDocs(collection(db, "ofertas"));
+
+    const hoy = new Date();
+    hoy.setHours(0,0,0,0);
+
+    for (const documento of consulta.docs) {
+
+        const oferta = documento.data();
+
+        if (!oferta.fechaExpiracion) continue;
+
+        const vence = new Date(oferta.fechaExpiracion);
+        vence.setHours(0,0,0,0);
+
+        if (vence < hoy) {
+
+            await deleteDoc(doc(db, "ofertas", documento.id));
+
+            console.log("🗑️ Eliminada:", oferta.nombre);
+
+        }
+
+    }
+
+    cargarOfertas();
+
+}
+
 // ===============================
 // Iniciar
 // ===============================
-cargarOfertas();
+iniciarPanel();
 
 // ===============================
 // BOTÓN SIGUIENTE
