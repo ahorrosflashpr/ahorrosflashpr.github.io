@@ -614,7 +614,7 @@ window.venceManana = function(){
 
 }
 
-window.vence7Dias = function(){
+window.vence4Dias = function(){
 
     const fecha = new Date();
 
