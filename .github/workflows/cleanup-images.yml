@@ -13,12 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with full history
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Delete images older than 4 days
         run: |
-          find images -type f -mtime +4 -delete
+          now=$(date +%s)
+
+          find images -type f | while read file; do
+            last_commit=$(git log -1 --format=%ct -- "$file")
+
+            if [ -n "$last_commit" ]; then
+              age_days=$(( (now - last_commit) / 86400 ))
+
+              if [ "$age_days" -ge 4 ]; then
+                echo "Deleting $file ($age_days days old)"
+                rm "$file"
+              fi
+            fi
+          done
 
       - name: Commit changes
         run: |
