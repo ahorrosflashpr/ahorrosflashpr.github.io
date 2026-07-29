@@ -865,3 +865,46 @@ selectorImagen.addEventListener("change", () => {
 
 tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
 actualizarColorTipoDescuento();
+
+const seleccionarTodo = document.getElementById("seleccionarTodo");
+const btnEliminarSeleccionadas = document.getElementById("btnEliminarSeleccionadas");
+
+// Seleccionar o deseleccionar todas
+seleccionarTodo.addEventListener("change", () => {
+
+    document.querySelectorAll(".seleccionOferta").forEach(check => {
+
+        check.checked = seleccionarTodo.checked;
+
+    });
+
+});
+
+// Eliminar seleccionadas
+btnEliminarSeleccionadas.addEventListener("click", async () => {
+
+    const seleccionadas = document.querySelectorAll(".seleccionOferta:checked");
+
+    if (seleccionadas.length === 0) {
+
+        alert("Selecciona al menos una oferta.");
+
+        return;
+
+    }
+
+    if (!confirm(`¿Eliminar ${seleccionadas.length} ofertas?`)) return;
+
+    for (const item of seleccionadas) {
+
+        await deleteDoc(doc(db, "ofertas", item.value));
+
+    }
+
+    alert(`✅ ${seleccionadas.length} ofertas eliminadas.`);
+
+    seleccionarTodo.checked = false;
+
+    cargarOfertas();
+
+});
