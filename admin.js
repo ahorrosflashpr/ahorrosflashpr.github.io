@@ -404,7 +404,7 @@ async function iniciarPanel() {
         const vence = new Date(oferta.fechaExpiracion);
         vence.setHours(0,0,0,0);
 
-        if (vence < hoy) {
+        if (vence.getTime() < hoy.getTime()) {
 
             await deleteDoc(doc(db, "ofertas", documento.id));
 
