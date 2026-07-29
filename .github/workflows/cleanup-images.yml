@@ -1,0 +1,32 @@
+name: Cleanup old images
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Delete images older than 4 days
+        run: |
+          find images -type f -mtime +4 -delete
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          if [ -n "$(git status --porcelain)" ]; then
+            git add images
+            git commit -m "🗑️ Delete images older than 4 days"
+            git push
+          fi
