@@ -374,7 +374,7 @@ const categoria = document.getElementById("categoria").value;
         tipoDescuento.value = tipoActual;
         actualizarColorTipoDescuento();
 
-        vence7Dias();
+        vence4Dias();
 
         cargarOfertas();
 
@@ -631,7 +631,7 @@ window.vence4Dias = function(){
 
 }
 
-vence7Dias();
+vence4Dias();
 
 const imagen = document.getElementById("imagen");
 
