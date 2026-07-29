@@ -588,7 +588,7 @@ window.vence7Dias = function(){
 
     const fecha = new Date();
 
-    fecha.setDate(fecha.getDate() + 7);
+    fecha.setDate(fecha.getDate() + 4);
 
     document.getElementById("fechaExpiracion").value =
         fecha.toISOString().split("T")[0];
