@@ -22,44 +22,40 @@
 <body>
 
     <!-- Header -->
+    
     <header>
 
-    <div class="header-top">
+    <div class="logo">
 
-        <div class="logo">
+        <img src="assets/Logo.png" alt="Logo">
 
-            <img src="assets/Logo.png" alt="Logo">
+        <div>
+            <h2>Ahorros y Descuentos Flash PR</h2>
+            <p>Las mejores ofertas todos los días</p>
 
-            <div>
-
-                <h2>Ahorros y Descuentos Flash PR</h2>
-
-                <p>Las mejores ofertas todos los días</p>
-
-            </div>
-
+            <p class="seguidores">
+                💙 +21K Seguidores en Facebook
+            </p>
         </div>
 
     </div>
 
-    <div class="header-bottom">
+    <input
+        type="text"
+        id="buscador"
+        placeholder="🔍 Buscar ofertas...">
 
-        <input
-            type="text"
-            id="buscador"
-            placeholder="🔍 Buscar ofertas...">
-
-        <button onclick="cargarOfertasFirebase('hoy')" class="btn-header hoy">
-            🔥 Hoy
-        </button>
-
-        <button onclick="cargarOfertasFirebase('ayer')" class="btn-header ayer">
-            📅 Ayer
-        </button>
-
+    <div class="ultima-actualizacion">
+        ✅ Última actualización:
+        <span id="fechaActualizacion"></span>
     </div>
 
 </header>
+
+    <div class="filtros-fecha">
+    <button onclick="cargarOfertasFirebase('hoy')">🔥 Hoy</button>
+    <button onclick="cargarOfertasFirebase('ayer')">📅 Ayer</button>
+</div>
 
 <!-- Productos -->
 <main id="productos"></main>
