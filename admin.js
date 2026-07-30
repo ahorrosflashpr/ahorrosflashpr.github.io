@@ -128,12 +128,7 @@ tbody.addEventListener("click", async (e) => {
             oferta.estado || "activa";
         document.getElementById("fechaExpiracion").value =
             oferta.fechaExpiracion || "";
-        document.getElementById("categoria").value =
-            oferta.categoria || "Automática";
-
-        btnCategoria.innerHTML =
-            `${oferta.categoria || "🤖 Automática"}<span>▼</span>`;
-
+    
         editando = id;
 
         formulario.querySelector("button").textContent =
