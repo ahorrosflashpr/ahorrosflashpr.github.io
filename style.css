@@ -1317,7 +1317,35 @@ main{
 
 }
 
-<button class="btn-compartir"
-onclick="compartirFacebook('${oferta.enlace}')">
-📤 Compartir
-</button>
+.btn-compartir{
+
+    width:42px;
+    height:42px;
+
+    margin:10px auto 0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:#1877F2;
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-compartir:hover{
+
+    background:#166FE5;
+    transform:scale(1.08);
+
+}
