@@ -17,6 +17,20 @@ body{
 
 }
 
+header{
+    max-width:1400px;
+    margin:20px auto;
+    padding:25px 35px;
+    background:#0b5ed7;
+    color:#fff;
+    border-radius:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
 .logo{
     font-size:34px;
     font-weight:bold;
