@@ -1084,8 +1084,10 @@ main{
 }
 
 .filtros-fecha button.activo{
-    background:#d84315;
-    transform:scale(1.05);
+    transform:scale(1.06);
+    border:3px solid #ffffff;
+    box-shadow:0 0 0 4px rgba(255,255,255,.35),
+               0 10px 22px rgba(0,0,0,.25);
 }
 
 #btnVerMas{
