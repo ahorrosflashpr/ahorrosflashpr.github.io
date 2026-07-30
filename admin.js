@@ -83,9 +83,7 @@ btnNuevaOferta.addEventListener("click", async () => {
         const texto = await navigator.clipboard.readText();
 
         procesarPegadoRapido(texto);
-
-        // Ir automáticamente al selector de categoría
-        document.getElementById("categoria").focus();
+        
 
     } catch (error) {
 
