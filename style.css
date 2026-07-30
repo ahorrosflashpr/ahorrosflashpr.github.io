@@ -19,6 +19,7 @@ body{
 
 header{
     background:linear-gradient(135deg,#0052cc,#0b5ed7,#3b82f6);
+    box-shadow:0 10px 30px rgba(0,60,160,.18);
     color:white;
     padding:8px 30px;
     display:flex;
