@@ -21,27 +21,35 @@ body{
     position: sticky;
     top: 15px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    overflow: hidden;
 
-    width: min(1200px,95%);
-    margin: 20px auto;
+    background: rgba(255,255,255,.35);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
-    padding: 18px 25px;
+    border: 1px solid rgba(255,255,255,.5);
 
-    background: rgba(255,255,255,.72);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,.45);
     border-radius: 22px;
 
-    box-shadow: 0 10px 35px rgba(0,0,0,.12);
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.10),
+        inset 0 1px 1px rgba(255,255,255,.6);
+}
 
-    z-index: 999;
+.glass-header::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.55),
+        rgba(255,255,255,.05) 45%,
+        transparent 70%
+    );
+
+    border-radius: inherit;
+    pointer-events: none;
 }
 
 .logo{
