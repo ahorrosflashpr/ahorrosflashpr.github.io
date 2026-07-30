@@ -600,18 +600,12 @@ window.verMasOfertas=function(){
 
 };
 
-window.copiarEnlace = async function(enlace){
+window.compartirFacebook = function(enlace){
 
-    try{
+    const url =
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+        encodeURIComponent(enlace);
 
-        await navigator.clipboard.writeText(enlace);
-
-        alert("✅ Enlace copiado al portapapeles");
-
-    }catch{
-
-        alert("❌ No se pudo copiar el enlace");
-
-    }
+    window.open(url, "_blank");
 
 };
