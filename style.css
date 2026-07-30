@@ -1055,17 +1055,30 @@ main{
 .filtros-fecha button{
     min-width:180px;
     height:56px;
-    background:linear-gradient(135deg,#ff9800,#ff6a00);
-    color:#fff;
     border:none;
     border-radius:30px;
+    color:#fff;
     font-size:20px;
     font-weight:700;
     cursor:pointer;
-    box-shadow:0 8px 18px rgba(255,106,0,.35);
     transition:.25s;
 }
 
+/* 🔥 Hoy */
+.filtros-fecha button:first-child{
+    background:linear-gradient(135deg,#ff9800,#ff6a00);
+    box-shadow:0 8px 18px rgba(255,106,0,.35);
+}
+
+/* 📅 Ayer */
+.filtros-fecha button:last-child{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
+}
+
+.filtros-fecha button:hover{
+    transform:translateY(-3px);
+}
 .filtros-fecha button:hover{
     transform:translateY(-2px);
 }
