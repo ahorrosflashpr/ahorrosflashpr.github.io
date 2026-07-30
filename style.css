@@ -17,15 +17,31 @@ body{
 
 }
 
-header{
-    background:linear-gradient(135deg,#0052cc,#0b5ed7,#3b82f6);
-    box-shadow:0 10px 30px rgba(0,60,160,.18);
-    color:white;
-    padding:8px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
+.glass-header{
+    position: sticky;
+    top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: min(1200px,95%);
+    margin: 20px auto;
+
+    padding: 18px 25px;
+
+    background: rgba(255,255,255,.72);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 22px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.12);
+
+    z-index: 999;
 }
 
 .logo{
