@@ -191,7 +191,7 @@ await updateDoc(doc(db, "ofertas", id), {
 
 let editando = null;
 
-const OFERTAS_POR_PAGINA = 50;
+const OFERTAS_POR_PAGINA = 15;
 
 let ultimaOferta = null;
 let primeraOferta = null;
