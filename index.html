@@ -22,39 +22,62 @@
 <body>
 
     <!-- Header -->
-    
     <header>
 
-    <div class="logo">
+        <div class="logo">
 
-        <img src="assets/Logo.png" alt="Logo">
+            <img src="assets/Logo.png" alt="Logo">
+            
+            <div>
+                <h2>Ahorros y Descuentos Flash PR</h2>
+                <p>Las mejores ofertas todos los días</p>
 
-        <div>
-            <h2>Ahorros y Descuentos Flash PR</h2>
-            <p>Las mejores ofertas todos los días</p>
+                <p class="seguidores">
+                    💙 +21K Seguidores en Facebook
+                </p>
+            </div>
 
-            <p class="seguidores">
-                💙 +21K Seguidores en Facebook
-            </p>
         </div>
 
-    </div>
+        <input
+            type="text"
+            id="buscador"
+            placeholder="🔍 Buscar ofertas...">
+            
+        <div class="ultima-actualizacion">
+            ✅ Última actualización:
+            <span id="fechaActualizacion"></span>
+        </div>
 
-    <input
-        type="text"
-        id="buscador"
-        placeholder="🔍 Buscar ofertas...">
+    </header>
 
-    <div class="ultima-actualizacion">
-        ✅ Última actualización:
-        <span id="fechaActualizacion"></span>
-    </div>
+    <!-- Título -->
+    <section class="titulo-seccion">
 
-</header>
+    </section>
 
-    <div class="filtros-fecha">
+<!-- Título -->
+<section class="titulo-seccion">
+
+</section>
+
+<div class="filtros-fecha">
     <button onclick="cargarOfertasFirebase('hoy')">🔥 Hoy</button>
     <button onclick="cargarOfertasFirebase('ayer')">📅 Ayer</button>
+</div>
+
+<div id="sinOfertasHoy" class="sin-ofertas" style="display:none;">
+
+    <h2>🟡 Aún no hemos publicado ofertas nuevas hoy</h2>
+
+    <p>
+        Estamos preparando las mejores ofertas para ti.
+    </p>
+
+    <button onclick="cargarOfertasFirebase('ayer')">
+        📅 Ver ofertas de ayer
+    </button>
+
 </div>
 
 <!-- Productos -->
