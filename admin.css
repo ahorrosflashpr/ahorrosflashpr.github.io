@@ -532,3 +532,11 @@ ZONA PARA IMÁGENES
 #contenedorCodigo{
     display: none;
 }
+
+.tabla-container{
+    max-height: 650px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+}
