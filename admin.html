@@ -82,26 +82,33 @@
 
     <div class="campo">
 
-        <label>🏷 Tipo de descuento</label>
+    <label>🏷 Tipo de descuento</label>
 
-        <select id="tipoDescuento">
-            <option value="precio">💰 BAJO PRECIO</option>
-            <option value="cupon">🎟 Cupón de Amazon</option>
-            <option value="codigo">📋 Código promocional</option>
-        </select>
+    <select id="tipoDescuento">
+        <option value="precio">💰 BAJO PRECIO</option>
+        <option value="cupon">🎟 Cupón de Amazon</option>
+        <option value="codigo">📋 Código promocional</option>
+    </select>
 
-        <div class="campo">
+    <label style="margin-top:15px;">
+        🏷 Código de descuento (opcional)
+    </label>
 
-        <label>🟢 Estado</label>
+    <input
+        type="text"
+        id="codigo"
+        placeholder="Ejemplo: SAVE20">
 
-        <select id="estado">
-            <option value="activa">🟢 Activa</option>
-            <option value="oculta">🔴 Oculta</option>
-        </select>
+    <label style="margin-top:15px;">
+        🟢 Estado
+    </label>
 
-    </div>
+    <select id="estado">
+        <option value="activa">🟢 Activa</option>
+        <option value="oculta">🔴 Oculta</option>
+    </select>
 
-    </div>
+</div>
 
 </div>
 
@@ -109,20 +116,6 @@
     🚀 PUBLICAR OFERTA
 </button>
 
-<div class="fila">
-
-    <div class="campo">
-
-        <label>🏷 Código de descuento (opcional)</label>
-
-        <input
-            type="text"
-            id="codigo"
-            placeholder="Ejemplo: SAVE20">
-
-    </div>
-
-</div>
 
 <label>📅 Fecha de expiración</label>
 <input type="date" id="fechaExpiracion">
