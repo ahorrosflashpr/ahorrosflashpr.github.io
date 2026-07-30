@@ -324,15 +324,10 @@ if (editando) {
 } else {
 
     console.log("Guardando fecha:", Date.now());
-
-    const categoriaSeleccionada = document.getElementById("categoria").value;
-
-const categoria = document.getElementById("categoria").value;
     
     await addDoc(collection(db, "ofertas"), {
 
     nombre: document.getElementById("nombre").value,
-    categoria: categoria,
     precio: precio.toFixed(2),
     antes: antes.toFixed(2),
     descuento: descuento + "%",
