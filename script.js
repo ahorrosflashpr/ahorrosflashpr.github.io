@@ -320,6 +320,14 @@ if(filtro==="hoy"){
         String(hoyFecha.getMonth() + 1).padStart(2, "0") + "-" +
         String(hoyFecha.getDate()).padStart(2, "0");
 
+    const antesAyerFecha = new Date();
+antesAyerFecha.setDate(antesAyerFecha.getDate() - 2);
+
+const diaAntesAyer =
+    antesAyerFecha.getFullYear() + "-" +
+    String(antesAyerFecha.getMonth() + 1).padStart(2, "0") + "-" +
+    String(antesAyerFecha.getDate()).padStart(2, "0");
+
     const ayerFecha = new Date();
     ayerFecha.setDate(ayerFecha.getDate() - 1);
 
