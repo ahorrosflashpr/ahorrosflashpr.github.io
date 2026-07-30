@@ -411,21 +411,27 @@ main{
     top:16px;
     right:16px;
 
-    background:#e60023;
-
-    color:white;
-
-    padding:8px 12px;
-
-    border-radius:12px;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
-
     z-index:100;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,#ff4d4f,#ff7a18);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+        0 10px 22px rgba(255,90,0,.35),
+        0 4px 10px rgba(0,0,0,.15);
+
+    border:2px solid rgba(255,255,255,.9);
 
     pointer-events:none;
 
