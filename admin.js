@@ -746,26 +746,37 @@ actualizarColorTipoDescuento();
 
 const buscador = document.getElementById("buscarOferta");
 
-buscador.addEventListener("keyup", () => {
+if (buscador) {
 
-    const texto = buscador.value
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+    buscador.addEventListener("input", () => {
 
-    document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
-
-        const producto = fila.children[2].textContent
+        const texto = buscador.value
+            .trim()
             .toLowerCase()
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "");
 
-        fila.style.display = producto.includes(texto) ? "" : "none";
+        document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
+
+            const nombre = fila.children[2].textContent
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
+
+            const precio = fila.children[3].textContent
+                .toLowerCase();
+
+            fila.style.display =
+                nombre.includes(texto) ||
+                precio.includes(texto)
+                    ? ""
+                    : "none";
+
+        });
 
     });
 
-});
+}
 
 const seleccionarTodo = document.getElementById("seleccionarTodo");
 const btnEliminarSeleccionadas = document.getElementById("btnEliminarSeleccionadas");
