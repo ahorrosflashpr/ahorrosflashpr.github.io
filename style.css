@@ -405,16 +405,30 @@ main{
 }
 
 .descuento{
+
     position:absolute;
-    top:12px;
-    right:12px;
+
+    top:16px;
+    right:16px;
+
     background:#e60023;
+
     color:white;
+
     padding:8px 12px;
-    border-radius:8px;
+
+    border-radius:12px;
+
     font-size:16px;
+
     font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,.2);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+    z-index:100;
+
+    pointer-events:none;
+
 }
 
 .ultima-actualizacion{
