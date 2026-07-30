@@ -299,18 +299,18 @@ document.getElementById("fechaActualizacion").textContent=
 async function cargarOfertasFirebase(filtro = "hoy") {
 
     // Resaltar botón activo
-document.querySelectorAll(".filtros-fecha button").forEach(btn=>{
-    btn.classList.remove("activo");
-});
+const botones = document.querySelectorAll(".filtros-fecha button");
 
-if(filtro==="hoy"){
-    document.querySelector(".filtros-fecha button:first-child")
-        .classList.add("activo");
-}else if(filtro==="ayer"){
-    document.querySelector(".filtros-fecha button:last-child")
-        .classList.add("activo");
+botones.forEach(btn => btn.classList.remove("activo"));
+
+if (filtro === "hoy") {
+    botones[0].classList.add("activo");
+} else if (filtro === "ayer") {
+    botones[1].classList.add("activo");
+} else if (filtro === "antesayer") {
+    botones[2].classList.add("activo");
 }
-
+    
     ofertas = [];
 
     const hoyFecha = new Date();
