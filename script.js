@@ -69,7 +69,7 @@ function mostrarOfertas(lista){
 
 <button
 class="btn-compartir"
-onclick="copiarEnlace('${oferta.enlace}')"
+onclick="compartirFacebook('${oferta.enlace}')"
 title="Copiar enlace">
 
 🔗
@@ -132,15 +132,6 @@ class="btn-oferta"
 onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
 
 🔥 VER OFERTA AHORA
-
-</button>
-
-<button
-class="btn-compartir"
-onclick="copiarEnlace('${oferta.enlace}')"
-title="Copiar enlace">
-
-🔗
 
 </button>
 
