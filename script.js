@@ -364,6 +364,18 @@ const diaAntesAyer =
 
             break;
 
+            case "antesayer":
+
+    consulta = await getDocs(
+        query(
+            collection(db, "ofertas"),
+            where("dia", "==", diaAntesAyer),
+            orderBy("fecha", "desc")
+        )
+    );
+
+    break;
+
         case "semana":
 
             const hace7Dias = new Date();
