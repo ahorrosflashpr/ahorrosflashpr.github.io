@@ -1167,15 +1167,21 @@ main{
 }
 
 /* 🔥 Hoy */
-.filtros-fecha button:first-child{
+.filtros-fecha button:nth-child(1){
     background:linear-gradient(135deg,#ff9800,#ff6a00);
     box-shadow:0 8px 18px rgba(255,106,0,.35);
 }
 
 /* 📅 Ayer */
-.filtros-fecha button:last-child{
+.filtros-fecha button:nth-child(2){
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
     box-shadow:0 8px 18px rgba(37,99,235,.35);
+}
+
+/* 📆 Antes de ayer */
+.filtros-fecha button:nth-child(3){
+    background:linear-gradient(135deg,#6b7280,#4b5563);
+    box-shadow:0 8px 18px rgba(75,85,99,.35);
 }
 
 .filtros-fecha button:hover{
