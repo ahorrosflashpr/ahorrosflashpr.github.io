@@ -128,13 +128,12 @@ onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
 
 <button
 class="btn-compartir"
-onclick="compartirFacebook('${oferta.enlace}')">
+onclick="compartirFacebook('${oferta.enlace}')"
+title="Compartir en Facebook">
 
-📘 Compartir en Facebook
+📤
 
 </button>
-
-</div>
 
 `;
 
