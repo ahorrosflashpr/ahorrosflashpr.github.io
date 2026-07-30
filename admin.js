@@ -744,6 +744,29 @@ selectorImagen.addEventListener("change", () => {
 tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
 actualizarColorTipoDescuento();
 
+const buscador = document.getElementById("buscarOferta");
+
+buscador.addEventListener("keyup", () => {
+
+    const texto = buscador.value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
+
+        const producto = fila.children[2].textContent
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+        fila.style.display = producto.includes(texto) ? "" : "none";
+
+    });
+
+});
+
 const seleccionarTodo = document.getElementById("seleccionarTodo");
 const btnEliminarSeleccionadas = document.getElementById("btnEliminarSeleccionadas");
 
