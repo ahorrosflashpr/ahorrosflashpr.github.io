@@ -298,6 +298,19 @@ document.getElementById("fechaActualizacion").textContent=
 
 async function cargarOfertasFirebase(filtro = "hoy") {
 
+    // Resaltar botón activo
+document.querySelectorAll(".filtros-fecha button").forEach(btn=>{
+    btn.classList.remove("activo");
+});
+
+if(filtro==="hoy"){
+    document.querySelector(".filtros-fecha button:first-child")
+        .classList.add("activo");
+}else if(filtro==="ayer"){
+    document.querySelector(".filtros-fecha button:last-child")
+        .classList.add("activo");
+}
+
     ofertas = [];
 
     const hoyFecha = new Date();
