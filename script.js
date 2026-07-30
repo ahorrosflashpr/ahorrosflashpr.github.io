@@ -126,6 +126,14 @@ onclick="abrirOferta('${oferta.id}','${oferta.enlace}')">
 
 </button>
 
+<button
+class="btn-compartir"
+onclick="compartirFacebook('${oferta.enlace}')">
+
+📘 Compartir en Facebook
+
+</button>
+
 </div>
 
 `;
