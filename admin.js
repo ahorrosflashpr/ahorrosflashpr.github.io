@@ -298,12 +298,9 @@ formulario.addEventListener("submit", async (e) => {
 
 if (editando) {
 
-    const categoria = document.getElementById("categoria").value;
-
     await updateDoc(doc(db, "ofertas", editando), {
 
     nombre: document.getElementById("nombre").value,
-    categoria: categoria,
     precio: precio.toFixed(2),
     antes: antes.toFixed(2),
     descuento: descuento + "%",
