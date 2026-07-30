@@ -528,3 +528,7 @@ ZONA PARA IMÁGENES
 #infoPagina{
     font-weight:600;
 }
+
+#contenedorCodigo{
+    display: none;
+}
