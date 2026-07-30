@@ -1319,32 +1319,24 @@ main{
 
 .btn-compartir{
 
-    width:100%;
+    display:inline-block;
 
     margin-top:10px;
 
-    padding:14px;
+    padding:6px 12px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:20px;
 
     background:#1877F2;
 
     color:#fff;
 
-    font-size:17px;
+    font-size:13px;
 
-    font-weight:bold;
+    font-weight:600;
 
     cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.btn-compartir:hover{
-
-    background:#166FE5;
 
 }
