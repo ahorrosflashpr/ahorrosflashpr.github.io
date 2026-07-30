@@ -577,20 +577,17 @@ body{
 
 header{
 
-    display:block;
     max-width:1400px;
 
-    padding:20px 15px;
     margin:20px auto;
 
-    text-align:center;
     padding:25px 35px;
 
     background:#0b5ed7;
 
-    color:white;
+    color:#fff;
 
-    border-radius:20px;
+    border-radius:22px;
 
     display:flex;
 
@@ -603,7 +600,7 @@ header{
     box-shadow:0 8px 20px rgba(0,0,0,.15);
 
 }
-
+    
 .logo{
 
     display:flex;
