@@ -67,6 +67,15 @@ function mostrarOfertas(lista){
 
 <div class="card">
 
+<button
+class="btn-compartir"
+onclick="compartirFacebook('${oferta.enlace}')"
+title="Compartir">
+
+📤
+
+</button>
+
 <div class="descuento">
 -${oferta.descuento}
 </div>
