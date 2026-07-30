@@ -67,16 +67,25 @@ if (codigo) {
 function actualizarColorTipoDescuento() {
 
     if (tipoDescuento.value === "precio") {
+
         tipoDescuento.style.backgroundColor = "#16a34a";
+        contenedorCodigo.style.display = "none";
+
     } else if (tipoDescuento.value === "cupon") {
+
         tipoDescuento.style.backgroundColor = "#7c3aed";
+        contenedorCodigo.style.display = "none";
+
     } else if (tipoDescuento.value === "codigo") {
+
         tipoDescuento.style.backgroundColor = "#2563eb";
+        contenedorCodigo.style.display = "block";
+
     }
 
     tipoDescuento.style.color = "#ffffff";
-}
 
+}
 btnNuevaOferta.addEventListener("click", async () => {
 
     try {
