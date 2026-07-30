@@ -70,9 +70,9 @@ function mostrarOfertas(lista){
 <button
 class="btn-compartir"
 onclick="copiarEnlace('${oferta.enlace}')"
-title="Compartir">
+title="Copiar enlace">
 
-📤
+🔗
 
 </button>
 
