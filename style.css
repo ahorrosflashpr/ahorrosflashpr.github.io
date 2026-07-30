@@ -450,10 +450,13 @@ justify-content:flex-start;
 }
 
 .ultima-actualizacion{
-    margin-top:10px;
+
     font-size:14px;
-    color:#ffffff;
-    opacity:.9;
+
+    color:#dbeafe;
+
+    white-space:nowrap;
+
 }
 
 @keyframes flashitaBounce {
