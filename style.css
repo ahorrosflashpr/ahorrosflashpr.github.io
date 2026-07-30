@@ -1319,25 +1319,37 @@ main{
 
 .btn-compartir{
 
-    width:42px;
-    height:42px;
+    position:absolute;
 
-    margin:10px auto 0;
+    top:16px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    left:16px;      /* Cambia a right:16px si lo prefieres a la derecha */
+
+    width:36px;
+
+    height:36px;
 
     border:none;
+
     border-radius:50%;
 
     background:#1877F2;
 
     color:#fff;
 
-    font-size:20px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
 
     cursor:pointer;
+
+    z-index:101;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
 
     transition:.25s;
 
@@ -1345,7 +1357,8 @@ main{
 
 .btn-compartir:hover{
 
+    transform:scale(1.1);
+
     background:#166FE5;
-    transform:scale(1.08);
 
 }
