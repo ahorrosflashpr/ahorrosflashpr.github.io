@@ -591,3 +591,11 @@ window.verMasOfertas=function(){
     actualizarBotonVerMas();
 
 };
+
+window.compartirFacebook = function(enlace){
+
+    const url = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(enlace);
+
+    window.open(url, "_blank");
+
+};
