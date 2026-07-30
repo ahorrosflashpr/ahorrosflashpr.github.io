@@ -191,7 +191,7 @@ await updateDoc(doc(db, "ofertas", id), {
 
 let editando = null;
 
-const OFERTAS_POR_PAGINA = 15;
+const OFERTAS_POR_PAGINA = 50;
 
 let ultimaOferta = null;
 let primeraOferta = null;
@@ -743,40 +743,6 @@ selectorImagen.addEventListener("change", () => {
 
 tipoDescuento.addEventListener("change", actualizarColorTipoDescuento);
 actualizarColorTipoDescuento();
-
-const buscador = document.getElementById("buscarOferta");
-
-if (buscador) {
-
-    buscador.addEventListener("input", () => {
-
-        const texto = buscador.value
-            .trim()
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-
-        document.querySelectorAll("#tablaOfertas tbody tr").forEach(fila => {
-
-            const nombre = fila.children[2].textContent
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "");
-
-            const precio = fila.children[3].textContent
-                .toLowerCase();
-
-            fila.style.display =
-                nombre.includes(texto) ||
-                precio.includes(texto)
-                    ? ""
-                    : "none";
-
-        });
-
-    });
-
-}
 
 const seleccionarTodo = document.getElementById("seleccionarTodo");
 const btnEliminarSeleccionadas = document.getElementById("btnEliminarSeleccionadas");
