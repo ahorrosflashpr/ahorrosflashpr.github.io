@@ -20,6 +20,7 @@ const txtPegadoRapido = document.getElementById("pegadoRapido");
 const btnNuevaOferta = document.getElementById("btnNuevaOferta");
 const tipoDescuento = document.getElementById("tipoDescuento");
 const contenedorCodigo = document.getElementById("contenedorCodigo");
+
 function procesarPegadoRapido(texto) {
 
     if (!texto) return;
@@ -62,6 +63,32 @@ if (codigo) {
     document.getElementById("codigo").value = codigo[1];
 }
 
+// Detectar automáticamente el tipo de descuento
+
+const textoMinusculas = texto.toLowerCase();
+
+if (
+    textoMinusculas.includes("código") ||
+    textoMinusculas.includes("codigo")
+) {
+
+    tipoDescuento.value = "codigo";
+
+} else if (
+    textoMinusculas.includes("cupón") ||
+    textoMinusculas.includes("cupon")
+) {
+
+    tipoDescuento.value = "cupon";
+
+} else {
+
+    tipoDescuento.value = "precio";
+
+}
+
+actualizarColorTipoDescuento();
+    
 }
 
 function actualizarColorTipoDescuento() {
