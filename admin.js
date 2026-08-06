@@ -323,16 +323,16 @@ formulario.addEventListener("submit", async (e) => {
 
         // 👇 PEGA EL CÓDIGO AQUÍ
 
-        const precio = Number(document.getElementById("precio").value);
-const antes = Number(document.getElementById("antes").value);
+        const precio = Number(document.getElementById("precio").value.trim());
+        const antes = Number(document.getElementById("antes").value.trim());
 
-let descuento = 0;
+        if (antes <= 0) {
+        alert("⚠️ El precio anterior debe ser mayor que 0.");
+        return;
+        }
 
-if (antes > 0) {
-    descuento = Math.round(((antes - precio) / antes) * 100);
-}
-
-const ahorro = (antes - precio).toFixed(2);
+        const descuento = Math.round(((antes - precio) / antes) * 100);
+        const ahorro = (antes - precio).toFixed(2);
 
         console.log(precio, antes, descuento, ahorro);
 
