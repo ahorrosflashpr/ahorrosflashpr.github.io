@@ -324,10 +324,15 @@ formulario.addEventListener("submit", async (e) => {
         // 👇 PEGA EL CÓDIGO AQUÍ
 
         const precio = Number(document.getElementById("precio").value);
-        const antes = Number(document.getElementById("antes").value);
+const antes = Number(document.getElementById("antes").value);
 
-        const descuento = Math.round(((antes - precio) / antes) * 100);
-        const ahorro = (antes - precio).toFixed(2);
+let descuento = 0;
+
+if (antes > 0) {
+    descuento = Math.round(((antes - precio) / antes) * 100);
+}
+
+const ahorro = (antes - precio).toFixed(2);
 
         console.log(precio, antes, descuento, ahorro);
 
