@@ -1,4 +1,12 @@
-import { db } from "../firebase.js";
+import { db, auth } from "../firebase.js";
+
+import {
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+    setPersistence,
+    browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 import {
     collection,
@@ -14,6 +22,50 @@ import {
     startAfter,
     startAt
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const loginScreen = document.getElementById("loginScreen");
+const loginForm = document.getElementById("loginForm");
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const loginError = document.getElementById("loginError");
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+const usuarioConectado = document.getElementById("usuarioConectado");
+const panelFlash = document.getElementById("panelFlash");
+
+// Mantener la sesión iniciada en este navegador.
+loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value;
+
+    loginError.textContent = "";
+
+    try {
+        await setPersistence(auth, browserLocalPersistence);
+        await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+        console.error(error);
+        loginError.textContent = "❌ Email o contraseña incorrectos.";
+    }
+});
+
+btnCerrarSesion.addEventListener("click", async () => {
+    await signOut(auth);
+});
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loginScreen.hidden = true;
+        panelFlash.hidden = false;
+        usuarioConectado.textContent = user.email || "Usuario conectado";
+        iniciarPanel();
+    } else {
+        panelFlash.hidden = true;
+        loginScreen.hidden = false;
+        usuarioConectado.textContent = "";
+    }
+});
 
 const formulario = document.getElementById("formOferta");
 const txtPegadoRapido = document.getElementById("pegadoRapido");
@@ -449,10 +501,8 @@ async function iniciarPanel() {
 
 }
 
-// ===============================
-// Iniciar
-// ===============================
-iniciarPanel();
+// El panel se inicia únicamente después de autenticar al usuario.
+// onAuthStateChanged() se encarga de llamar iniciarPanel().
 
 // ===============================
 // BOTÓN SIGUIENTE
