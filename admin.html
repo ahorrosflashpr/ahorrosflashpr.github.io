@@ -14,7 +14,53 @@
 
 <body>
 
-<div class="panel">
+<style>
+[hidden] { display: none !important; }
+#loginScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #f5f7fb;
+}
+.login-card {
+    width: min(420px, 100%);
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.10);
+    box-sizing: border-box;
+}
+.login-card h1 { margin: 0 0 8px; }
+.login-card p { margin: 0 0 22px; color: #666; }
+.login-card label { display: block; margin: 14px 0 7px; font-weight: 600; }
+.login-card input { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 16px; }
+.login-card button { width: 100%; margin-top: 18px; padding: 13px; border: 0; border-radius: 10px; background: #111827; color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; }
+#loginError { min-height: 20px; margin-top: 12px; color: #dc2626; font-weight: 600; }
+#usuarioConectado { margin-left: 10px; color: #666; font-size: 13px; }
+#btnCerrarSesion { margin-left: 8px; padding: 8px 12px; border: 0; border-radius: 9px; cursor: pointer; background: #eee; }
+</style>
+
+<div id="loginScreen">
+    <div class="login-card">
+        <h1>🔐 Panel Flash</h1>
+        <p>Inicia sesión para administrar tus ofertas.</p>
+        <form id="loginForm">
+            <label for="loginEmail">📧 Email</label>
+            <input type="email" id="loginEmail" autocomplete="username" required>
+
+            <label for="loginPassword">🔒 Contraseña</label>
+            <input type="password" id="loginPassword" autocomplete="current-password" required>
+
+            <button type="submit">⚡ ENTRAR</button>
+            <div id="loginError" role="alert"></div>
+        </form>
+    </div>
+</div>
+
+<div class="panel" id="panelFlash" hidden>
 
     <!-- IZQUIERDA -->
     <div>
@@ -22,6 +68,7 @@
         <h1>⚡ Panel Flash</h1>
 
         <p>Publica nuevas ofertas en segundos.</p>
+        <div><span id="usuarioConectado"></span><button type="button" id="btnCerrarSesion">Cerrar sesión</button></div>
 
     <button type="button" id="btnNuevaOferta" class="btnNuevaOferta">
     ⚡ Nueva Oferta
