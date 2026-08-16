@@ -152,49 +152,79 @@ justify-content:flex-start;
 
 
 /* ===============================
-   PAGINACIÓN
+   PAGINACIÓN DE OFERTAS
    =============================== */
 
 .paginacion-ofertas {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 18px;
-    margin: 30px 0 10px;
+    gap: 14px;
+    margin: 32px 0 15px;
+    flex-wrap: wrap;
 }
 
 .paginacion-ofertas button {
     border: none;
-    padding: 11px 18px;
-    border-radius: 12px;
+    min-width: 125px;
+    padding: 12px 20px;
+    border-radius: 30px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
-    background: #111827;
-    color: white;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        opacity .25s ease;
 }
 
-.paginacion-ofertas button:hover:not(:disabled) {
-    transform: translateY(-2px);
+/* ANTERIOR */
+
+#btnAnteriorOfertas {
+    background: #f1f3f8;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
 }
+
+#btnAnteriorOfertas:hover:not(:disabled) {
+    transform: translateX(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+/* SIGUIENTE */
+
+#btnSiguienteOfertas {
+    background: linear-gradient(135deg, #ff4d6d, #ff8a00);
+    color: white;
+    box-shadow: 0 7px 20px rgba(255,100,70,.25);
+}
+
+#btnSiguienteOfertas:hover:not(:disabled) {
+    transform: translateX(3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255,100,70,.35);
+}
+
+/* DESACTIVADO */
 
 .paginacion-ofertas button:disabled {
-    opacity: 0.35;
+    opacity: .35;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
+
+/* NÚMERO DE PÁGINA */
 
 #infoPaginaOfertas {
-    font-weight: 700;
+    background: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #444;
+    box-shadow: 0 4px 14px rgba(0,0,0,.07);
     white-space: nowrap;
 }
-
-.card:hover .descuento{
-
-    transform:translateY(-2px) scale(1.05);
-
-}
-
 .card img{
 
     width:180px;
