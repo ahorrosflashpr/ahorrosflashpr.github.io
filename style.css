@@ -1545,3 +1545,44 @@ main{
     background:#166FE5;
 
 }
+
+/* ===============================
+   PAGINACIÓN DE OFERTAS
+=============================== */
+
+#contenedorPaginacionOfertas{
+    width:100%;
+    display:block;
+}
+
+#productos{
+    width:100%;
+}
+
+.paginacion-ofertas{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    margin:35px auto 45px;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.paginacion-ofertas button{
+    border:none;
+    border-radius:18px;
+    padding:14px 24px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+#infoPaginaOfertas{
+    background:white;
+    padding:14px 22px;
+    border-radius:18px;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
