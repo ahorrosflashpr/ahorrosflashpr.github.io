@@ -467,7 +467,14 @@ const diaAntesAyer =
     }
 
     paginaActual = 1;
-mostrarPagina(1, "siguiente");
+
+mostrarOfertas(
+    ofertasFiltradas.slice(0, 20)
+);
+
+actualizarPaginacion(
+    Math.ceil(ofertasFiltradas.length / 20)
+);
 
 }
 
