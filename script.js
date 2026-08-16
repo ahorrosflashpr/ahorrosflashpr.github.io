@@ -678,8 +678,8 @@ window.paginaSiguiente = function() {
             "siguiente"
         );
 
-        window.scrollBy({
-    top: -500,
+        window.scrollTo({
+    top: document.getElementById("productos").offsetTop - 20,
     behavior: "smooth"
 });
     }
