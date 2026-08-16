@@ -151,8 +151,10 @@ buscador.addEventListener("input", async () => {
 
     if (texto === "") {
         mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
-        actualizarBotonVerMas();
-        return;
+actualizarPaginacion(
+    Math.ceil(ofertasFiltradas.length / OFERTAS_POR_PAGINA)
+);
+return;
     }
 
     const consulta = await getDocs(
