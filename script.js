@@ -467,11 +467,8 @@ const diaAntesAyer =
 
     }
 
-    mostrarOfertas(
-        ofertasFiltradas.slice(0,ofertasMostradas)
-    );
-
-    actualizarBotonVerMas();
+    paginaActual = 1;
+mostrarPagina(1, "siguiente");
 
 }
 
