@@ -305,8 +305,6 @@ document.getElementById("fechaActualizacion").textContent=
 
 async function cargarOfertasFirebase(filtro = "hoy") {
 
-    try {
-
     // Resaltar botón activo
 const botones = document.querySelectorAll(".filtros-fecha button");
 
