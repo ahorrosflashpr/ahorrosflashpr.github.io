@@ -555,40 +555,130 @@ btnSubir.addEventListener("click",()=>{
 
 });
 
-function actualizarBotonVerMas(){
+// ===============================
+// PAGINACIÓN DE 20 OFERTAS
+// ===============================
 
-    const btn=document.getElementById("btnVerMas");
+const OFERTAS_POR_PAGINA = 20;
 
-    if(!btn) return;
+let paginaActual = 1;
 
-    const restantes=ofertasFiltradas.length-ofertasMostradas;
+function mostrarPagina(pagina, direccion = "siguiente") {
 
-    if(restantes<=0){
+    const totalPaginas = Math.ceil(
+        ofertasFiltradas.length / OFERTAS_POR_PAGINA
+    );
 
-        btn.style.display="none";
+    if (totalPaginas === 0) return;
 
-    }else{
+    if (pagina < 1) pagina = 1;
+    if (pagina > totalPaginas) pagina = totalPaginas;
 
-        btn.style.display="block";
+    const inicio =
+        (pagina - 1) * OFERTAS_POR_PAGINA;
 
-        const cantidad=restantes>=20?20:restantes;
+    const fin =
+        inicio + OFERTAS_POR_PAGINA;
 
-        btn.innerHTML=`⬇️ Ver ${cantidad} ofertas más`;
+    const nuevasOfertas =
+        ofertasFiltradas.slice(inicio, fin);
+
+    const contenedor =
+        document.getElementById("contenedorOfertas");
+
+    if (contenedor) {
+
+        contenedor.classList.remove(
+            "pagina-salida-izquierda",
+            "pagina-salida-derecha",
+            "pagina-entrada"
+        );
+
+        contenedor.classList.add(
+            direccion === "siguiente"
+                ? "pagina-salida-izquierda"
+                : "pagina-salida-derecha"
+        );
+
+        setTimeout(() => {
+
+            mostrarOfertas(nuevasOfertas);
+
+            contenedor.classList.remove(
+                "pagina-salida-izquierda",
+                "pagina-salida-derecha"
+            );
+
+            contenedor.classList.add("pagina-entrada");
+
+            setTimeout(() => {
+                contenedor.classList.remove("pagina-entrada");
+            }, 350);
+
+        }, 180);
+
+    } else {
+
+        mostrarOfertas(nuevasOfertas);
 
     }
 
+    paginaActual = pagina;
+
+    actualizarPaginacion(totalPaginas);
 }
 
-window.verMasOfertas=function(){
 
-    ofertasMostradas+=20;
+function actualizarPaginacion(totalPaginas) {
 
-    mostrarOfertas(
-        ofertasFiltradas.slice(0,ofertasMostradas)
+    const btnAnterior =
+        document.getElementById("btnAnteriorOfertas");
+
+    const btnSiguiente =
+        document.getElementById("btnSiguienteOfertas");
+
+    const infoPagina =
+        document.getElementById("infoPaginaOfertas");
+
+    if (btnAnterior) {
+        btnAnterior.disabled = paginaActual === 1;
+    }
+
+    if (btnSiguiente) {
+        btnSiguiente.disabled =
+            paginaActual === totalPaginas;
+    }
+
+    if (infoPagina) {
+        infoPagina.textContent =
+            `Página ${paginaActual} de ${totalPaginas}`;
+    }
+}
+
+
+window.paginaSiguiente = function() {
+
+    const totalPaginas = Math.ceil(
+        ofertasFiltradas.length / OFERTAS_POR_PAGINA
     );
 
-    actualizarBotonVerMas();
+    if (paginaActual < totalPaginas) {
+        mostrarPagina(
+            paginaActual + 1,
+            "siguiente"
+        );
+    }
+};
 
+
+window.paginaAnterior = function() {
+
+    if (paginaActual > 1) {
+        mostrarPagina(
+            paginaActual - 1,
+            "anterior"
+        );
+    }
 };
 
 window.compartirFacebook = function(enlace){
