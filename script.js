@@ -15,6 +15,9 @@ let ofertas = [];
 let ofertasFiltradas = [];
 let ofertasMostradas = 20;
 
+const OFERTAS_POR_PAGINA = 20;
+let paginaActual = 1;
+
 const contenedor = document.getElementById("productos");
 const buscador = document.getElementById("buscador");
 const featured = document.getElementById("featured");
