@@ -584,7 +584,7 @@ function mostrarPagina(pagina, direccion = "siguiente") {
         ofertasFiltradas.slice(inicio, fin);
 
     const contenedor =
-        document.getElementById("contenedorOfertas");
+        document.getElementById("productos");
 
     if (contenedor) {
 
