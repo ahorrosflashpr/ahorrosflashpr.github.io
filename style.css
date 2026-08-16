@@ -116,6 +116,79 @@ justify-content:flex-start;
 
 }
 
+/* ===============================
+   ANIMACIÓN ENTRE PÁGINAS
+   =============================== */
+
+#productos {
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+#productos.pagina-salida-izquierda {
+    transform: translateX(-70px);
+    opacity: 0;
+}
+
+#productos.pagina-salida-derecha {
+    transform: translateX(70px);
+    opacity: 0;
+}
+
+#productos.pagina-entrada {
+    animation: entrarOfertas 0.35s ease;
+}
+
+@keyframes entrarOfertas {
+    from {
+        transform: translateX(70px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* ===============================
+   PAGINACIÓN
+   =============================== */
+
+.paginacion-ofertas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 30px 0 10px;
+}
+
+.paginacion-ofertas button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.paginacion-ofertas button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.paginacion-ofertas button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+#infoPaginaOfertas {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .card:hover .descuento{
 
     transform:translateY(-2px) scale(1.05);
