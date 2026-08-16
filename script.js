@@ -410,13 +410,14 @@ const diaAntesAyer =
 
     if (filtro === "hoy" && consulta.empty) {
 
-        contenedor.innerHTML = "";
-        aviso.style.display = "block";
-        document.getElementById("contenedorPaginacionOfertas").style.display = "block";
-        document.getElementById("contenedorPaginacionOfertas").style.display = "none";
-        return;
+    contenedor.innerHTML = "";
 
-    }
+    aviso.style.display = "block";
+
+    document.getElementById("contenedorPaginacionOfertas").style.display = "none";
+
+    return;
+}
 
     aviso.style.display = "none";
 
