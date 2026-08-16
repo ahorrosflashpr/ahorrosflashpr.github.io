@@ -469,8 +469,6 @@ const diaAntesAyer =
 
     }
 
-    paginaActual = 1;
-
 mostrarOfertas(
     ofertasFiltradas.slice(0, 20)
 );
