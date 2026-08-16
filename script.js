@@ -475,10 +475,6 @@ mostrarOfertas(
     ofertasFiltradas.slice(0, 20)
 );
 
-actualizarPaginacion(
-    Math.ceil(ofertasFiltradas.length / 20)
-);
-
 }
 
 window.cargarOfertasFirebase = cargarOfertasFirebase;
