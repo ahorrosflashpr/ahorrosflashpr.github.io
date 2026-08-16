@@ -477,6 +477,24 @@ mostrarOfertas(
 
 }
 
+        } catch (error) {
+
+        console.error("ERROR CARGANDO OFERTAS:", error);
+
+        document.getElementById("productos").innerHTML = `
+            <div style="
+                text-align:center;
+                padding:40px 20px;
+                color:#d00;
+                font-weight:bold;
+            ">
+                ⚠️ No se pudieron cargar las ofertas.
+                <br><br>
+                ${error.message}
+            </div>
+        `;
+    }
+
 window.cargarOfertasFirebase = cargarOfertasFirebase;
 
 cargarOfertasFirebase("hoy");
