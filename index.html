@@ -82,7 +82,32 @@
 </div>
 
 <!-- Productos -->
-<main id="productos"></main>
+<div id="contenedorPaginacionOfertas">
+
+    <main id="productos"></main>
+
+    <div class="paginacion-ofertas">
+
+        <button
+            id="btnAnteriorOfertas"
+            onclick="paginaAnterior()"
+            disabled>
+            ◀ Anterior
+        </button>
+
+        <span id="infoPaginaOfertas">
+            Página 1
+        </span>
+
+        <button
+            id="btnSiguienteOfertas"
+            onclick="paginaSiguiente()">
+            Siguiente ▶
+        </button>
+
+    </div>
+
+</div>
 
 <div style="text-align:center;margin:25px 0;">
     <button id="btnVerMas" onclick="verMasOfertas()">
