@@ -280,11 +280,8 @@ async function cargarCategoria(categoria){
 
     ofertasMostradas=20;
 
-    mostrarOfertas(
-        ofertasFiltradas.slice(0,ofertasMostradas)
-    );
-
-    actualizarBotonVerMas();
+    paginaActual = 1;
+mostrarPagina(1, "siguiente");
 
 }
 
