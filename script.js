@@ -412,7 +412,8 @@ const diaAntesAyer =
 
         contenedor.innerHTML = "";
         aviso.style.display = "block";
-        actualizarBotonVerMas();
+        document.getElementById("contenedorPaginacionOfertas").style.display = "block";
+        document.getElementById("contenedorPaginacionOfertas").style.display = "none";
         return;
 
     }
