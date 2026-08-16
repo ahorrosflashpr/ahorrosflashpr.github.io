@@ -150,10 +150,10 @@ buscador.addEventListener("input", async () => {
         .replace(/[\u0300-\u036f]/g, "");
 
     if (texto === "") {
-        mostrarOfertas(ofertasFiltradas.slice(0, ofertasMostradas));
-        actualizarBotonVerMas();
-        return;
-    }
+    paginaActual = 1;
+    mostrarPagina(1, "siguiente");
+    return;
+}
 
     const consulta = await getDocs(
         query(
