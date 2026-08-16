@@ -415,12 +415,13 @@ const diaAntesAyer =
 
     if (filtro === "hoy" && consulta.empty) {
 
-        contenedor.innerHTML = "";
-        aviso.style.display = "block";
-        actualizarBotonVerMas();
-        return;
+    contenedor.innerHTML = "";
+    aviso.style.display = "block";
 
-    }
+    document.getElementById("contenedorPaginacionOfertas").style.display = "none";
+
+    return;
+}
 
     aviso.style.display = "none";
 
@@ -473,7 +474,13 @@ const diaAntesAyer =
         ofertasFiltradas.slice(0,ofertasMostradas)
     );
 
-    actualizarBotonVerMas();
+    paginaActual = 1;
+
+document.getElementById("contenedorPaginacionOfertas").style.display = "flex";
+
+actualizarPaginacion(
+    Math.ceil(ofertasFiltradas.length / OFERTAS_POR_PAGINA)
+);
 
 }
 
