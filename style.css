@@ -1546,43 +1546,83 @@ main{
 
 }
 
-/* ===============================
-   PAGINACIÓN DE OFERTAS
-=============================== */
+/* =====================================
+   PAGINACIÓN — DEBAJO DE LAS OFERTAS
+===================================== */
 
 #contenedorPaginacionOfertas{
     width:100%;
-    display:block;
+    max-width:1400px;
+    margin:0 auto;
+    display:block !important;
+    clear:both;
 }
 
 #productos{
     width:100%;
 }
 
-.paginacion-ofertas{
+/* La paginación ocupa una fila completa */
+#contenedorPaginacionOfertas > .paginacion-ofertas{
     width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:16px;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:14px;
     margin:35px auto 45px;
     padding:0;
     box-sizing:border-box;
+    clear:both;
 }
 
+/* Botones */
 .paginacion-ofertas button{
     border:none;
-    border-radius:18px;
-    padding:14px 24px;
-    font-size:16px;
-    font-weight:700;
+    min-width:125px;
+    padding:12px 20px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:800;
     cursor:pointer;
 }
 
+/* Número de página */
 #infoPaginaOfertas{
-    background:white;
-    padding:14px 22px;
-    border-radius:18px;
-    font-weight:700;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    background:#fff;
+    padding:10px 16px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:800;
+    color:#444;
+    box-shadow:0 4px 14px rgba(0,0,0,.07);
+    white-space:nowrap;
+}
+
+/* =====================================
+   MÓVIL
+===================================== */
+
+@media (max-width:768px){
+
+    #contenedorPaginacionOfertas > .paginacion-ofertas{
+        width:100%;
+        display:flex !important;
+        flex-direction:row !important;
+        justify-content:center !important;
+        align-items:center !important;
+        gap:5px;
+        margin:25px auto 35px;
+        padding:0 5px;
+    }
+
+    .paginacion-ofertas button{
+        min-width:0;
+        padding:10px 9px;
+        font-size:12px;
+    }
+
+    #infoPaginaOfertas{
+        padding:10px 9px;
+        font-size:12px;
+    }
 }
