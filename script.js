@@ -565,10 +565,6 @@ btnSubir.addEventListener("click",()=>{
 // PAGINACIÓN DE 20 OFERTAS
 // ===============================
 
-const OFERTAS_POR_PAGINA = 20;
-
-let paginaActual = 1;
-
 function mostrarPagina(pagina, direccion = "siguiente") {
 
     const totalPaginas = Math.ceil(
