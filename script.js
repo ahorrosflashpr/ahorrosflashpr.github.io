@@ -672,10 +672,16 @@ window.paginaSiguiente = function() {
     );
 
     if (paginaActual < totalPaginas) {
+
         mostrarPagina(
             paginaActual + 1,
             "siguiente"
         );
+
+        window.scrollTo({
+            top: document.getElementById("productos").offsetTop - 20,
+            behavior: "smooth"
+        });
     }
 };
 
