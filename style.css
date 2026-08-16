@@ -671,6 +671,24 @@ justify-content:flex-start;
 
 @media (max-width:768px){
 
+    /* Filtros de fecha en una sola línea */
+
+.filtros-fecha{
+    display:flex;
+    flex-wrap:nowrap;
+    gap:6px;
+    padding:0 10px;
+    width:100%;
+}
+
+.filtros-fecha button{
+    flex:1;
+    min-width:0;
+    padding:10px 5px;
+    font-size:12px;
+    white-space:nowrap;
+}
+
 body{
     overflow-x:hidden;
 }
