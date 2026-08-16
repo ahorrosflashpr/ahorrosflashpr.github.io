@@ -657,10 +657,19 @@ window.paginaSiguiente = function() {
     );
 
     if (paginaActual < totalPaginas) {
+
         mostrarPagina(
             paginaActual + 1,
             "siguiente"
         );
+
+        setTimeout(() => {
+            document.getElementById("contenedorPaginacionOfertas")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+        }, 250);
     }
 };
 
@@ -668,13 +677,21 @@ window.paginaSiguiente = function() {
 window.paginaAnterior = function() {
 
     if (paginaActual > 1) {
+
         mostrarPagina(
             paginaActual - 1,
             "anterior"
         );
+
+        setTimeout(() => {
+            document.getElementById("contenedorPaginacionOfertas")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+        }, 250);
     }
 };
-
 window.compartirFacebook = function(enlace){
 
     const url =
