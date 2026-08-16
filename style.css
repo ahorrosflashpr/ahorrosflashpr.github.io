@@ -805,44 +805,106 @@ header input{
 
 }
 
-/* Tarjetas */
+/* ===========================
+   Tarjetas en móviles
+=========================== */
 
 main{
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    display:grid;
 
-    padding:15px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
-    gap:18px;
+    align-items:start;
+
+    padding:10px;
+
+    gap:10px;
 
 }
+
+/* Tarjeta */
 
 .card{
 
     width:100%;
-    max-width:340px;
+
+    max-width:none;
+
+    padding:12px;
+
+    border-radius:18px;
 
 }
+
+/* Imagen */
 
 .card img{
 
-    width:200px;
-    height:200px;
+    width:100%;
+
+    height:120px;
 
 }
+
+/* Nombre */
+
+.card h2{
+
+    font-size:15px;
+
+    line-height:1.2;
+
+    min-height:58px;
+
+    margin:8px 0;
+
+}
+
+/* Precio */
 
 .price{
 
-    font-size:40px;
+    font-size:27px;
+
+    margin:6px 0;
 
 }
+
+/* Precio anterior */
+
+.old{
+
+    font-size:12px;
+
+}
+
+/* Ahorro */
+
+.ahorro{
+
+    font-size:12px;
+
+}
+
+/* Descuento */
+
+.descuento{
+
+    font-size:12px;
+
+}
+
+/* Botones */
 
 .btn-oferta,
 .btn-codigo{
 
     width:100%;
+
+    font-size:11px;
+
+    padding:9px 5px;
 
 }
 
