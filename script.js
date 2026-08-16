@@ -283,9 +283,9 @@ async function cargarCategoria(categoria){
 
     ofertasMostradas=20;
 
-    paginaActual = 1;
-mostrarPagina(1, "siguiente");
-
+  mostrarOfertas(
+    ofertasFiltradas.slice(0, 20)
+);
 }
 
 window.filtrarCategoria=filtrarCategoria;
