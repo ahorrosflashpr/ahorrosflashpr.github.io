@@ -1631,22 +1631,20 @@ main{
    BANNER PRINCIPAL
 =============================== */
 
-.banner-principal {
-    width: 100%;
-    max-width: 1500px;
-    margin: 10px auto 20px;
-    padding: 0 15px;
-    box-sizing: border-box;
+.banner-principal{
+    width:100%;
+    max-width:1250px;
+    margin:10px auto 18px;
+    padding:0 15px;
+    box-sizing:border-box;
 }
 
-.banner-principal img {
-    display: block;
-    width: 100%;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    border-radius: 24px;
-    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+.banner-principal img{
+    width:100%;
+    height:auto !important;
+    display:block;
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 /* ===============================
