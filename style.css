@@ -1716,6 +1716,8 @@ main{
 
 }
 
+#buscador,
+.ultima-actualizacion,
 .barra-herramientas{
     display:none !important;
 }
