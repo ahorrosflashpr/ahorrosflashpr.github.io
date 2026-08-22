@@ -1338,12 +1338,13 @@ main{
 }
 
 .filtros-fecha button{
-    min-width:180px;
-    height:56px;
+    min-width:0;
+    height:44px;
+    padding:8px 12px;
     border:none;
-    border-radius:30px;
+    border-radius:22px;
     color:#fff;
-    font-size:20px;
+    font-size:16px;
     font-weight:700;
     cursor:pointer;
     transition:.25s;
