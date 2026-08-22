@@ -1672,16 +1672,22 @@ main{
 
 @media(max-width:768px)
 
-    .banner-principal{
-        padding:0 8px;
-        margin:8px auto 15px;
+    .banner-principal {
+        width: 100%;
+        margin: 8px auto 15px;
+        padding: 0 8px;
+        box-sizing: border-box;
     }
 
-    .banner-principal img{
-        width:100%;
-        height:auto;
-        border-radius:16px;
+    .banner-principal img {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        border-radius: 16px;
     }
+
+}
 
     .banner-principal{
     padding:0 8px;
