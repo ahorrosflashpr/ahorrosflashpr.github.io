@@ -1668,50 +1668,21 @@ main{
    MÓVIL
 =============================== */
 
-@media(max-width:768px)
-
-    .banner-principal {
-        width: 100%;
-        margin: 8px auto 15px;
-        padding: 0 8px;
-        box-sizing: border-box;
-    }
-
-    .banner-principal img {
-        width: 100%;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: contain !important;
-        border-radius: 16px;
-    }
-
-}
+@media (max-width:768px){
 
     .banner-principal{
-    padding:0 8px;
-    margin:8px auto 15px;
-}
-
-.banner-principal img{
-    height:150px;
-    border-radius:16px;
-}
-
-    .barra-herramientas{
-        flex-direction:column;
-        gap:10px;
-        padding:0 15px;
-        box-sizing:border-box;
-    }
-
-    .barra-herramientas #buscador{
         width:100%;
+        margin:8px auto 15px;
+        padding:0 8px;
         box-sizing:border-box;
     }
 
-    .barra-herramientas .ultima-actualizacion{
-        font-size:13px;
-        text-align:center;
+    .banner-principal img{
+        width:100%;
+        height:auto !important;
+        max-height:none !important;
+        object-fit:contain !important;
+        border-radius:16px;
     }
 
 }
